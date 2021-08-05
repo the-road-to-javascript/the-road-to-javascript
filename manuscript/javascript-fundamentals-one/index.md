@@ -1233,7 +1233,4 @@ It's also possible to nest ternary operators into each other, but it's not recom
 
 * Read more about the [ternary operator in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
 
-
-# TODO
-
-- incooperate lectures from video course(s)
+- TODO incooperate lectures from video course(s)

@@ -2450,7 +2450,7 @@ console.log(getName(null));
 
 In this section, you have seen many variants of how to achieve a fallback if a value is not provided. If you have a function, the go-to solution is often the default parameter. If you can't use this approach, then your way to go would be the logical OR operator or the nullish coalescing operator. If this is too advanced at this time, just using the if-else statement is fine too.
 
-## Exercises:
+### Exercises:
 
 * Read about [short circuiting with the logical OR operator in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR).
   * Read more anout [short circuiting with the logical AND operator too](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND).
