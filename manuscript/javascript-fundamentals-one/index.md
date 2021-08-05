@@ -1,14 +1,14 @@
 # JavaScript Fundamentals: Part I
 
-JavaScript is eating the world of software engineering and web development. This is a bold statement to start a book with, however, developers across the globe feel this sentiment. The [Stack Overflow survey from 2020](https://insights.stackoverflow.com/survey/2020#technology-programming-scripting-and-markup-languages-all-respondents) shows that 67% of the respondents see JavaScript on top as the most popular technology in the category of programming, scripting, and markup languages followed closely (63,1%) by its related HTML/CSS. The survey also sees *"moderate gains for TypeScript"* with an absolute of 25,4% in popularity. If you want to go further down the rabbit hole in this survey, you will see lots of JavaScript frameworks/libraries among the most popular ones across all programming languages.
+JavaScript is eating the world of software engineering and web development. This is a bold statement to start a book with, however, developers across the globe feel this sentiment. The [Stack Overflow survey from 2020](https://insights.stackoverflow.com/survey/2020#technology-programming-scripting-and-markup-languages-all-respondents) shows that 67% of the respondents see JavaScript as the most popular technology in the category of programming, scripting, and markup languages followed closely (63,1%) by its related HTML/CSS markup and style sheet languages. The survey also sees *"moderate gains for TypeScript [a more powerful variant of JavaScript]"* with an absolute of 25,4% in popularity. If you want to go further down the rabbit hole in this survey, you will see mainly JavaScript frameworks and libraries among the most popular ones across all programming languages.
 
 ![](images/so.png)
 
-GitHub ([aquired by Microsoft in 2018](https://blogs.microsoft.com/blog/2018/10/26/microsoft-completes-github-acquisition/)) is one of the most popular websites which manages developer's and company's code in the cloud. GitHub as a platform for managing code doesn't need a survey to conclude the most popular programming languages, because it has all the codebases at their fingertips for internal analytics. Once a year, they keep us updated about the [most popular languages](https://octoverse.github.com) and so it states that JavaScript was the most popular one from 2014 to 2020 followed by TypeScript as a rising star.
+GitHub ([aquired by Microsoft in 2018](https://blogs.microsoft.com/blog/2018/10/26/microsoft-completes-github-acquisition/)) is one of the most popular websites which manages developer's and company's code. GitHub as a platform for managing code doesn't need a survey to conclude the most popular programming languages, because it has all the codebases in their cloud for internal analytics. Once a year, they keep us updated about the [most popular languages](https://octoverse.github.com) and so it states that JavaScript was the most popular one from 2014 to 2020 followed by TypeScript as a rising star.
 
 ![](images/github.png)
 
-Independent from your prior exposure to programming, you should have noticed the advances of tech around you as well. This may have been one motivational trigger for you to start learning JavaScript. However, there are many other triggers such as learning a new skill, getting your foot into a well paid industry, or being able to work remotely while sustaining your desired lifestyle. Regardless of your motivation, learning to code is hard. That's why I always keep saying to beginners: "It's a marathon and not a sprint, so make sure to enjoy the journey. The road will be bumpy, however, every bump helps you getting closer to your goal. So take as many bumps as possible to become a better developer."
+Independent from your prior exposure to programming, you should have noticed the advances of tech around you as well. This may have been one motivational trigger for you to start learning JavaScript. However, there are many other triggers such as learning a new skill, getting your foot into a well paying industry, or being able to work remotely while sustaining your desired lifestyle. Regardless of your motivation, learning to code is hard. That's why I always keep saying to beginners: "It's a marathon and not a sprint, so make sure to enjoy the journey. The road will be bumpy, however, every bump gives you a challenge for getting closer to your goal."
 
 ### JavaScript
 
@@ -24,7 +24,7 @@ When the developer community saw a lack of interactivty, there was a big desire 
 
 ![](images/three-pillars-tasks.png)
 
-JavaScript runs mainly on the client-side (frontend) in contrast to other server-side programming languages (backend). I say mainly, because there are popular technologies like [Node.js](https://en.wikipedia.org/wiki/Node.js) (2009) by Ryan Dahl which brought JavaScript to the backend/server as well. Anyway, as mentioned earlier, when a user visits a website via their browser (client), all HTML, CSS, and JavaScript is loaded as files from a web server. While HTML and CSS get interpreted and displayed in the browser, JavaScript gets executed by the browser's JavaScript engine.
+JavaScript runs mainly on the client-side (frontend) in contrast to other server-side (backend) programming languages (e.g. PHP). I say mainly, because there are popular technologies like [Node.js](https://en.wikipedia.org/wiki/Node.js) (2009) by Ryan Dahl which brought JavaScript to the backend/server as well. Anyway, as mentioned earlier, when a user visits a website via their browser (client), all HTML, CSS, and JavaScript is loaded as files from a web server. While HTML and CSS get interpreted and displayed in the browser, JavaScript gets executed by the browser's JavaScript engine.
 
 From its release up to the early 2010 years, JavaScript got smiled at by many veteran developers as inferior scripting language. These days, the tide has turned. What started as a scripting language in the browser which made animations and user interactions happen, has become a giant in the industry used not only by websites, but also on desktop, mobile (e.g. React Native), backend (e.g. server-side JavaScript with Node.js), internet of things, embedded systems, machine learning (e.g. Tensorflow.js), and crypto. The most popular frameworks (e.g. React.js) are used among many large players in the industry.
 
@@ -46,11 +46,11 @@ Anyway, the best investment for your career as a web developer would be learning
 
 ![](images/ecmascript.png)
 
-These changes started with ES1 (1997), ES2 (1998), ES3 (1999), had a huge pause for 10 years with the abandoned ES4, and continued with ES5 (2009) and ES5.1 (2011). These days, you will often hear the term ES6 or ES2015 when people speak about **modern JavaScript**. After ES6, the community agreed on yearly updates (hence the new naming convention based on the year) which will not be as impactful as ES6 though which was a major milestone and the biggest update to the language. In this book, you will learn modern JavaScript with ES6 and beyond without forgetting about the noteworthy parts from older JavaScript.
+These changes started with ES1 (1997), ES2 (1998), ES3 (1999), had a huge pause for 10 years with the abandoned ES4, and continued with ES5 (2009) and ES5.1 (2011). These days, you will often hear the term **ES6** or **ES2015** when people speak about **modern JavaScript**. After ES6, the community agreed on yearly updates (hence the new naming convention based on the year) which will not be as impactful as ES6 though, because it was a major milestone and the biggest update to the language. In this book, you will learn modern JavaScript with ES6 and beyond without forgetting about the noteworthy parts from older ECMAScript versions.
 
 ### TypeScript
 
-Throughout this introduction, you may have noticed me not only mentioning JavaScipt but also TypeScript -- which seems to gain more traction when looking at the data. For people being new to programming: [Typescript](https://www.typescriptlang.org) is a superset of JavaScript developed by Microsoft. So if it's a superset and gains more popularity, why not learn TypeScript instead? Keeping it short: Essentially TypeScript inherits everything from JavaScript; and more (read: types). So based on your prior exposure to coding, here are two learning tracks you could take:
+Throughout this introduction, you may have noticed me not only mentioning JavaScipt but also TypeScript -- which seems to gain more traction when looking at the data. For people being new to programming: [Typescript](https://www.typescriptlang.org) is a superset of JavaScript developed by Microsoft. So if it's a superset and gains more popularity, why not learn TypeScript instead? Keeping it short: Essentially TypeScript inherits everything from JavaScript, but it's a strictly typed language whereas JavaScript is a loosely dynamic language. The latter makes learning programming often easier for beginners. However, based on your prior exposure to coding, here are two learning tracks you could take:
 
 * No prior coding experience: For getting started, learn JavaScript first. After you feel comfortable with JavaScript, you *could* dip your toes into TypeScript a couple of months later. However, that's not a requirement. I have seen most people stick to JavaScript for a while (read: years) before taking the leap to TypeScript. So after this introduction, do not worry about TypeScript anymore and just focus on JavaScript. If you get through this book, it's already a tremendous achievement!
 
@@ -67,27 +67,27 @@ Throughout this introduction, you may have noticed me not only mentioning JavaSc
 
 *If you have any trouble with the following setup, you can also watch this video as introduction. TODO*
 
-Developers spend most of their time in a software where they can write code. This software is usually called an **editor or IDE** (integrated development environment). I will use both terms interchangeably throughout this book. To get you started, we will install and use the most popular one called Visual Studio Code (VSCode). So as first step in your career as a JavaScript developer, head over to [VSCode's website](https://code.visualstudio.com), download it, and install it. Afterward start it as your new place where you will spend most your next time!
+Developers spend most of their time in a software where they can write code. This software is usually called **editor** or **IDE** (integrated development environment). I will use both terms interchangeably throughout this book. To get you started, we will install and use the most popular one called Visual Studio Code (VSCode). So as first step in your career as a JavaScript developer, head over to [VSCode's website](https://code.visualstudio.com), download it, and install it. Afterward start it as your favorite new place where you will spend most your time as a developer.
 
 Usually JavaScript runs in the browser and thus you should not need to install anything else to execute it. And that's what we will do once we put JavaScript together with HTML and CSS later in this book. However, to kick things off, we will take a different approach by learning *only* JavaScript *without* HTML/CSS *outside* of the browser: entering Node.js -- the JS runtime for the backend.
 
-Starting things off with Node.js does not mean that you will learn server-side JavaScript, that you will become a backend developer, or that you will not run JavaScript in the browser eventually. It just means that we will establish a learning environment where you can learn *only* JavaScript without any rendered HTML/CSS in the browser. Instead, you will write code, execute it with a command, and see its plain output. Later in this book though, we will switch over to the common client-side JavaScript which is executed in the browser with HTML and CSS.
+Starting things off with Node.js does not mean that you will learn server-side JavaScript, that you will become a backend developer, or that you will not run JavaScript in the browser eventually. It just means that we will establish a learning environment where you can learn *only* JavaScript without any displayed (also called **rendered**) HTML/CSS in the browser. Instead, you will write code, execute it with a command, and see its plain output. Later in this book though, we will switch over to the common client-side JavaScript which is executed in the browser with HTML and CSS.
 
-As second step in your career as a JavaScript developer, you need to install Node.js to execute only JavaScript from within VSCode. Head over to [Node's website](https://nodejs.org/en), download the latest recommended release, and install it. After it has been installed, open VSCode and enable the **intergated terminal** (also called terminal, command line, or command line interface (CLI) -- which I will use interchangeably throughout this book). On the command line, type the following command which should output your current Node version if you have installed it correctly.
+As second step in your career as a JavaScript developer, you need to install Node.js to execute only JavaScript from within VSCode. Head over to [Node's website](https://nodejs.org/en), download the latest recommended release, and install it. After it has been installed, open VSCode and enable the **intergated terminal** (also called terminal, command line, or command line interface (CLI) -- which I will use interchangeably throughout this book). On the command line, type the following command which should output your current Node version if you have installed it correctly:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
 node --version
 ~~~~~~~
 
-What's missing is a physical place on your machine for your first JavaScript project. Open up your Finder (MacOS), File Explorer (Windows), or your equivalent on Linux and create a folder for your first project somewhere where you want to keep all your future JavaScript projects. After creating this folder, open VSCode and open the folder with it. There create a new file with the name *index.js* and fill it with the following content:
+What's missing is a physical place on your machine for your first JavaScript project. Open up your Finder (MacOS), File Explorer (Windows), or your equivalent on Linux and create a folder (e.g. folder with the name "LearnJavaScript") for your first project somewhere (e.g. folder with the name "Projects") where you want to keep all your future JavaScript projects. After creating this folder, open VSCode and open the folder of your new project with it. There create a new file with the name *index.js* and fill it with the following content:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
 console.log('Hello JavaScript');
 ~~~~~~~
 
-With VSCode and Node, you are good to go to execute your first JavaScript. Open the terminal in VSCode and type:
+With VSCode and Node, you are good to go to execute your first JavaScript. Open the integrated terminal (most often I will call it command line in the future) in VSCode and type:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -111,14 +111,14 @@ Values and variables are the most fundamental building blocks in JavaScript (and
 console.log('Robin Wieruch');
 ~~~~~~~
 
-A value can have different represenations called **data types**; which we will learn about more in depth later. For example, in the following the value changes from a **string data type** to a **number data type**:
+A value can have different represenations called **data types**; which we will learn about more in depth later. For example, in the following the value changes from a **string** data type to a **number** data type:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
 console.log(1988);
 ~~~~~~~
 
-Essentially a value regardless of the data type is the unit of information that we have in JavaScript. In contrast, a variable is used to store a value. The following shows how to **declare a variable** with a value and how to reuse it by printing it multiple times. This way, we do not need to write the value over and over again, but use its variable as a reference:
+Essentially a value regardless of the data type is the unit of information that we have in JavaScript. In contrast, a variable is used to store a value. The following shows how to create a variable with a value and how to reuse it by printing it multiple times. This way, we do not need to write the value over and over again, but use its variable as a reference. If the value changes, we have to change it only at one place and not multiple places:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -130,11 +130,11 @@ console.log(firstName);
 
 Behind the scenes, the machine running the code allocates memory for this variable, because it needs to be able to retrieve its stored value every time we use it. Then it replaces the variable with the actual value. Now you can change the value of the variable at one place and it will be reflected at all the places where it is used. Try it yourself, by changing the `firstName` to your own name. Then run the `node index.js` command again.
 
-What's noteworthy: The previous paragraph mentioned memory allocation when variables get declared in JavaScript. This happens for every other programming language as well. However, since JavaScript is a so called **high level programming language**, we do not need to take care of the memory allocation. In other programming languages such as C++, a developer has to take care of these things.
+What's noteworthy: The previous paragraph mentioned memory allocation when variables get created in JavaScript. This happens for other programming languages as well. However, since JavaScript is a so called **high level programming language**, we do not need to take care of the memory allocation. In other programming languages such as C++, which is a **low level programming language**, a developer has to take care of these things.
 
 ![](images/variable-value.png)
 
-In JavaScript, variables are usually declared in [camelCase](https://en.wikipedia.org/wiki/Camel_case). So it's not `first_name` (snake_case) or `first-name` (kebab-case), but `firstName` as we have used it in the example above. Other naming conventions that are allowed for specific cases which we will learn about later are `FIRST_NAME` (UPPER_CASE or SCREAMING_SNAKE_CASE) or `FirstName` (PascalCase).
+In JavaScript, variables are usually created in [camelCase](https://en.wikipedia.org/wiki/Camel_case). So it's not `first_name` (snake_case) or `first-name` (kebab-case), but `firstName` as we have used it in the example above. Other naming conventions that are allowed for specific cases are `FIRST_NAME` (UPPER_CASE or SCREAMING_SNAKE_CASE) or `FirstName` (PascalCase).
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -143,20 +143,20 @@ let yearBirth = 1988;
 console.log(yearBirth);
 ~~~~~~~
 
-In conclusion, variables are there to reference values in your code. Meaning: You declare a variable with a value once and then reuse it as reference later when you need to do something with it (e.g. printing it with `console.log()`). This makes values reusable and helps developers to change values only once and not everywhere in the codebase. In addition, there are naming conventions for programming languages which should be followed to make the code more readable to other developers.
+In conclusion, variables are there to reference values in your code. Meaning: You declare a variable with a value once and then reuse it as reference later when you need to do something with it (e.g. printing it with `console.log()`). This makes values reusable and helps developers to change values only once and not everywhere in the codebase. In addition, there are naming conventions for programming languages which should be followed to make the code more readable to other developers. You should get an overvier about these conventions by going through the exercises.
 
 ### Exercises:
 
-* Read more about [the different naming conventions in JavaScript](https://www.robinwieruch.de/javascript-naming-conventions) and find out what it means to have descriptive variable names.
-* Declare variables yourself. For example, declare variables for your last name and your age and print them on the command line. In the following, I will not use the `console.log()` statement anymore, but you should continue using it for the sake of learning.
+* Read more about [the different naming conventions in JavaScript](https://www.robinwieruch.de/javascript-naming-conventions) and find out what it means to have **descriptive** variable names.
+* Declare variables yourself. For example, declare variables for your last name and your age and print them on the command line. In the following, I will not always use the `console.log()` statement anymore, but you should continue using it for the sake of undertstanding and learning.
 
 ## Code Quality
 
-Structuring your code in a readable and natural way is important, because you can pick it up later more easily when reading through code that's more than a day old, but also other developers have an easier time to understand what you want to accomplish with your program.
+Structuring your code in a readable and natural way is important, because you can pick it up later more easily when reading through code that's more than a day old, but also other developers have an easier time to understand what you want to accomplish with your program. Eventually you will end up working in a team of developers where it's one of the most important virtues to write quality code.
 
 ### Code Structure
 
-As someone new to programming, it's not intuitive from the beginning how to structure code in a readable flow. Take for example the following code snippet:
+As someone new to programming, it's not intuitive from the beginning how to structure code in a readable flow. We will learn later about a tool which helps us with structuring our code (also called **code formatting**), however, for the early sections of this book you have to sturcture the code yourself to get comfortable with it. Now take for example the following code snippet:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -168,7 +168,7 @@ console.log(
   yearBirth);
 ~~~~~~~
 
-It's valid JavaScript and it executes when you run the node command to start the program. However, it's not readable and writing readable code is one of the most important things when working in a team of developers. Fortunatelly, every JavaScript statement ends with a semicolon. This semicolon can be used to put every statement in a new line of code:
+It's valid JavaScript and it executes when you run the node command to start the program. However, it's not readable and writing readable code is one of the most important things when working in a team of developers. Fortunatelly, most code in JavaScript ends naturally with a semicolon. This semicolon can be used as assistance to arrange the lines of code in a readable format:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -177,7 +177,7 @@ let yearBirth = 1988;
 console.log(yearBirth);
 ~~~~~~~
 
-If you leave a blank line in between or not is often a matter of taste. This doesn't mean that there should be a blank line between every statement. Usually you want to form **logical blocks of code**, like one block for variables and one block for printing statements:
+If you leave a blank line in between is often a matter of taste. This doesn't mean that there should be a blank line between every line of code though. Usually you want to form **logical blocks of code** like one block for variables and one block for printing statements:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -272,7 +272,7 @@ Errors in JavaScript describe what's wrong (here: syntax) and where to find the 
 
 ## Data Types: Primitives
 
-Every programming language comes with data types which help to represent different kinds of information. You have learned about two of them already: string and number. While a **string** represents a sequence of characters (essentialy text) in quotes (single or double -- choose and stick to one of them), a **number** represents fixed point (also called integer or int) or floating point (also called decimal or float) digits which can be positive or negative:
+Every programming language comes with data types which help developers to represent different kinds of information. You have learned about two of them already: string and number. While a **string** represents a sequence of characters (essentialy text) in quotes (single or double -- choose and stick to one of them), a **number** represents fixed point (also called integer or int) or floating point (also called decimal or float) digits which can be positive or negative:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -283,13 +283,15 @@ let mobilePhone = '+49 173 777 666';
 
 // number (here: fixed point)
 let countryCode = 49;
-let phone = 173777666;
+let phone = 173777666; // not my real number :-P
 
 // number (here: floating point)
 let height = 1.80;
+
+// yes, it's height in meters ;-)
 ~~~~~~~
 
-The **boolean** is the logical data type which can have the representation of true or false. Based on a boolean, JavaScript code can make decisions (e.g. if-else statement) when it evaluates these values:
+In contrast, the **boolean** is the logical data type which can have the representations `true` or `false`. Based on a boolean, JavaScript code can make decisions (e.g. if-else statement which we will get to know later) when it evaluates these values:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -298,32 +300,30 @@ let isDeveloper = true;
 let isLawyer = false;
 ~~~~~~~
 
-Two other widely used data types are called **undefined** and **null**. Both are empty values, but they can be distinguished with this analogy: *"I always had the plan to have two children when I was young. Now, after I got my first kid with the name Liam, I still have the plan to have a second kid one day. But it's not defined yet (hence undefined). However, I am not planning to have a third child."*:
+Two other widely used data types are called **undefined** and **null**. Essentially both are empty values, but they can be distinguished with this metaphor: *"I always had the plan to have two children when I was young. Now, after I got my first kid with the name Liam, I still have the plan to have a second kid one day. But it's not defined yet (and therefore `undefined`). However, I am not planning to have a third child, so I keep it intentionally empty."*:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
 let firstKidName = 'Liam';
-
 let secondKidName = undefined;
-
 let thirdKidName = null;
 ~~~~~~~
 
-The value `undefined` does not need to be defined as value. Instead, one can leave it just empty as well. Try to output the following variable with a printing statement:
+It's worth to know that the value `undefined` does not need to be defined as value. Instead, one can just not initialize the variable. Try to output the following variable with a printing statement:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
 let secondKidName;
 ~~~~~~~
 
-When using `null`, it signals a more deliberate choice of an empty value. For example, I do not have a middle name, so I leave it empty by choice:
+When using `null`, it signals a more deliberate choice of an empty value. For example, I do not have a middle name, so I leave it empty by choice, not because it's not defined yet and may be defined in the future:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
 let middleName = null;
 ~~~~~~~
 
-Newer and less used data types are [Symbol (ES2015)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) and [BigInt (ES2020)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) which I will not cover in this book, because they are not very much adopted yet.
+Newer and less used data types are [Symbol (ES2015)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) and [BigInt (ES2020)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) which I will not cover in this book, because they are not very much adopted yet. As a JavaScript beginner and even as advanced JavaScript developer, for a while you will not cross these data types.
 
 ![](images/data-types.png)
 
@@ -347,7 +347,7 @@ Altogether, there are 7 data types categorized as **primitives** in JavaScript: 
 
 ## Variable Declaration and Initialization
 
-When storing a value into a variable, there are a few things to note. First of all, we have seen how to **create** (also called **define**) a variable in JavaScript. A so called variable declaration automatically happens when we initialize a new variable with a value:
+When storing a value into a variable, there are a few things to note. First of all, we have seen how to **create** (also called **define**) a variable in JavaScript. In technical terms, a so called *variable declaration* automatically happens when we *initialize* a new variable with a value:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -358,7 +358,7 @@ console.log(firstName);
 // 'Robin'
 ~~~~~~~
 
-What's interesting about this, is that this is also called a variable initialization, because a value is assigned to the variable. So declaring and initializing a variable can happen in one line of code. In contrast, if no value is assigned, it's called only **variable declaration**:
+What's interesting about this, is that this is also called a variable initialization, because a value is assigned to the variable. So declaring and initializing a variable can happen in one line of code. In contrast, if no value is assigned, it's only a **variable declaration**:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -369,7 +369,7 @@ console.log(firstName);
 // undefined
 ~~~~~~~
 
-If a value gets assigned, it's **called variable initialization** (also called **variable assignment**):
+If a value gets assigned, it's **called variable initialization** (also called **variable assignment** as we will learn next):
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -383,7 +383,7 @@ console.log(firstName);
 // 'Robin'
 ~~~~~~~
 
-This leads me to the next topic of **assigning and re-assigning a value to a variable**. The last code snippet has shown you, how to **assign a variable** when there hasn't been a value defined before. However, when the variable already has a value, **re-assigning a variable** to a new value is possible too:
+This leads me to the next topic of **assigning and re-assigning a value to a variable**. The last code snippet has shown you how to **assign a variable** when there hasn't been a value defined before. However, when the variable already has a value, **re-assigning a variable** to a new value is possible too:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -421,7 +421,7 @@ console.log(newAge);
 // 31
 ~~~~~~~
 
-JavaScript is a so called loosely typed and dynamic language. It's a **loosely typed language**, because a developer does not need to state the data type explicity (like in strongly type languages such as TypeScript) for a variable:
+JavaScript is a so called loosely typed and dynamic language. It's a **loosely typed language**, because a developer does not need to tell the data type explicity (like in strongly typed languages such as TypeScript) for a variable:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -465,9 +465,9 @@ There are two other keywords to define variables in JavaScript: `const` and `var
 
 ![](images/var-let-const.png)
 
-In modern JavaScript, `var` isn't used anymore because it has issues with **hoisting** and **scoping** (terms which the book will address later). The other keywords `let` and `const` address these issues in modern JavaScript and are therefore mainly used these days throughout every JavaScript project. This makes it easier for us, because we are only left with `let` and `const`.
+In modern JavaScript, `var` isn't used anymore because it has issues with **hoisting** and **scoping** (terms which the book will address later). The other keywords `let` and `const` address these issues in modern JavaScript and are therefore mainly used these days throughout every JavaScript project. This makes it easier for us, because we are left with only two options `let` and `const`.
 
-Technically `const` works the same way as `let`, the keyword `const` is just used whenever the value of a variable is not allowed to change. For example, while I get older every year, my age increments by one:
+Technically `const` works the same way as `let`, the keyword `const` is just used whenever the value of a variable is not allowed to change. For example, when I get older every year, my age increments by one:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -491,7 +491,7 @@ firstName = 'Rob';
 // TypeError: Assignment to constant variable.
 ~~~~~~~
 
-The big question in the room: When to use `let` and when to use `const`? Essentially `let` is used when a variable changes throughout the codebase and `const` is used when a variable will not change. As a best practice, use `const` whenever it's possible. In programming, having variables that do not change is an advantage, because less bugs get introduced this way. Once variables start to change, we loose some stability in our code and its easier to run into problems.
+The big question in the room: When to use `let` and when to use `const`? Essentially `let` is used when a variable changes throughout the codebase and `const` is used when a variable will not change. If you want to go the simple road, you could use `let` everywhere, because then you can have both: variables that change and variables that do not change. However, as a best practice, use `const` whenever it's possible. In programming, having variables that do not change is an advantage, because less bugs get introduced this way. Once variables start to change, we loose some stability and predictability in our code and its easier to run into problems.
 
 ### Exercises:
 

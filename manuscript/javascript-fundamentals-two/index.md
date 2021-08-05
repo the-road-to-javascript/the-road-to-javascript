@@ -1,6 +1,6 @@
 # JavaScript Fundamentals: Part II
 
-TODO summary
+So far, you have learned about variables and values, their associated data types and type conversion/coercion, and a few control structures in JavaScript. That's already half way through to get the fundamentals of JavaScript right. In the following second half, you will learn about functions which are used to extract reusable parts of code from your program, more complex data structures beyond primitives such as objects and arrays, and advanced data reading/writing techniques.
 
 ## Functions
 
@@ -232,7 +232,7 @@ const multiplyThat = function (a, b) {
 };
 ~~~~~~~
 
-Function expressions have their right to exist though. For example, you can use a function expression to create a function conditionally and thus only create one of both functions when the conditional runs:
+You will learn more about this concept called hoisting which enables this behavior later. Anyway, function expressions have their right to exist though. For example, you can use a function expression to create a function conditionally and thus only create one of both functions when the conditional runs:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -249,7 +249,7 @@ const getConversationStarter = isDeveloper
 getConversationStarter();
 ~~~~~~~
 
-As a rule of thumb: Use function declarations whenever you can, because you will run into less bugs (due to their early instantiation). In addition, because functions are such a fundamental building block in JavaScript code, function declarations are more eye-catching and therefore more readable than their function expression counterparts. However, get used to both, function declaration and function expressions, because you will see both of them out there in the wild.
+As a rule of thumb: Use function declarations whenever you can, because you will run into less bugs (due to their early instantiation). In addition, because functions are such a fundamental building block in JavaScript code, function declarations are more eye-catching and therefore more readable than their function expression counterparts. However, get used to both, function declaration and function expressions, because you will see both of them out there in the wild. Especially when it comes to callback functions, as we will learn later, you will more often see function expressions.
 
 ### Exercises:
 
@@ -1522,7 +1522,8 @@ Callback functions are a powerful construct in JavaScript. Yet they are not easi
 
 ### Exercises:
 
-* Read more about [callback functions in JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function).
+* Read more about [callback functions in JavaScript](https://www.robinwieruch.de/javascript-callback-function).
+  * See more examples in action about [callback functions](https://developer.mozilla.org/en-US/docs/Glossary/First-class_Function).
 * Question: What would be the result if we were looking for a person which isn't in the array?
   * Answer: The result would be `undefined`, because `person` stays undefined while the if-else statement never meets the condition.
 * Extend the for statement with a [break statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration#break_statement) which allows you to escape early from a loop whenever your job is done (e.g. you have found "Sarah" in the array of persons).

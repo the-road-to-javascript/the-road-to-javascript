@@ -2,7 +2,14 @@
 
 TODO summary
 
-## Project Setup
+## Modern Project Setup
+
+- JS Setup Vite + HTML project
+- Prettier
+
+### Exercises:
+
+* Read more about [how to set up JavaScript in the old days](TODO).
 
 ## Import/Export
 
