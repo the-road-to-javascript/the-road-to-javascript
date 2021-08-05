@@ -10,7 +10,8 @@ In contrast, these days we are used to text people instead. When texting, people
 
 Now data is an universal usable word. In programming, data refers to any information. Most of the time, data is used within an application or used for communication between applications (e.g. client-server communication). As we already learned, in JavaScript this information is expressed with different data types and structures such as strings, booleans, numbers, objects or arrays.
 
-```javascript
+{title="",lang="javascript"}
+~~~~~~~
 const messages = [
   {
     participant: 'Robin',
@@ -21,7 +22,7 @@ const messages = [
     text: 'Hello Robin!',
   },
 ];
-```
+~~~~~~~
 
 In terms of **asynchronous data**, data could be voices or messages from the example before; essentially information which is send with a delay. The Promise in JavaScript is a built-in object which acts as container for transfering asynchronous data from one application to another. A JavaScript Promise represents literally the promise that we get some data eventually. In the case of the texting example, it's the message itself which we are promised to receive at some point.
 
@@ -33,20 +34,22 @@ As a developer, you will often ask another application (e.g. client asks server)
 
 In code, you will create a promise as kind of token for this data, but not the data itself, because it arrives with a delay. So when holding this promise, you don't know its data yet, but you have the reference to the promise which enables you to be notified whenever the data arrives:
 
-```javascript
+{title="",lang="javascript"}
+~~~~~~~
 // made up function which returns a promise
 const promise = getAsynchronousData();
 
 promise.then((result) => {
   console.log(result);
 });
-```
+~~~~~~~
 
 A promise offers methods like `then()` which can be used to execute callback functions asynchronously whenever the data arrived successfully. Then the developer can display this data in the browser for example, whereas before there was only a loading spinner indicating that the data will arrive eventually. Other methods like `catch()` enable you to react on errors whenever the server fails to return the data.
 
 Usually we do not create a Promise from scratch as we will see later when we will be requesting data for real. However, because we have no backend application with data at the moment, we will create a Promise with the help of a callback function: The callback function gives us access to parameters such as the `resolve()` function which enables us to fill the promise with data. In addition, we are using a timer to fake a delay.
 
-```javascript
+{title="",lang="javascript"}
+~~~~~~~
 const promise = new Promise((resolve) => {
   const data = [
     {
@@ -63,15 +66,16 @@ const promise = new Promise((resolve) => {
 
   setTimeout(() => resolve(data), artificialDelay);
 });
-```
+~~~~~~~
 
 With this promise at our hand, which usually comes from a backend application where we do not know the data in advance, we can register a callback function as argument of the promise's `then()` method which executes whenever the data resolves successfully:
 
-```javascript
+{title="",lang="javascript"}
+~~~~~~~
 promise.then((result) => {
   console.log(result);
 });
-```
+~~~~~~~
 
 There may be two questions popping up in your head. First, you may be wondering why we need the `setTimeout()` method. In our Promise, we need the timeout to create an artificial delay. Without the timeout, the promise would resolve immediatly; which is fine and works too, but which doesn't mimic the client-server communication behavior where it takes time until data arrives on a client from a remote server.
 
@@ -79,30 +83,35 @@ Second, you may be wondering why we are not just using the `setTimeout()` method
 
 Sometimes a request to a server will fail, for example when the data cannot be found or a user isn't authorized to see the data. Then we do not get any data, but an error. We can mimic this behavior with a Promise as well by using the `reject()` instead of the `resolve()` function. In addition, we can create error objects in JavaScript by using the built-in Error object:
 
-```javascript
+{title="",lang="javascript"}
+~~~~~~~
 const promise = new Promise((resolve, reject) => {
   const error = new Error('Not authorized.');
   const artificialDelay = 3000;
 
   setTimeout(() => reject(error), artificialDelay);
 });
-```
+~~~~~~~
 
 Next we can react to rejecting promises with the promise's `catch()` method:
 
-```javascript{5-7}
+{title="",lang="javascript"}
+~~~~~~~
 promise.then((result) => {
   console.log(result);
 });
 
+# leanpub-start-insert
 promise.catch((error) => {
   console.log(error);
 });
-```
+# leanpub-end-insert
+~~~~~~~
 
 Promises can be chanined as well. So usually when using `then()` and `catch()` to handle successful and errornous asynchrnous data requests, you will chain both onto a promise:
 
-```javascript
+{title="",lang="javascript"}
+~~~~~~~
 promise
   .then((result) => {
     console.log(result);
@@ -110,7 +119,7 @@ promise
   .catch((error) => {
     console.log(error);
   });
-```
+~~~~~~~
 
 After all,
 
