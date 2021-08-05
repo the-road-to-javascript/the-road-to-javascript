@@ -10,7 +10,7 @@ GitHub ([aquired by Microsoft in 2018](https://blogs.microsoft.com/blog/2018/10/
 
 Independent from your prior exposure to programming, you should have noticed the advances of tech around you as well. This may have been one motivational trigger for you to start learning JavaScript. However, there are many other triggers such as learning a new skill, getting your foot into a well paid industry, or being able to work remotely while sustaining your desired lifestyle. Regardless of your motivation, learning to code is hard. That's why I always keep saying to beginners: "It's a marathon and not a sprint, so make sure to enjoy the journey. The road will be bumpy, however, every bump helps you getting closer to your goal. So take as many bumps as possible to become a better developer."
 
-## JavaScript
+### JavaScript
 
 [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) is a dynamic programming language and is one of the three pillars for the world wide web. Together with HTML and CSS, it's the language running in a browser which makes websites like Facebook, Twitter, and Airbnb work. Nowadays every browser has a dedicated JavaScript engine to execute the code on a user's device.
 
@@ -30,7 +30,7 @@ From its release up to the early 2010 years, JavaScript got smiled at by many ve
 
 From my own experience as someone who is conducting workshops and consulting work, I can verify the ever increasing demand for JavaScript in every vertical industry, the high rates/salaries of freelancers/employers, and the shortage of developers in every company. So I am happy to have you on board for this journey and I hope my enthusiasm for JavaScript gets well reflected in this book.
 
-## Frameworks and Libraries
+### Frameworks and Libraries
 
 You may have heard about libraries and frameworks when it comes to programming in general. You will get to understand these terms while reading the book, however, since I already associated the term framework with React.js, I want to give you a brief introduction here.
 
@@ -40,7 +40,7 @@ Once you mastered JavaScript, you will eventualyl learn more tools that build on
 
 Anyway, the best investment for your career as a web developer would be learning JavaScript. Everything that follows, for example popular frameworks such as React.js which sit on top of JavaScript, are there to make you more productive later. However, the popularity might change in the long term: These days it's React that's popular, but no one knows what it will be in a few years. So if you learn the JavaScript fundamentals properly, you can always take your knowledge with you to the next popular JavaScript framework.
 
-## ECMAScript
+### ECMAScript
 
 [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript) (short: ES) is the underlying specification of JavaScript. While JavaScript is its most popular implementation, there are others like JScript (programming language), V8 (JS engine), SpiderMonkey (JS engine) implementing the ES standard. Anyway, what's most important for you as aspiring JavaScript developer are the changes that are coming every year to it.
 
@@ -48,7 +48,7 @@ Anyway, the best investment for your career as a web developer would be learning
 
 These changes started with ES1 (1997), ES2 (1998), ES3 (1999), had a huge pause for 10 years with the abandoned ES4, and continued with ES5 (2009) and ES5.1 (2011). These days, you will often hear the term ES6 or ES2015 when people speak about **modern JavaScript**. After ES6, the community agreed on yearly updates (hence the new naming convention based on the year) which will not be as impactful as ES6 though which was a major milestone and the biggest update to the language. In this book, you will learn modern JavaScript with ES6 and beyond without forgetting about the noteworthy parts from older JavaScript.
 
-## TypeScript
+### TypeScript
 
 Throughout this introduction, you may have noticed me not only mentioning JavaScipt but also TypeScript -- which seems to gain more traction when looking at the data. For people being new to programming: [Typescript](https://www.typescriptlang.org) is a superset of JavaScript developed by Microsoft. So if it's a superset and gains more popularity, why not learn TypeScript instead? Keeping it short: Essentially TypeScript inherits everything from JavaScript; and more (read: types). So based on your prior exposure to coding, here are two learning tracks you could take:
 
