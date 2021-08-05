@@ -1,3 +1,3 @@
-# JavaScript and the DOM: II
+# JavaScript and the DOM: Part II
 
 TODO summary

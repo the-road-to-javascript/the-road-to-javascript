@@ -10,7 +10,7 @@ In contrast, these days we are used to text people instead. When texting, people
 
 Now data is an universal usable word. In programming, data refers to any information. Most of the time, data is used within an application or used for communication between applications (e.g. client-server communication). As we already learned, in JavaScript this information is expressed with different data types and structures such as strings, booleans, numbers, objects or arrays.
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const messages = [
   {
@@ -34,7 +34,7 @@ As a developer, you will often ask another application (e.g. client asks server)
 
 In code, you will create a promise as kind of token for this data, but not the data itself, because it arrives with a delay. So when holding this promise, you don't know its data yet, but you have the reference to the promise which enables you to be notified whenever the data arrives:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 // made up function which returns a promise
 const promise = getAsynchronousData();
@@ -48,7 +48,7 @@ A promise offers methods like `then()` which can be used to execute callback fun
 
 Usually we do not create a Promise from scratch as we will see later when we will be requesting data for real. However, because we have no backend application with data at the moment, we will create a Promise with the help of a callback function: The callback function gives us access to parameters such as the `resolve()` function which enables us to fill the promise with data. In addition, we are using a timer to fake a delay.
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const promise = new Promise((resolve) => {
   const data = [
@@ -70,7 +70,7 @@ const promise = new Promise((resolve) => {
 
 With this promise at our hand, which usually comes from a backend application where we do not know the data in advance, we can register a callback function as argument of the promise's `then()` method which executes whenever the data resolves successfully:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 promise.then((result) => {
   console.log(result);
@@ -83,7 +83,7 @@ Second, you may be wondering why we are not just using the `setTimeout()` method
 
 Sometimes a request to a server will fail, for example when the data cannot be found or a user isn't authorized to see the data. Then we do not get any data, but an error. We can mimic this behavior with a Promise as well by using the `reject()` instead of the `resolve()` function. In addition, we can create error objects in JavaScript by using the built-in Error object:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const promise = new Promise((resolve, reject) => {
   const error = new Error('Not authorized.');
@@ -95,7 +95,7 @@ const promise = new Promise((resolve, reject) => {
 
 Next we can react to rejecting promises with the promise's `catch()` method:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 promise.then((result) => {
   console.log(result);
@@ -110,7 +110,7 @@ promise.catch((error) => {
 
 Promises can be chanined as well. So usually when using `then()` and `catch()` to handle successful and errornous asynchrnous data requests, you will chain both onto a promise:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 promise
   .then((result) => {

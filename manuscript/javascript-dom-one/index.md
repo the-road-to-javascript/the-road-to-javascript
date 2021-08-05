@@ -1,4 +1,4 @@
-# JavaScript and the DOM: I
+# JavaScript and the DOM: Part I
 
 TODO summary
 

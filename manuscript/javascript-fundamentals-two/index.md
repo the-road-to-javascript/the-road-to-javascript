@@ -1,4 +1,4 @@
-# Fundamentals of JavaScript: II
+# JavaScript Fundamentals: Part II
 
 TODO summary
 
@@ -6,7 +6,7 @@ TODO summary
 
 Everything you have written so far in JavaScript can be called *a program* (also called routine in programming, but rarely in JavaScript). However, sometimes you want to extract parts of a program (also called subroutine) to reuse them without writing them twice. Functions can be used to extract these parts which are then reusable and executable.
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function askAndSayMyName() {
   console.log("What's your name?");
@@ -16,7 +16,7 @@ function askAndSayMyName() {
 
 A **function declaration** starts with the `function` keyword, a descriptive name for this function, and an opening and closing parantheses. Everythign that follows inside of the curly brackets is the code which should run when this function gets called. Hence functions are like variables, except that they do not store any values, but code which runs when someone uses the function:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 // function declaration
 function askAndSayMyName() {
@@ -33,7 +33,7 @@ askAndSayMyName();
 
 Calling a function (also refered to as running/executing/invoking a function) is as straightforward as using the function's name adding paranthaseses at the end. In the last example, you can already see how this function allowed us to reuse code, because otherwise we would have written repetetive code as you can see in the next example:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 // repetition 1
 console.log("What's your name?");
@@ -46,7 +46,7 @@ console.log('I am Robin Wieruch!');
 
 If there is nothing going in to a function, it could be seen as a blackbox which would only be useful to execute static code. Fortunately we can pass in so called **arguments** from the outside to our function which can be used in the inside of the function as so called **parameters**:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function askAndSayMyName(parameter) {
   console.log("What's your name?");
@@ -60,7 +60,7 @@ askAndSayMyName(argument);
 
 You can name your arguments and parameters whatever you want though:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function askAndSayMyName(fullName) {
   console.log("What's your name?");
@@ -74,7 +74,7 @@ askAndSayMyName(myName);
 
 As you can see, we declare our function, a variable `myName` and call the function with the variable as argument. Inside of the function, the variable is used as parameter called `fullName` which is only usable within this function. It's also possible to pass more than one argument to functions:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function askAndSayMyName(firstName, lastName) {
   console.log("What's your name?");
@@ -89,7 +89,7 @@ askAndSayMyName(myFirstName, myLastName);
 
 At this time, you may have tried to use variables from the outside in a function without passing them as arguments. This works due to the concept of **scoping** (which we will learn more about later):
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 const myFirstName = 'Robin';
@@ -110,7 +110,7 @@ However, it's a best practice to have functions that only use variables which ar
 
 While there exists an (optional) input for functions in the form of parameter(s), there also exists an (optional) output for functions in the form of a **return statement**:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getFullName(firstName, lastName) {
   const fullName = `${firstName} ${lastName}`;
@@ -128,7 +128,7 @@ console.log(myFullName);
 
 In this example, we interpolate the first and last name of a person to their full name and store it in a variable called `fullName`. Then we return this variable from the function. Now when someone calls this function, we can assign the returned value from this called function to a variable (here: `myFullName`). What's also possible is returning the value right away without declaring the so called **intermediate variable**:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getFullName(firstName, lastName) {
 # leanpub-start-insert
@@ -146,7 +146,7 @@ console.log(myFullName);
 
 Since arguments are mostly values stored in variables, it's also possible to pass values to functions (1) or to use the returned value right away (2):
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getFullName(firstName, lastName) {
   return `${firstName} ${lastName}`;
@@ -186,7 +186,7 @@ There are many more things to know about functions, although not all of them are
 
 Functions in JavaScript are super powerful, because, in contrast to many other programming languages, functions are treated as first-class citizens in JavaScript. By definition, a function becomes a first-class citizen when it can be stored in a variable and thus becomes a **function expression**. In contrast to a function declaration, a function expression can be used to carry functions around in variables:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const hasExperience = function getExperience(yearsAsProfessional) {
   const isExperienced = yearsAsProfessional > 0;
@@ -203,7 +203,7 @@ console.log(isDeveloper);
 
 A function is called an **anonymous function** when it has no name. This works for function expressions, because the function gets called with the name of the variable anyway. However, when debugging the code in the case of a bug, anonymous functions are more difficult to spot than named functions:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const hasExperience = function (yearsAsProfessional) {
   return yearsAsProfessional > 0;
@@ -212,7 +212,7 @@ const hasExperience = function (yearsAsProfessional) {
 
 Function expressions have subtle differences compared to function declarations. While for a function expression the function gets created when the code reaches the variable declaration, for the function declaration the function gets created once at the start:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 // works due to function declaration
 
@@ -234,7 +234,7 @@ const multiplyThat = function (a, b) {
 
 Function expressions have their right to exist though. For example, you can use a function expression to create a function conditionally and thus only create one of both functions when the conditional runs:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const isDeveloper = true;
 
@@ -260,7 +260,7 @@ As a rule of thumb: Use function declarations whenever you can, because you will
 
 In this section, we will dive deeper into functions and how we can use them as developers. Before we have only worked with one function, however, once programs become more complex, you will most likely use more than one function side by side or composed into each other. Let's take the following example of a function which creates a text for us:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getConversationStarter(firstName, lastName, isDeveloper) {
   const welcome = `Hi ${firstName} ${lastName}!`;
@@ -281,7 +281,7 @@ This function takes various arguments as input and uses them internally as param
 
 The function for creating our conversation starter has a few responsibilities. Let's split these responsibilities into multiple functions, in this case, our function should call another function:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 function getName(firstName, lastName) {
@@ -312,7 +312,7 @@ function getConversationStarter(firstName, lastName, isDeveloper) {
 
 As alternative, we could also evaluate one of the function's return values directly in the string interpolation, becuase we do not need the `fullName` variable anywhere else and we don't get any benefit to give it a descriptive name here, because the function already has a decriptive name:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getConversationStarter(firstName, lastName, isDeveloper) {
 # leanpub-start-insert
@@ -326,7 +326,7 @@ function getConversationStarter(firstName, lastName, isDeveloper) {
 
 Now one could argue to go all the way and interpolate both directly in the return statement. But even though this would make the function's body more concise, it would make it in many eyes less readable:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getConversationStarter(firstName, lastName, isDeveloper) {
   return `
@@ -340,7 +340,7 @@ After all, what you can see from this example is that functions can call other f
 
 Reusability is another benefit of extracting functions from other functions. For example, another part of our program could reuse the `getName()` function now:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robinText = getConversationStarter('Robin', 'Wieruch', true);
 console.log(robinText);
@@ -352,7 +352,7 @@ console.log(sarahText);
 
 If we would want to introduce an optional nickname, we could extend everything with this additional argument:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 function getName(firstName, lastName, nickname) {
@@ -405,7 +405,7 @@ A class is used in object-oriented programming languages. Since JavaScript is a 
 
 Let's get started with a class that represents a person by using the `class` keyword:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 class Person {
   constructor(firstName, lastName) {
@@ -417,7 +417,7 @@ class Person {
 
 In this example, we see a **class declaration** for a class with the name Person. After a class declaration, we can use this class with the `new` keyword to create an **instance**, in this case a person instance, from it:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 class Person {
   constructor(firstName, lastName) {
@@ -438,7 +438,7 @@ console.log(robin);
 
 Except for the `new` keyword and the uppercase naming convention for a class, using a class to create an instance from it feels quite similar to using a function. One could say that a function is more ephemeral though, because by calling the class with the `new` keyword, we **instantiate** one or multiple (none ephemeral) instances from it:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = new Person('Robin', 'Wieruch');
 const sarah = new Person('Sarah', 'Finnley');
@@ -455,7 +455,7 @@ Think of a class like a factory for a thing: A class is like a cookie mold for m
 
 Functions in classes are called **methods** or **class methods**. The **constructor** is one of these methods which is mandatory, because it is used when this class gets instantiate with the `new` keyword. The constructor methods accepts optional arguments from the outside, here `firstName` and `lastName`, which are internally used as local variables. In this example, the parameters are used to assign its **instance properties** `firstName` and `lastName` by using the `this` keyword. In the context of a class, `this` means the class instance itself. Read it like "given these paramaters I (the class) assign them as values to this new instance of myself". Continuing from here, a developer can evolve a class with more instance properties and class methods:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 class Person {
   constructor(firstName, lastName, isDeveloper) {
@@ -521,7 +521,7 @@ It's worth to say that when using modern JavaScript with everyday frameworks suc
 
 Primitives (e.g. string, number, boolean) in JavaScript are supposed to represent only a value. However, you maye have noticed that primitives have special behavior attached to them. For example, all string primitives give us access to the same **built-in string methods** such as `toUpperCase()`:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullName = 'Robin Wieruch';
 
@@ -534,7 +534,7 @@ console.log('Sarah Finnley'.toUpperCase());
 
 By using the `.` notation we can call methods on string instances. In this case, we want to to have the string transformed to its upper case representation. However, even though we call this built-in method, the value itself hasn't been changed afterward which is an important fact:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullName = 'Robin Wieruch';
 
@@ -549,7 +549,7 @@ Functions on primtives are called methods the same way as functions on classes a
 
 Similar to JavaScript classes, there are not only methods on JavaScript primitives which can be accessed by using the dot notation, but also properties. The `length` property is a popular one for string primitives but also other data types which returns the size of characters in the case of a string:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullName = 'Robin Wieruch';
 
@@ -559,7 +559,7 @@ console.log(fullName.length);
 
 You may be thinking that strings (and other primitives) are not mere primitives, but rather something more complex such as JavaScript classes. At this point, you may have noticed the class equivalents for primitves too, which can be used to create instances of these primitives. However, they are rarely used in reality:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullName = new String('Robin Wieruch');
 
@@ -571,7 +571,7 @@ As you can see from the output, this creates a string instance rather than a str
 
 With this knowledge, we can explain how properties (e.g. `length`) and methods (e.g. `toUpperCase()`) work on primitives: If a developer accesses a method on a string for example, JavaScript with the help of type coercion creates a more powerful `String` as counterpart where we can access the method (or properties). When the method has been called, this counterpart gets discared and we are left with only the primitive again:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullName = 'Robin Wieruch';
 
@@ -609,7 +609,7 @@ Type coercion as we have learned before is a powerful concept in JavaScript. In 
 
 Up to this point, you have learned about primitive data types such as strings, numbers and booleans. One way of encapsulating these into one entity has been the JavaScript class. For example, a `Person` class can have properties such as `firstName`, `lastName` and a method such as `getFullName()`. However, an alternative and more widely use structural data type for this kind of work is the **JavaScript object**:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -625,7 +625,7 @@ In this example, an object gets declared as variable with the name `robin` where
 
 Therefore, we can have distinct entities represented by objects *without* declaring all their primitive values as variables one by one:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -644,7 +644,7 @@ const sarah = {
 
 If you want to access a **property** of an object, you can use the already learned **dot notation** or the alternative **bracket notation**:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -661,7 +661,7 @@ console.log(robin['isDeveloper']); // bracket notation
 
 By using a property name, one can access its value. While the dot notation should be the default, the bracket notation can be used to evaluate expressions if needed:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -682,7 +682,7 @@ console.log(robin['last' + nameKey]);
 
 Another example for the special use of having the bracket notation instead of the dot notation are cases where we do not know the property name in advance, like in a function:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -711,7 +711,7 @@ console.log(getNameOfPersonByKey(robin, 'nickname'));
 
 Same way as using mere primtives, an object's properties can be used to interpolate whole sentences. Try the following and add more properties to the object and extend the sentence yourself:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -729,7 +729,7 @@ console.log(
 
 Since objects can have any data type as property, they can have (anonymous) functions (called **methods** in objects) and objects (so called **nested objects**) too. While methods in objects are not often used, using nested objects is a common theme when writing JavaScript:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -758,7 +758,7 @@ Note how one can access an nested object's property by using multiple dot (or br
 
 The last example violated the principle of DRY, because we had to write the value `1991` twice. Let's change this by using the `this` keyword, which we have used before in our JavaScript class, to get a reference to the instance (here: object) itself:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -779,7 +779,7 @@ const robin = {
 
 Another example would be getting an introduction for this object by calling a method on it. We did this before by interpolating the object's properties into a text. This time we will do it with a method though:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -800,7 +800,7 @@ Now we know how to declare and how to access an object. While we created the obj
 
 Once declaring and accessing objects works, it should also be possible to assign or reassign properties to an object. Both dot and bracket notation work, and they also work for nested objects, however, the dot notation should be the default as mentioned before:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -845,14 +845,14 @@ For a beginner, a JavaScript object seems to be similar to a JavaScript class co
 
 An **array** in JavaScript represents a list of items. Informally it's also called **list** or **list of items** or sometimes **entries**. While objects (from the last section) represent one entity (here: object) with certain properties defined in curly brackets, arrays represent multiple entities (here: strings, numbers, but also objects) in a list defined in brackets.
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 ~~~~~~~
 
 Before we had arrays, one may have defined these names the following way with primitves:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNameOne = 'Robin';
 const firstNameTwo = 'Sarah';
@@ -861,7 +861,7 @@ const firstNameThree = 'Esther';
 
 Now we can put these into a list, like we have done before by comma separating the values, or like the following example shows by using comma separated variables:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNameOne = 'Robin';
 const firstNameTwo = 'Sarah';
@@ -872,14 +872,14 @@ const firstNames = [firstNameOne, firstNameTwo, firstNameThree];
 
 Often inserting the values directly like we did before makes more sense though, because we want to get away from defining variables like `firstNameOne` just to reference them later in an array anyway. That's why we have arrays in the first place. Apart from declaring an array with an **array literal notation**, one could also use `new Array()` as alternative. The latter are only rarely used though, so stick to the literal notation for now:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const lastNames = ['Wieruch', 'Finnley', 'Shaw'];
 ~~~~~~~
 
 In contrast to objects, arrays are a list of similar items (persons, fruits, aircrafts, prime numbers, ages). Even though it's possible to mix data types in an array, it's not commonly done. So usually one ends up with an array with one kind of data type in a list. So whenever you have a mix of data types in an array, ask yourself whether an object wouldn't be a better suited for this use case:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 // good
 const primeNumbers = [2, 3, 5, 7];
@@ -898,7 +898,7 @@ const robin = {
 
 As mentioned, arrays can hold a list of objects too. The last examples have shown you lists of first and last names where each first name relates to a last name. So we can put these relations into objects and then put these objects into an array:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -920,7 +920,7 @@ const persons = [robin, sarah, esther];
 
 As before, we can define them as inline values too, so that you do not need to specify each person as a standalone variable. Furthermore, one can access items from an array by using the **bracket notation**. Since we do not have property names like for objects, we can access arrays only by their indexes (read: position of an item in the list):
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const persons = [
   {
@@ -951,7 +951,7 @@ You can see that arrays are zero indexed like most things in JavaScript. Hence i
 
 Once declaring and accessing arrays works, it should also be possible to assign or reassign an item in a list. It goes the same way as for other variables, only that we (re)-assign specific items by their indexes in an array:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 
@@ -972,7 +972,7 @@ console.log(firstNames[3]);
 
 An array is classified under the umbrella of the object data type. Except for primitives like string, number and boolean, the only more complex data types are function and object. So essentially everything that doesn't fall under these called out data types is of type object (e.g. array). Therefore, it's also possible to access built-in properties (and methods) of arrays:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 
@@ -982,7 +982,7 @@ console.log(firstNames.length);
 
 In this case, the `length` property returns us size of the array (which translates internally to "the highest index + 1"). Most often the `length` property is used to get the size of the list (previous example) or to get the last item of a list (next example):
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 
@@ -992,7 +992,7 @@ console.log(firstNames[firstNames.length - 1]);
 
 Since an array falls under the data type of objects, there are not only properties attached to this entity, but also methods. Let's explore some of the more popular ones in this section. One of the first **built-in array methods** you will learn about is `push()` which adds a new item to end of a list:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 
@@ -1006,7 +1006,7 @@ console.log(firstNames.length);
 
 Usually we are using `push()` whenever we want to add a new item to a list. In a previous example, we have assigned a new item directly by using an index (e.g. `firstNames[3] = 'Peter'`) which you will only rarely perform. In contrast to `push()`, the method `pop()` removes the last item from the list:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 
@@ -1020,7 +1020,7 @@ console.log(firstNames.length);
 
 Note that both method modify the array without the need of assigning them to a new variable. We will learn more about this behavior later when speaking about **mutability vs immutability**. For now, just focus on the built-in array methods themsevles. In the exercise, you should try out more of them. Several of these array methods will come up during the next sections of the book though. For example, a popular one is `includes()` which will inform you whether a certain item is part of the list by returning a boolean:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 
@@ -1033,7 +1033,7 @@ console.log(hasSarah, hasLiam);
 
 As a final example for this section, we will see how to remove a specific item from an array by using the `indexOf()` and `splice()` method:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 
@@ -1079,7 +1079,7 @@ We have learned about all the essential data types in JavaScript: primitives suc
 
 Since you have learned about arrays in JavaScript, the natural next step would be learning about **loop statements** which are also a control structure. A loop in JavaScript (and other programming languages) helps us to **iterate** (read: to loop, to go over) a list of items. Take for example the **for statement** which is the most popular one in JavaScript:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 
@@ -1090,7 +1090,7 @@ for (let index = 0; index < firstNames.length; index++) {
 
 This code snippet loops over our list of first names and prints each name to the console. If this reads like magic to you, let us go back a bit and see a more basic example. Essentially a loop will do something a number of times until a condition is met. First take the following example, where you want to move your avatar in a computer game 3 steps forward, which isn't using a loop:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 console.log(`My avatar moved 1 step(s).`);
 console.log(`My avatar moved 2 step(s).`);
@@ -1100,7 +1100,7 @@ console.log(`My avatar arrived the desired destination.`);
 
 You can see a reapting pattern here which can grow very much in size once your avatar attempts to move a lot of steps. Hence this example isn't DRY. Let's see how this looks in a loop statement:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 for (let step = 0; step < 3; step++) {
   console.log(`My avatar moved ${step + 1} step(s).`);
@@ -1111,7 +1111,7 @@ console.log(`My avatar arrived the desired destination.`);
 
 If you check the console, you will find the following printed output:
 
-{title="",lang="text"}
+{title="index.js",lang="text"}
 ~~~~~~~
 My avatar moved 1 step(s).
 My avatar moved 2 step(s).
@@ -1125,7 +1125,7 @@ Essentially a loop statement does always the same thing: perform a certain actio
 
 Normally loops are used whenever you have a number for the condition at your hand: number primitive or `array.length`. The latter is the most common scenario, where you want to iterate over an array to perform some action. For example, in an array of persons, I could increment the age by one for every individual:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const persons = [
   {
@@ -1159,7 +1159,7 @@ console.log(persons);
 
 When iterating over an array, the structure of a for statement is often the same: start with an initial expression that initializes a variable (usually `i` that stands for index) with 0 and increment this variable until it reaches the size (read: `length`) of the array. In the for statement, get access to each item (e.g. `persons[i]`) from the list by using the **iterator** (here: `i`). Then do something with the item. Another example would be splitting an array into two arrays based on a condition:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const persons = [
   {
@@ -1201,7 +1201,7 @@ console.log(nonDevelopers);
 
 Last, take the following task and try to solve it yourself. If you have difficulties to get to a solution, do not worry and check out the solition below. Task: You have an array of persons whereas each person has a `fullName` and a `yearBirth` as key/value properties. Based on today's year, calculate each person's age in a loop statement and add it as additional property to each person. Now try it yourself first before checking the following solution:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const persons = [
   {
@@ -1244,7 +1244,7 @@ As said, loops are usually used for iterating over arrays (but sometimes also wh
 
 We have learned about all the fundamental ingredients (functions, arrays and loops) which enable us to learn about an advanced concept with the name **callback functions**. A callback function is nothing more than a function that is passed as argument to another function and executed within this function:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function sayThis() {
   console.log('This!');
@@ -1270,7 +1270,7 @@ You may be wondering what's the benfit of having such construct. Essentially we 
 
 However, we will start with a more tangible example and evolve it over the course of this section to a scenario which will use a callback function eventually. Imagine you have an array of persons and you want to find a specific person by their first name:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const persons = [
   {
@@ -1286,7 +1286,7 @@ const persons = [
 
 As we have learned, you can use a for statement to loop over all persons and an if-else statement to find the searched person based on a condition. In the following code snippet, we assing the currently iterated person to the variable `sarah` whenever the iterated person's `firstName` matches the condition of being "Sarah":
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const persons = [ ... ];
 
@@ -1306,7 +1306,7 @@ console.log(sarah);
 
 Next, we want to make this utility reusable by declaring a function for it. Actually you can also say that you are going to extract this functionality into a function. This function should take a `firstName` as argument to make it reusable for other search criteria (read: search condition) and not only the first name "Sarah":
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 function findPerson(persons, firstName) {
@@ -1345,7 +1345,7 @@ Can you see how all of our gathered knowledge comes together in this example and
 
 Now we have a general purpose function which allows us to find any person by their first name. However, what if the next hurdle would be that we do not want to find a person only by their first name, but also by their last name? For example, we could extend the [function's signature](https://developer.mozilla.org/en-US/docs/Glossary/Signature/Function) with more parameters:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 function findPerson(persons, firstName, lastName) {
@@ -1375,7 +1375,7 @@ const sarah = findPerson(persons, null, 'Finnley');
 
 This solution is great and works for the given task. However, can you see a scenario where this function does not scale (read: does not stay usable for growing requirements)? For example, what if a person would consist of more properties such as nickname and middleName. We would always have to change the `findPerson` function to accomodate our requirement. As alternative, let's enter the concept of callback functions again and see how a callback function will help us here:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 function findPerson(persons, findCondition) {
@@ -1410,7 +1410,7 @@ Can you spot what we have done here? We defined a function expression on the out
 
 Uncovering this mechanism in JavaScript and understanding it will feel like a superpower eventually, because now we can pass any condition we want by changing the callback function without changing the actual function `findPerson()` anymore:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const findWieruch = function (person) {
   return person.lastName === 'Wieruch';
@@ -1421,7 +1421,7 @@ const wieruch = findPerson(persons, findWieruch);
 
 Callback functions allow us to pass implementation details from the outside in the form of a function to another function. Essentially it gives us control over the other function, because we can pass arbitrary code to it. In this other function then, the callback function gets then executed. Next, I want you to check out the following code:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const persons = [
   {
@@ -1446,7 +1446,7 @@ console.log(sarah);
 
 Apparently, there is already the built-in array method called `find()` which does exactly what we have implemented before: find an item in a list based on a condition; whereas the condition is returned from callback function which has access to each person. It's exactly the same callback function that we have used before and it can be changed the same way as we have done before:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const persons = [ ... ];
 
@@ -1461,7 +1461,7 @@ Basically we have implemented our own version of `find()` before which is kinda 
 
 Callback functions that are used for built-in array methods have access to each item of the list. It's also noteworthy that often callback functions get inlined as arguments, because they are not used somewhere else and are just there for this one purpose. However, it comes with the drawback that it gets less readable, so in contrast extracting them as function expression (as we had before) makes your code often more readable:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 // callback function as inlined argument
 // makes code less readable though
@@ -1473,7 +1473,7 @@ const wieruch = persons.find(function (person) {
 
 Let's discuss two other built-in array methods that accept callback functions as arguments. First, `every()` returns `true` whenever the condition for *every* item in the callback function returns `true`. In this example, if all persons are developers, the method will return `true`. Otherwise it returns `false`:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const persons = [
   {
@@ -1500,7 +1500,7 @@ console.log(isEveryoneDeveloper);
 
 In the follow up example, the array built-in method `some()` returns true if *some* item in the callback function returns `true`. In other words: At least one item needs to match the condition in order to have the function return `true`. If none of the items matches, it will return `false` though:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const persons = [ ... ];
 
@@ -1541,7 +1541,7 @@ In the previous section, we have learned about the built-in arrays `find()` meth
 
 The `filter()` method takes a callback function which has access to every item as argument and returns a boolean which defines whether this item gets included in the filtered array (the from the method returned array) or not:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const persons = [
   {
@@ -1575,7 +1575,7 @@ In this example, we filter the array for persons who have kids. In code, we chec
 
 Next we will reverse engineer the `filter()` method, because we want to undertsand how it works internally and not just accepts that it's there. The filter operation is performed on an array (here: `persons`) and uses a callback function (here: `hasKids()`). With this knowledge, we will create our own more specific `filterParents()` function which takes at the beginning only one argument (here: `persons`) and should eventually return the same result as the `filter()` method from before:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function filterParents(persons) {
 
@@ -1601,7 +1601,7 @@ const parents = filterParents(persons);
 
 The new `filterParents()` function has to iterate over all items of the list (here: `persons` that are passed from the outside as arguments). For every item that meets the search criteria (here: the person has a filled array with kids), the item gets pushed into a new array which eventually gets returned from the function:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function filterParents(persons) {
 # leanpub-start-insert
@@ -1620,7 +1620,7 @@ function filterParents(persons) {
 
 Now the search criteria is an implementation detail of `filterParents()`. By using a callback function as additional argument for this function, we can extract this implementation detail and tell the function from the outside what condition it has to meet to filter the array into a new array:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 function filterParents(persons, hasKids) {
@@ -1653,7 +1653,7 @@ const parents = filterParents(persons, hasKids);
 
 If you have a look at the `filterParents()` function, it does not solve any parents/persons/hasKids specific task anymore. It merely filters a list based on a condition which we provide with a callback function. So we can **refactor** (read: modify code without changing implementation details, e.g. just changing variables names) the specific `filterParents()` function to an abstract `filter()` function:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
 function filter(list, filterCondition) {
@@ -1704,7 +1704,7 @@ You have already learned about the array's built-in `filter()` method before. No
 
 All of these data manipulation methods use callback functions. While `filter()` is one of the easier ones out of the three, `map()` and `reduce()` are a bit more advanced, because their use cases are for beginners more abstract. Let's check out `map()` first. Essentially `map()` allows you to modify every item in an array:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -1720,7 +1720,7 @@ console.log(products);
 
 In a more elaborate example, you may want to derive a `hasKids` boolean as property from the `kids` array. So whenever a `person` has a filled array of `kids`, which means that kids have a `length` greater than `0`, we assign the `person` a new `hasKids` property and set it to `true`. If the array is empty, the `person` sets this new propery `hasKids` to `false`:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const persons = [
   {
@@ -1754,7 +1754,7 @@ The built-in `reduce()` method is the hardest of all three to grasp and most dev
 
 So while `map()` allows you to modify every item and returns an array of the same size (e.g. `parents`), `reduce()` can alter the size or the whole structure (e.g. from array to object) of your array. The most straightforward example you will see out there is calculating the sum of numbers with the help of reduce:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -1770,7 +1770,7 @@ console.log(sum);
 
 In contrast to the other method's callback functions, reduce's callback function has as first argument the accumulator (called in code most often `acc` rather than `result`) and as second argument the current item (called in code most often `value` rather than `item`). As comparison, in our previous examples, the current item has been `person`. The accumulator, in this case the `result`, is the value which is carried over from every iteration and in this case summed up to the current value. The `reduce()` method accepts a third argument which let's you specify the accumulator you want to start with:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -1792,7 +1792,7 @@ Previously, `reduce()` coerced the initial accumulator to `0`, because we were u
 
 The `reduce()` method can be used for any data manipulation of an array that isn't a fit for `filter()` or `map()`. Here the book isn't going any deeper into `reduce()`, but we will maybe see more usages of it (and the other methods) later. Another noteworthy fact about these methods is that they can be *chained* onto each other:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -1816,7 +1816,7 @@ console.log(result);
 
 Since `filter()`, `map()`, and `reduce()` all return a new array, we can straight away continue working on them by using the `.` notation. Only when the whole chain got evaluated, the result gets assigned to the variables (see operator precedence from one of the earlier sections, e.g. `.` precedes `=`). Anyway, chaining methods onto each other is just a shortcut. You could also write it this way:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const products = numbers.map(multiplyByTen);
 const onlyBigNumbers = products.filter(greaterThanFifty);
@@ -1824,7 +1824,7 @@ const onlyBigNumbers = products.filter(greaterThanFifty);
 
 You can see how these three data manipulation methods will help you with any array modification. Another one you should have heard about, which is not really used for data manipulations though, is the infamous `forEach()` method. Essentially it is used as loop replacement (e.g. for loop) that you have learned earlier, however, there are some caveats to it. At this point, I don't want to go into much detail and rather just show you how it works by contrasting it to an example where we have used the for statement before to find "Sarah":
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const persons = [
   {
@@ -1854,7 +1854,7 @@ console.log(sarah);
 
 In contrast to the other shown array methods, the `forEach` method does not return anything. The next section will dive more deeply into this noteworthy difference. Now, what about objects though? While arrays have an ordered list which can be iterated over in a loop/iteration or with an built-in array method, an object cannot be looped over that easily, because it has just key/value pairs. However, with the built-in `Object` we can turn these key/value pairs into a list of keys (or values):
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -1875,7 +1875,7 @@ console.log(values);
 
 If we would want to access each property with key *and* value in an array method, we could do the following transformation from object to array. We would transform an object to its keys, iterate over it with the `forEach()` method for arrays by chaining it,
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -1920,7 +1920,7 @@ The act of mutating a variable, which you will hear quite often when speaking to
 
 To start off: All JavaScript primitive values are immutable by default. This means, we cannot modify a JavaScript string for example. You may have seen by this time that we can access a string's characters not only with its built-in `charAt()` method but also with the bracket notation (similar to arrays):
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 let adjective = 'Bold';
 
@@ -1930,7 +1930,7 @@ console.log(adjective[0]);
 
 In the following case, we try to rewrite a string partially by changing its first character:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 let adjective = 'Bold';
 adjective[0] = 'C';
@@ -1940,7 +1940,7 @@ console.log(adjective);
 
 What does the last code snippet print to the console? You may have expected to see "Cold", but it's still "Bold". That's already the proof that values of JavaScript primitives, in this case strings, are immutable. In other words: primitive values cannot be changed, they can only be re-assigned:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 let adjective = 'Bold';
 adjective = 'Cold';
@@ -1955,7 +1955,7 @@ The ability to re-assign disappears though when using `const` instead of `let`. 
 
 It's also an important distinction for primtives that variables are not values, but that they point to values. The pointer can change to a new primtive value, but the primitive value itself cannot change. By using the `=` assignment operator, we can point a variable to a new value. The same happens when we declare one variable based on another variable, then re-assigning one variable to a new value does not change the other variable:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 let ageRobin = 30;
 let ageSarah = ageRobin;
@@ -1971,7 +1971,7 @@ console.log(ageSarah);
 All these examples show that JavaScript values with a primitive data type (e.g. string, number, boolean) are immutable. You may have not thought about this fact before, however, it's a relief for every JavaScript developer that this is the default. It's not the default for more complex data structures such as objects and objects. These are mutable by default.
 
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const a = [1, 2];
 const b = a;
@@ -1996,7 +1996,7 @@ However, even though this may be a great implementation detail of the language i
 
 First, there are built-in array methods which embrace immutability. If you read through the [JavaScript documentation for built-in array methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), always look for the section *"Return value"*. For instance, the built-in array method `push()` returns the new length of the property; which means in reverse that the array itself must change to get to the desired result of the operation (here: adding an item to the list):
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 
@@ -2011,7 +2011,7 @@ console.log(whatIsThis);
 
 In contrast, the built-in array method `concat()` says in its documentation: *"[returns a] new Array instance"*. That's the term you are searching for when you want to embrace immutabuility over mutability, because returning a new array means that the original array does not change by calling the method:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 
@@ -2030,7 +2030,7 @@ That's excactly what developers strive for these days: After variables have been
 
 Striving for predictable code means embracing immutablity. As a rule of thumb: Always check for methods that return new values instead of changing the original values. You can already see the difference on how these methods are called. Use the one which let's you assign the returned new value to a new variable:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 // no assignment, often bad signal
 const numbers = [1, 2, 3];
@@ -2051,7 +2051,7 @@ If there is no immutable version of a method, you are sometimes forced to use a 
 
 Since the copy (sometimes called clone) is a new variable, it will not cause any ripple effects when it gets mutated. For instance, the built-in array method `slice()` helps you to create a copy of an array:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 
@@ -2083,7 +2083,7 @@ Anyway, even though you see all these recommendations and best practices here, d
 
 The **destructuring assigment** is used in modern JavaScript and helps you to read from arrays and objects more efficiently. We will start of with an example which illustrates why the destructring assigment reshaped how we write concise JavaScript:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -2100,7 +2100,7 @@ console.log(`My initials are ${firstName[0]}${lastName[0]}.`);
 
 The code snippet illustrates how inefficient it is to read multiple properties from an object with a growing size of properties, because we need one line for assigning each property to a new variable. This example is a bit far fetched though, because one could also just use the `.` noation on an object inlined in the console statement without the intermediate variable assignment. However, often you need to assign an object's properties to new variables and once you have to perform this task for more than one property, the assignments grow linearly with the size of properties. Entering the destructuring assignment, specifically the **object destructuring assignment** (short: object destructuring or destructuring) which lets us assign an object's properties to new variables in one line:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -2118,7 +2118,7 @@ console.log(`My initials are ${firstName[0]}${lastName[0]}.`);
 
 Basically you can assign each property from an object by using curly brackets on the left-hand side and the proptery name. When destructuring multiple properties, the list of properties becomes comma separated. If you want to have a different name for a property, you can use an alias which are used to avoid variable name collision:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const robin = {
   firstName: 'Robin',
@@ -2139,7 +2139,7 @@ console.log(`Hi ${robinName} and ${sarahName}.`);
 
 The object destructring can be used for a function's parameters too:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getName({ firstName, lastName }, asInitials) {
   if (asInitials) {
@@ -2160,7 +2160,7 @@ console.log(getName(person, true));
 
 In contrast to the object destructuring, the **array destructuring assignment** (short: array destructuring or destructuring) is used not as often. They get more traction in modern frameworks such as React.js though. But see for yourself the following example of an array destructuring:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 
@@ -2193,7 +2193,7 @@ In modern JavaScript, you will likely see the three dot `...` operator. When it 
 
 The **spread operator** is usually used for arrays and objects and allows the developer to spread their values into places such as other arrays, objects, or even functions. One of the most common examples for the spread operator is spreading one data structure into another one, e.g. one array's entries get spread with the three dots into another array which may or may not have values itself:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah'];
 const moreFirstNames = ['Liam', ...firstNames, 'Esther'];
@@ -2204,7 +2204,7 @@ console.log(moreFirstNames);
 
 The same applies for objects where the key/value pairs can be spreaded into another object:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const privateLife = {
   firstName: 'Robin',
@@ -2236,7 +2236,7 @@ console.log(person);
 
 An operation with the spread operator is an immutable operation which means that the original value stays intact. See for yourself by printing `firstNames`, `privateLife`, or `professionalLife` to the console. The spread operator can also be used to copy arrays and objects, but only their first level. So if an array is multidimensional or an object nested into another object, you need to spread the lower levels too for really copying an immutable variant of them.
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah'];
 const copyFirstNames = [...firstNames];
@@ -2250,7 +2250,7 @@ const copyPerson = { ...person };
 
 Essentially the spread operator can be used whenever you want to create a new variable based on the content of another variable plus optional additional content if not creating only a copy of it. For example, you can spread an array into a new array and add a new item at the start of the array. Or you can spread an object into a new object and add properties to it.
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const person = {
   firstName: 'Robin',
@@ -2271,7 +2271,7 @@ As you can see from the last example, it's also possible to overwrite an propert
 
 While the spread operator expands its content, the **rest operator** kinda condenses it. The rest operator is not really called rest operator. Instead it's differentiated into rest destructuring and rest parameter. Let's begin with the **rest destructuring** which is used within the previously learned destructuring assignment:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const person = {
   firstName: 'Robin',
@@ -2290,7 +2290,7 @@ console.log(`Hello, I am ${Object.values(names).join(' ')}!`);
 
 The rest destructuring is optionally used with three dots on the left-hand side of a destructring assignment. If it is used, it's always the last element of the destructuring which collects all the remaining properties. The same rest destructuring can be used for arrays where it collects all the remaining items in an array:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstNames = ['Robin', 'Sarah', 'Esther'];
 
@@ -2305,7 +2305,7 @@ console.log(`There are ${girls.length} girls: ${girls.join(', ')}`);
 
 Essentially a rest destructring is always used when you want to separate certain items from an array or certain properties from an object. In contrast, the rest operator is called **rest parameter** in functions. It can be used optionally with its three dots as last parameter to collect all the remaining paramaters:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getSum(addendOne, addendTwo, ...moreAddends) {
   const remainingSum = moreAddends.reduce(function (sum, value) {
@@ -2337,7 +2337,7 @@ While the spread operator is used on the right-hand side for shaping derived dat
 
 There are various techniques in JavaScript to address default values, variables or parameters. In this section, we will go through these step by step. Afterward, you have one section to refer to for handling such fallbacks. Let's get started with the usualy suspect: the if-else statement to conditionally assign a value to a variable or in this case to conditionally assign a fallback value:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getName(fullName, nickname) {
   if (fullName) {
@@ -2361,7 +2361,7 @@ console.log(getName(null, null));
 
 As alternative, this could be done with a ternary operator as well. However, since there is more than one condition here, there needs to be more than one ternary operator which results in poor readability. For the sake of completeness though, here an example of a nested ternary operator:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getName(fullName, nickname) {
 # leanpub-start-insert
@@ -2383,7 +2383,7 @@ An if-else statement in its basic usage is totally fine to use for this problem.
 
 First, the logical OR operator can be used for such conditional fallbacks (also called **short circuiting** or **short circuit evaluation**). This operator returns its right-hand side operand if the left-hand side operand is a falsy (read: `false`, `undefined`, `null`, `0`, `''`) value. This is in the case of using only one logical OR operator. In the case of multiple logical OR operators, like in our case, you can interpret it as *"the first truthy value in the line gets returned"*:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getName(fullName, nickname) {
 # leanpub-start-insert
@@ -2403,7 +2403,7 @@ console.log(getName(null, null));
 
 This approach has been used for a long time to provide fallback values if other values are not present (read: falsy). However, there is one flaw to it which is often a cause for bugs. What if my nickname should be a number and in this very specific case the number 0 (e.g. "Mr. 0"):
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getName(fullName, nickname) {
   return fullName || nickname || 'Anonymous';
@@ -2417,7 +2417,7 @@ console.log(getName(null, 0));
 
 One might expect to see printed `0` instead of `'Anonymous'`, however, since `0` is a falsy value, the next right-hand side operand in the line of logical OR operators gets evaluated. In modern JavaScript, there is a more nuanced operator called the **nullish coalescing operator**. It's used similar to the logical OR operator, but evaluates only `null` and `undefined` to false and not other falsy values such as `''` or `0`:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getName(fullName, nickname) {
 # leanpub-start-insert
@@ -2435,7 +2435,7 @@ While the logical OR operator is well supported in browsers and older Node.js ve
 
 When using a function like we did in the previous examples, there is another approach called the **default paramater**. This means we can give each parameter a fallback value in case of the value being `undefined` or `null`:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getName(fullName = 'Anonymous') {
   return fullName;
@@ -2467,7 +2467,7 @@ In this section, you have seen many variants of how to achieve a fallback if a v
 
 Nested objects in JavaScript are not a rarity. So far, you have only seen objects and nested objects which go only one level deep. However, in a real world application you will have to deal with objects that are nested by multiple levels. Take the following data as example:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const response = {
   status: 200,
@@ -2492,14 +2492,14 @@ const response = {
 
 This could be a real world response when asking for a remote server for data. You will learn later how you perform such requests, however, what matters is that nested objects are everywhere. In order to access these objects, you are using the dot notation. For example, reading the first user's `firstName` is done as follows:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstName = response.data.users[0].firstName;
 ~~~~~~~
 
 However, often you cannot be sure whether all nested properties are there. For example, the `data` could be empty, because the request to the remote server was errornous:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const response = {
 # leanpub-start-insert
@@ -2513,7 +2513,7 @@ const firstName = response.data.users[0].firstName;
 
 In this case, you would get an JavaScript error when reading the `users` property, because `data` is `null` and there is no `users`: `TypeError: Cannot read property 'users' of null`. In the worst case, this could break your whole application. Now, in order to safely access the data, one could add a safety check before:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 let firstName;
 
@@ -2524,7 +2524,7 @@ if (response.data) {
 
 In the case of data being `null`, the condition would evaluate to `false` and we would leave `firstName` undefined. On the other hand, in the case of data being filled, the condition evaluates to true and `firstName`, if users are there, would get assigned. You may have already heard the next flaw from the last sentence: *"if users are there"*. In the case of a successful response, it could still happen that there are no `users` in the database of the remote server:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const response = {
   status: 200,
@@ -2536,7 +2536,7 @@ const response = {
 
 Even with our safety check in place, we would get `TypeError: Cannot read property 'firstName' of undefined` this time. Hence we would need to extend the condition to check for a filled users array:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 if (response.data && response.data.users.length) {
   firstName = response.data.users[0].firstName;
@@ -2545,7 +2545,7 @@ if (response.data && response.data.users.length) {
 
 You see how data from a third-party adds lots of uncertanty, because you never know whether everything is there as expected. If something is missing and you are not checking for it, the whole application may break. However, using an if-else statement as safety check everytime seems tedious as well. In modern JavaScript, we can use **optional chaining** to access nested objects safely without throwing errors even though intermediate properties are missing:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const response = {
   status: 200,
@@ -2573,7 +2573,7 @@ Optional chaining makes your life as a developer easier, because you don't need 
 
 Problem solving is a developer's everyday business. Hence this section of the book will walk you through a problem that you may face as a developer and how you could approach it. Therefore this section will not introduce any new JavaScript feature, but instead use the features that you have learned before. The problem: Given a list of full names, return the initials for each full name in a list:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullNames = [
   'Robin Wieruch',
@@ -2590,7 +2590,7 @@ console.log(nameInitials);
 
 Solving a problem comes always down to breaking the problem into smaller problems. In the following, we will approach each part step by step and will conclude with a solution eventually. First we remove complexity from the problem: given only one name (and removing the compelxity of having a list of names), return the initials of this one name. First, we extract one name from the array:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullNames = [
   'Robin Wieruch',
@@ -2606,7 +2606,7 @@ console.log(fullName);
 
 Second, in order to get the initials of the first and last name, we somehow need to distinguish first and last name into separate variables. Fortunatelty there is the built-in `split()` method for strings which splits a string into an array of strings at a given character or characters. In this case, we want to split the string at the empty space:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullNames = [ ... ];
 
@@ -2623,7 +2623,7 @@ console.log(names);
 
 Third, we can use array destructuring to separate both items in the list into two string variables with descriptive names:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullNames = [ ... ];
 
@@ -2641,7 +2641,7 @@ console.log(firstName, lastName);
 
 Fourth, since strings can be accessed like arrays by using indexes, we can use the zero index to get the first letters of first and last name:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullNames = [ ... ];
 
@@ -2661,7 +2661,7 @@ console.log(firstNameInitial, lastNameInitial);
 
 Finally, we can concatenate both initials for first and last name into a new initial for the full name:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullNames = [ ... ];
 
@@ -2678,7 +2678,7 @@ console.log(nameInitial);
 
 The code literally shows how we solved this problem for a single full name step by step. Now, you can leave the code this way or condense it by putting certain operations in one line. For example, accessing the first full name, splitting it, and retrieving first and last name from it could be put in one line. Furthermore the same would apply for accessing the initials of each name and interpolating them into a new string:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullNames = [ ... ];
 
@@ -2690,7 +2690,7 @@ const nameInitial = `${firstName[0]}${lastName[0]}`;
 
 Refactoring code like this from more to less (or less to more) lines comes always with the tradeoff for readability. While you don't want to have your code too much condensed, because makes it less readable due to lots of dot notations, chained methods, and none existent intermediate descriptive variable names, you don't want to leave your code too bloated where each line only serves one atomic purpose and it gets difficult for someone to see the forest for the trees. In the end, always ask yourself whether you would be comfortable reading and understanding your code after months have passed and whether your teammates working on the same codebase would feel the same way. For example, one could a "genius" coder and put everything in one operation:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullNames = [ ... ];
 
@@ -2703,7 +2703,7 @@ const nameInitial =
 
 This seems to be one refactoring step too much. Simplicity often trumps cleverness in code. Another developer reading this code would have to trust you that this operation returns the initials of the full name, because they need to look twice what's happening here. Speaking of twice, the code isn't DRY too, because we redundantly apply the split operation on the same value. So going back to the previous example, we can see how it makes sense keeping it as two operations for the sake of readability and DRYness:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullNames = [ ... ];
 
@@ -2713,7 +2713,7 @@ const nameInitial = `${firstName[0]}${lastName[0]}`;
 
 Anyway, we didn't finish the problem yet. We projected the complex problem onto a smaller problem by coming up with a solution for a single full name and not a list of full names. Now we need to elevate the solution so that it macthes the complex problem as well. Since we are dealing with an array and we want to apply an operation for every entry in the array, we can use a for statement:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullNames = [
   'Robin Wieruch',
@@ -2735,7 +2735,7 @@ console.log(nameInitials);
 
 Within this loop, we can move the operation from before. Do not forget to change how the `fullNames` get accessed. Rather than accessing the `0` indexed item (like `fullNames[0]`) for every pass through of the loop, we want to access the looped item (like `fullNames[i]`) itself:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullNames = [ ... ];
 
@@ -2755,7 +2755,7 @@ We could use `concat()` over `push()` here for the sake of immutability and best
 
 We have solved the problem and at your stage of learning JavaScript this is an awesome result. However, I want to take this solution one step further by using one of our popular built-in array methods on the `fullNames` rather than using the for statement. Could you think of one array method without looking at the next code that would be the perfect fit for this case?
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullNames = [ ... ];
 
@@ -2781,7 +2781,7 @@ Finally you have your finished solution for the problem. You are a problem solve
 
 You have learned a lot about functions at this point: as a beginner, you know that there are functions in JavaScript and that they are first-class citizens (meaning: they can be passed around as values). As an aspiring intermediate JavaScript developer, you know about callback functions. Now, as a modern JavaScript developer, we will get to know the modern concept of **arrow functions**. Take the following function as example which is not using an arrow function yet:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getFullName(firstName, lastName) {
   return `${firstName} ${lastName}`;
@@ -2798,7 +2798,7 @@ console.log(getFullName(person.firstName, person.lastName));
 
 Seeing arrow functions in a side-by-side comparison, you see that they make functions more concise by removing the function keyword and using an arrow instead:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const getFullName = (firstName, lastName) => {
   return `${firstName} ${lastName}`;
@@ -2807,7 +2807,7 @@ const getFullName = (firstName, lastName) => {
 
 You can also see how an arrow function is only available as function expression, thus the more official name **arrow function expression**. But that's not all to arrow function's conciseness. If an arrow function only has a return statement in its body, one can remove the curly brackets and the return keyword:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const getFullName = (firstName, lastName) =>
   `${firstName} ${lastName}`;
@@ -2819,7 +2819,7 @@ Essentially this strips down a function to its essential parts and ecourages kee
 
 When arrow functions are used as callback functions, their conciseness encourages us to inline them as anonymous arrow functions. With the function keyword, this turned out to be less readable and thus we extracted the function expression as a separated variable declaration (see callback function section). However, when using arrow functions as inlined functions, it becomes more readable:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullNames = [
   'Robin Wieruch',
@@ -2839,7 +2839,7 @@ console.log(nameInitials);
 
 However, if the arrow function has multiple lines of code in its body (like in the previous example), it's still a tradeoff between readability and a developer's convencience. It's arguable often still a good idea to extract it as a named arrow function expression:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const getInitials = (fullName) => {
   const [firstName, lastName] = fullName.split(' ');
@@ -2851,7 +2851,7 @@ const nameInitials = fullNames.map(getInitials);
 
 However, if a callback function (here the arrow function) is a one-liner due to the missing return keyword (also called **implicit return statement**), it's often used as inlined anonymous arrow function:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const names = [
   'Robin Wieruch',
@@ -2877,7 +2877,7 @@ In modern JavaScript, the majority of your time you will see arrow function expr
 
 Whenever you run code in JavaScript, hoisting takes places before the execution of the actual code. It's the act of allocating memory for variable and function declarations. The following two code snippet illustrate how hoisting works for function declarations. First, you have been writing similar code throughout the book where function declaration is followed by function call:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getFullName(firstName, lastName) {
   return `${firstName} ${lastName}`;
@@ -2888,7 +2888,7 @@ const fullName = getFullName('Robin', 'Wieruch');
 
 Due to hoisting, a function declaration can be called before it has been actually declared:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullName = getFullName('Robin', 'Wieruch');
 
@@ -2899,7 +2899,7 @@ function getFullName(firstName, lastName) {
 
 Hoisting allocates all function delcarations into memore before the actual code runs. The same does not apply for function expressions (or arrow function expressions) though, because it would throw an error (`ReferenceError: Cannot access 'getFullName' before initialization`):
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const fullName = getFullName('Robin', 'Wieruch');
 
@@ -2920,7 +2920,7 @@ Active use of hoisting is rarely seen in JavaScript these days, because `var` di
 
 The term scope needs to get touched eventually, because its a fundamental block of JavaScript. While you will think actively about how you scope your code, scoping is your every day companion when you write functions and control structures (e.g. if-else statement, for statement). The **scope** is defined as the current context of execution. In order to understand this statement, let's walk through the following example which presents us with two scopes:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 function getFullName(firstName, lastName) {
   return `${firstName} ${lastName}`;
@@ -2931,7 +2931,7 @@ const fullName = getFullName('Robin', 'Wieruch');
 
 While the **global scope** is everything outside of the function, the **function scope** (sometimes more unspecifically called **local scope**) is everything inside the function. Even though the present code has these two scopes, and they act for us behind the scenes, we cannot really grasp them by having this example. So let's change the example to something more questionable:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstName = 'Robin';
 const lastName = 'Wieruch';
@@ -2945,7 +2945,7 @@ const fullName = getFullName(firstName, lastName);
 
 The code works the same as before, however, you may feel confused by the variable names which stems from `firstName` and `lastName` being declared and passed to the function as arguments, but beging used as parameters with the same name within the function. Hence we usually try to differ paramater names from argument names whenever the argument's get declared as variables before the functions. Anyway, this code works though, because the function uses the values from its own scope first. If the values are not there, it reaches into the next available scope outside (until it reaches the global scope) as we can see in the next example:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstName = 'Robin';
 const lastName = 'Wieruch';
@@ -2959,7 +2959,7 @@ const fullName = getFullName();
 
 The examples shows us that inner scopes can reach into outer scopes, however, vice versa the outer scope cannot reach into inner scope. In the following case, we would receive a `ReferenceError: fullName is not defined`, because it is only defined in the function's scope but the global scope cannot reach into it for the printing:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const firstName = 'Robin';
 const lastName = 'Wieruch';
@@ -2995,14 +2995,14 @@ JavaScript as a language offers lots of built-in objects and methods. You have l
 
 A widely used built-in object is `Date`. If you go through all the data structures that we have learned about before, you will miss one that represents a single moment in time. As alternative, you could use a string primitive, like `const birthday = '2021-07-17'`, however, working with this variable would be tedious, because you would need to use built-in string methods to access and/or modify the day, month, or year. Hence, JavaScript offers the `Date` which enables us to work comfortable with temporal date structures:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const birthday = new Date('2021-07-17');
 ~~~~~~~
 
 Next we can conveniently access the date's properties by using built-in methods for this date object which wouldn't be available on a string primitive:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const birthday = new Date('2021-07-17');
 # leanpub-start-insert
@@ -3012,7 +3012,7 @@ const yearBirth = birthday.getFullYear();
 
 If we would want to change a date's properties, say the year, we could mutate the date object directly with a built-in method:
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const birthday = new Date('2021-07-17');
 # leanpub-start-insert
@@ -3026,7 +3026,7 @@ We only scratched the surface of the `Date` object here and you should definetly
 
 Global objects such as `Date`, `JSON`, or `Math` are only one side of the coin. There are also global methods such as `setTimeout()` which will be our prime example for built-in methods. However, again I encourage you to explore other popular built-in methods such as `setInterval()` by yourself.
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 setTimeout(() => {
   console.log('I print after 3 seconds');
@@ -3037,7 +3037,7 @@ console.log('I print immediately');
 
 The built-in `setTimeout()` method takes two arguments: a callback function which executes after a certain time and a number which represents that certain time in milliseconds. Usually the `setTimeout()` method is used to create a delay in your program. While `setTimeout()` executes the callback function only once, the `setInterval()` method is used to execute a callback function periodically.
 
-{title="",lang="javascript"}
+{title="index.js",lang="javascript"}
 ~~~~~~~
 const interval = setInterval(() => {
   console.log('I print every 1 second');

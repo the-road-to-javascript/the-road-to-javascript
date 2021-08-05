@@ -12,7 +12,7 @@ A programming language thrives with its ecosystem. In JavaScript land, the ecosy
 
 In this section, we will explore how to use the ecosystem to our benefit in our current setup. We will install one library via npm as third-party dependency to our project. Then we will import code (e.g. functions) from the library and use this code. Before we can install a library though, we have to initialize a project first. Go on the command line, stop your running project if neccessary, and initialize the project properly by typing:
 
-{title="",lang="javascript"}
+{title="Command Line",lang="text"}
 ~~~~~~~
 npm init -y
 ~~~~~~~
