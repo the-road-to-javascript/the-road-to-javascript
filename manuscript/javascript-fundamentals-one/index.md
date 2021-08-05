@@ -154,7 +154,7 @@ In conclusion, variables are there to reference values in your code. Meaning: Yo
 
 Structuring your code in a readable and natural way is important, because you can pick it up later more easily when reading through code that's more than a day old, but also other developers have an easier time to understand what you want to accomplish with your program.
 
-### Statements
+### Code Structure
 
 As someone new to programming, it's not intuitive from the beginning how to structure code in a readable flow. Take for example the following code snippet:
 
@@ -168,7 +168,7 @@ console.log(
   yearBirth);
 ~~~~~~~
 
-It's valid JavaScript and it executes when you run the node command to start the program. However, it's not readable and writing readable code is one of the most important things to work in a team of developers. Fortunatelly, every JavaScript statement ends with a semicolon. This semicolon can be used to put every statement in a new line of code:
+It's valid JavaScript and it executes when you run the node command to start the program. However, it's not readable and writing readable code is one of the most important things when working in a team of developers. Fortunatelly, every JavaScript statement ends with a semicolon. This semicolon can be used to put every statement in a new line of code:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -177,7 +177,7 @@ let yearBirth = 1988;
 console.log(yearBirth);
 ~~~~~~~
 
-If you leave a blank line in between or not is often a matter of taste. This doesn't mean that there should be a blank line between every statement. Usually you want to form **logical blocks of statements**, like one block for variables and one block for printing statements:
+If you leave a blank line in between or not is often a matter of taste. This doesn't mean that there should be a blank line between every statement. Usually you want to form **logical blocks of code**, like one block for variables and one block for printing statements:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -262,7 +262,7 @@ Errors in JavaScript describe what's wrong (here: syntax) and where to find the 
 ### Exercises:
 
 * Read more about [Code Structure in JavaScript](https://javascript.info/structure).
-  * See more examples in action about [Code Style in JavaScript](https://javascript.info/coding-style).
+  * See more examples in action about [Code Style](https://javascript.info/coding-style).
 * Read more about [allowed identifiers for variables in JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/Identifier).
 * Try single line and block comments yourself and use them while reading this book to annotate your code.
   * Use hotkeys: Select some code and press the hotkey `Ctrl+/` for a single line comment and `Ctrl+Shift+/` for a block comment. On MacOS use `Cmd` instead of `Ctrl` and `Option` instead of `Shift`.
@@ -345,20 +345,20 @@ Altogether, there are 7 data types categorized as **primitives** in JavaScript: 
   * Read more about [JavaScript's null primitive](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null).
 * See more examples in action about [data types in JavaScript](https://javascript.info/types).
 
-## Variable Declaration and Definition
+## Variable Declaration and Initialization
 
-When storing a value into a variable, there are a few things to note. First of all, we have seen how to declare a variable in JavaScript. A variable declaration always happens when we initialize a new variable:
+When storing a value into a variable, there are a few things to note. First of all, we have seen how to **create** (also called **define**) a variable in JavaScript. A so called variable declaration automatically happens when we initialize a new variable with a value:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
-// variable declaration and definition
+// variable declaration and initialization
 let firstName = 'Robin';
 
 console.log(firstName);
 // 'Robin'
 ~~~~~~~
 
-What's interesting about this, is that this is also called a variable defintion, because a value is assigned to the variable. So declaring and defining a variable can happen in one step. In contrast, if no value is assigned, it's called only **variable declaration**:
+What's interesting about this, is that this is also called a variable initialization, because a value is assigned to the variable. So declaring and initializing a variable can happen in one line of code. In contrast, if no value is assigned, it's called only **variable declaration**:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -369,11 +369,14 @@ console.log(firstName);
 // undefined
 ~~~~~~~
 
-If a value gets assigned, it's **called variable definition** (also called **variable initialization**):
+If a value gets assigned, it's **called variable initialization** (also called **variable assignment**):
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
-// variable definition
+// variable declaration
+let firstName;
+
+// variable initialization
 firstName = 'Robin';
 
 console.log(firstName);
@@ -405,7 +408,7 @@ console.log(age);
 // 31
 ~~~~~~~
 
-It's also possible to declare/define a new variable based on other variables (e.g. `age`) or values (e.g. `1`). While the old variable and its value stay intact, the new variable's value gets defined:
+It's also possible to declare/initialize a new variable based on other variables (e.g. `age`) or values (e.g. `1`). While the old variable and its value stay intact, the new variable's value gets created:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -422,7 +425,7 @@ JavaScript is a so called loosely typed and dynamic language. It's a **loosely t
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
-// variable declaration and definition in TypeScript
+// variable declaration and initialization in TypeScript
 let age: number = 30;
 ~~~~~~~
 
@@ -441,8 +444,8 @@ Over the long run, JavaScript's properties of being a loosely typed, dynamic, an
 
 * Read more about [variables in JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables).
 * Try to print the followings variables:
-  * A variable that's declared and defined.
-  * A variable that's declared but not defined.
+  * A variable that's declared and initialized.
+  * A variable that's declared but not initialized.
   * A variable that's not declared.
 * Question: What's the advantage of defining ones age in a computer program with `yearBirth` instead of `age`?
   * Answer: If the computer program gets older, the `age` in the program would have to change whereas the `yearBirth` could stay the same. Thus, when using yearBirth, with every passing year the program would still be without bugs.
@@ -493,7 +496,7 @@ The big question in the room: When to use `let` and when to use `const`? Essenti
 ### Exercises:
 
 * Read more about [variables in JavaScript](https://javascript.info/variables).
-* Try to declare an empty (declare but do not define) variable with the keyword `const`.
+* Try to declare an empty (declare but do not initialize) variable with the keyword `const`.
   * This should lead to an syntax error: `Missing initializer in const declaration`.
 * Try to declare a variable without let, const, or var.
   * This is possible, but should be avoided. The book will later explain why this is the case.
