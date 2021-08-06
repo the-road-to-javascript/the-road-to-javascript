@@ -8,6 +8,8 @@ javascript-fundamentals-one/index.md
 
 javascript-fundamentals-two/index.md
 
+javascript-fundamentals-three/index.md
+
 javascript-project-setup/index.md
 
 javascript-dom-one/index.md

@@ -148,7 +148,7 @@ In conclusion, variables are there to reference values in your code. Meaning: Yo
 ### Exercises:
 
 * Read more about [the different naming conventions in JavaScript](https://www.robinwieruch.de/javascript-naming-conventions) and find out what it means to have **descriptive** variable names.
-* Declare variables yourself. For example, declare variables for your last name and your age and print them on the command line. In the following, I will not always use the `console.log()` statement anymore, but you should continue using it for the sake of undertstanding and learning.
+* Declare variables yourself. For example, declare variables for your last name and your age and print them on the command line. In the following, I will not always use the `console.log()` statement for the examples, but you should continue using it for the sake of undertstanding and learning.
 
 ## Code Quality
 
@@ -282,7 +282,7 @@ let lastName = 'Wieruch';
 let mobilePhone = '+49 173 777 666';
 
 // number (here: fixed point)
-let countryCode = 49;
+let countryCodePhone = 49;
 let phone = 173777666; // not my real number :-P
 
 // number (here: floating point)
@@ -331,12 +331,13 @@ Altogether, there are 7 data types categorized as **primitives** in JavaScript: 
 
 ### Exercises:
 
+* Create a whole set of variables `firstName`, `middleName`, `lastName`, `country`, `street`, `age`, `isDeveloper`, `phone`, `countryCodePhone`, `hasKids`, `isMarried`, `countSiblings`, `countPets`, and `height` and assign your personal attributes as values to them.
 * Question: What happens if you try to create a string variable with an opening double quote and an ending single quote?
   * Answer: You get an syntax error, because JavaScript is looking for the respective double quote which ends the string. But there is only a single quote which does not make sense.
-* Question: Is it possible to create a string variable which represents a number (e.g. `let numberAsTest = '42';`)?
-  * Answer: Yes. But the underlying data type, as you will learn later, is of type string.
+* Question: Is it possible to create a string variable which represents a number?
+  * Answer: Yes. For example `let someNumber = '42';`. But the underlying data type, as you will learn later, is of type string and not number.
 * Question: When would it be reasonable to mix double and single quotes for string variables?
-  * Answer: If the quote is part of the text like in `let text = '"He said that "I am a good developer"';`.
+  * Answer: If the quote is part of the text like in `let text = 'He said that "I am a good developer"';`.
 * Read more about [JavaScript's primitive data types](https://developer.mozilla.org/en-US/docs/Glossary/Primitive).
   * Read more about [JavaScript's string primitive](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String).
   * Read more about [JavaScript's number primitive](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number).
@@ -358,7 +359,7 @@ console.log(firstName);
 // 'Robin'
 ~~~~~~~
 
-What's interesting about this, is that this is also called a variable initialization, because a value is assigned to the variable. So declaring and initializing a variable can happen in one line of code. In contrast, if no value is assigned, it's only a **variable declaration**:
+What's interesting about this, is that this is also called a variable initialization, because a value is assigned to the variable. Essentially the variable initializes. So declaring and initializing a variable can happen in one line of code. In contrast, if no value is assigned, it's only a **variable declaration**:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -383,7 +384,7 @@ console.log(firstName);
 // 'Robin'
 ~~~~~~~
 
-This leads me to the next topic of **assigning and re-assigning a value to a variable**. The last code snippet has shown you how to **assign a variable** when there hasn't been a value defined before. However, when the variable already has a value, **re-assigning a variable** to a new value is possible too:
+This leads me to the next topic of assigning and re-assigning a value to a variable. The last code snippet has shown you how to **assign a variable** when there hasn't been a value defined before. The variable has been declared but not initialized. However, when the variable already has a value, **re-assigning a variable** to a new value is possible too:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -397,7 +398,7 @@ console.log(age);
 // 31
 ~~~~~~~
 
-A re-assignment can also happen based on another variable or the same variable (e.g. like `age` in the following example) and an arithmetic operator (the `+` operator, which we will learn more about later):
+A re-assignment can also happen based on another variable or the same variable (e.g. like `age` in the following example). In the following example, we are using the arithmetic `+` operator:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -440,15 +441,20 @@ age = '30 years'; // to string
 
 Over the long run, JavaScript's properties of being a loosely typed, dynamic, and high level programming language running in the browser helped the language evolve to the giant in our industry with a high adoption rate by people being new to programming.
 
+This section has taught you about different terms when creating and changing variables in JavaScript. It's okay if you don't know all of these terms from the top of your head, however, the book tries to establish a baseline for a vocabulary, so that you always can refer back to certain sections if terms are unclear to you.
+
 ### Exercises:
 
 * Read more about [variables in JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables).
-* Try to print the followings variables:
-  * A variable that's declared and initialized.
-  * A variable that's declared but not initialized.
-  * A variable that's not declared.
+* Questions: What happens if you `console.log()` a variable that's declared and initialized.
+  * Answer: You get the variable's value printed.
+* Questions: What happens if you `console.log()` a variable that's declared but not initialized.
+  * Answer: You will get `undefined` printed on the console.
+* Questions: What happens if you `console.log()` a variable that's not declared.
+  * Answer: You will get an error.
 * Question: What's the advantage of defining ones age in a computer program with `yearBirth` instead of `age`?
-  * Answer: If the computer program gets older, the `age` in the program would have to change whereas the `yearBirth` could stay the same. Thus, when using yearBirth, with every passing year the program would still be without bugs.
+  * Answer: If the computer program gets older, the `age` in the program would have to change whereas the `yearBirth` could stay the same. Thus, when using `yearBirth`, with every passing year the program would still be without bugs.
+* From the previous section's exercises, where you came up with variables about yourself, change the `age` variable to `yearBirth`.
 
 ## let, const, and var
 
@@ -467,7 +473,7 @@ There are two other keywords to define variables in JavaScript: `const` and `var
 
 In modern JavaScript, `var` isn't used anymore because it has issues with **hoisting** and **scoping** (terms which the book will address later). The other keywords `let` and `const` address these issues in modern JavaScript and are therefore mainly used these days throughout every JavaScript project. This makes it easier for us, because we are left with only two options `let` and `const`.
 
-Technically `const` works the same way as `let`, the keyword `const` is just used whenever the value of a variable is not allowed to change. For example, when I get older every year, my age increments by one:
+Essentially `const` works the same way as `let`, the keyword `const` is just used whenever the value of a variable is not allowed to change. For example, when I get older every year, my age increments by one:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -477,34 +483,36 @@ let age = 30;
 age = 30 + 1;
 ~~~~~~~
 
-In contrast, in some countries it's not easily possible to change ones first name. If one tries to change the `firstName` variable which is declared with `const`, we would see the following error:
+In contrast, once you are born you cannot change your year of birth. If one tries to change the `yearBirth` variable which is declared with `const`, we would see the following error:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
-const firstName = 'Robin';
+const yearBirth = 1988;
 
-firstName = 'Rob';
+yearBirth = 1990;
 
-// firstName = 'Rob';
+// yearBirth = 1990;
 //           ^
 
 // TypeError: Assignment to constant variable.
 ~~~~~~~
 
-The big question in the room: When to use `let` and when to use `const`? Essentially `let` is used when a variable changes throughout the codebase and `const` is used when a variable will not change. If you want to go the simple road, you could use `let` everywhere, because then you can have both: variables that change and variables that do not change. However, as a best practice, use `const` whenever it's possible. In programming, having variables that do not change is an advantage, because less bugs get introduced this way. Once variables start to change, we loose some stability and predictability in our code and its easier to run into problems.
+The big question in the room: When to use `let` and when to use `const`? Essentially `let` is used when a variable changes throughout the codebase and `const` is used when a variable will not change. If you want to take the simple road, you could use `let` everywhere, because then you can have both: variables that change and variables that do not change. However, as a best practice, use `const` whenever a variable should not change. In programming, having variables that do not change is an advantage, because less bugs get introduced this way. Once variables start to change, we loose some stability and predictability in our code and its easier to run into problems. We will get more into this topic later in the book.
 
 ### Exercises:
 
 * Read more about [variables in JavaScript](https://javascript.info/variables).
-* Try to declare an empty (declare but do not initialize) variable with the keyword `const`.
-  * This should lead to an syntax error: `Missing initializer in const declaration`.
-* Try to declare a variable without let, const, or var.
-  * This is possible, but should be avoided. The book will later explain why this is the case.
-* Try to declare a variable with var instead of let/const and verify yourself whether it's possible to change it.
+* From the previous section's exercises, where you came up with variables about yourself, change all the variable declarations from `let` to `const` where you think that they should be treated as constants.
+* Questions: What happens if you try to declare an undefined (declare but do not initialize) variable with the keyword `const`.
+  * Answer: This should lead to an syntax error: `Missing initializer in const declaration`.
+* Question: What happens if you try to declare a variable without let, const, or var.
+  * Answer: This is possible, but should be avoided. The book will later explain why this is the case.
+* Question: What happens if you try to declare a variable with var instead of let/const and you try to change it?
+  * Answer: It's possible to change the variable the same way as it is possible with `let`.
 
 ## Arithmetic Operators
 
-So far, we have only defined variables with their values. In real JavaScript code, you will do something with these values eventually, otherweise there would be no need to store them into variables in the first place. In this section, we will talk through your first kind of operators in JavaScript. The book touches *only several* operators in this section and throughout the rest of the book, because there are too many operators to cover all of them.
+So far, we have only defined variables with their values. In real JavaScript code, you will do something with these values eventually, otherweise there would be no need to assign them to variables in the first place. In this section, we will talk through your first kind of operators in JavaScript. The book touches *only several* operators in this section and throughout the rest of the book, because there are too many operators to cover all of them. But be assured that we will cover the most popular ones.
 
 You have already learned about one operator before: the `+` operator. It's one of several **arithmetic operators**. Another one is the `-` operator. While the `+` operator is used for addition, the `-`, `*`, and `/` operators are used for subtraction, multiplication, and division:
 
@@ -561,7 +569,7 @@ console.log({ yearsAsDeveloper });
 */
 ~~~~~~~
 
-Extraction of variables is a best practice, because it allows you to define explictly descriptive names for values (e.g. `age`). Another benefit is reusing these variables for successive operations which you will often perform in more elaborate programs:
+Extraction of variables is a best practice, because it allows you to define descriptive names for values (e.g. `age`). Another benefit is reusing these variables for successive operations which you will often perform in more elaborate programs:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -595,6 +603,9 @@ This was only the introduction to operators with the example of arithmetic opera
 
 ### Exercises:
 
+* From the previous section's exercises, where you came up with variables about yourself, calculate your age based on today's year and your `yearBirth`.
+* Question: In one of the previous examples, we calculated `yearsAsDeveloper` based on `yearGraduation` and `yearBirth`. What's a simpler way to calculate `yearsAsDeveloper` from the variables in this examples?
+  * Answer: The simpler and more straightforward way would be `const ageGraduation = today - yearGraduation;`.
 * Read more about [operators in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators).
   * Use all artihmetic operators including the `%` and the `**` operators.
   * Use the increment and decrement operators.
@@ -608,7 +619,7 @@ This was only the introduction to operators with the example of arithmetic opera
 
 ## String Operations
 
-While you have learned about operators which have been mostly used for number and boolean data types, there are also string operations that you can perform on string primitives by using certian operators. For example, sometimes you want to create a new string based on two string values which is called **string concatenation**. The + operator helps you here to concatenate strings:
+While you have learned about operators which have been mostly used for number primitives, there are also string operations that you can perform on string primitives. For example, sometimes you want to create a new string based on two string values which is called **string concatenation**. The + operator helps you here to concatenate strings:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -677,7 +688,8 @@ However, this is more a matter of taste at this point in time and many developer
 * Read more about [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
   * Find out how to use [long literal strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) which are different from multi-line strings.
 * Read more about [strings in JavaScript](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Strings).
-* Extend the `introduceYourself` variable by interpolating it with an `age` (number) variable.
+* Extend the `introduceYourself` variable by interpolating it with an `age` (number) variable. Use more of the variables that describe yourself and interpolate them into the text.
+* From the variables that describe yourself, interpolate `countryCodePhone` and `phone` into a new `phoneWithCountryCode` variable.
 
 ## Type Conversion and Coercion
 
@@ -705,9 +717,7 @@ const introduceYourself = `
 console.log(introduceYourself);
 ~~~~~~~
 
-What you are experiencing here is called type coercion which happens every time when JavaScript changes data types behind the scenes. In this case, the `age` variable with the data type number is coerced to a string data type to be used in the template literal. Hence we are able to print a sentence even though we have interpolated it with a number data type.
-
-Before you continue reading, ask yourself what's printed when executing the following code snippet:
+What you are experiencing here is called type coercion which happens every time when JavaScript changes data types behind the scenes. In this case, the `age` variable with the data type number is coerced to a string data type to be used in the template literal. Hence we are able to print a sentence even though we have interpolated it with a number data type. Before you continue reading, ask yourself what's printed when executing the following code snippet:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -718,7 +728,7 @@ const yearToday = yearBirth + age;
 console.log(yearToday);
 ~~~~~~~
 
-Against ones expecations this prints "199130" and not 2021. Whenever a string is involved, the arithmetic + operator becomes a string operation like we have learned before. Thus every number just gets concatenated. Changing all variables to number data types fixes this issue:
+Against ones expecations this prints "199130" and not 2021. Whenever a string is involved, the arithmetic `+` operator becomes a string operation like we have learned before. Thus every number just gets concatenated. Changing all variables to number data types fixes this issue:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -817,7 +827,7 @@ console.log(Boolean(30));
 // true
 ~~~~~~~
 
-Essentially this conversion always results in true when the string or number values are defined. If they are not defined, null, or have some other for JavaScript interpreted falsy value (e.g. number 0 or empty string ''), the conversion will result in false:
+Essentially this conversion always results in true when the string or number values are defined. If they are not defined, null, or have some other for JavaScript interpreted falsy value (e.g. number `0` or empty string `''`), the conversion will result in false:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -839,6 +849,7 @@ This knowledge will later help us to make decisions in JavaScript not only based
   * Answer: NaN - Not a number.
 * Question: What's `typof NaN`?
   * Answer: number. It's not a valid number, but it's still of type number.
+* From the variables that describe yourself, convert `countSiblings` and `countPets` into their respective `hasSiblings` and `hasPets` variables by using `Boolean()`.
 
 ## If-Else Statement
 
@@ -860,7 +871,7 @@ if (isDeveloper) {
 }
 ~~~~~~~
 
-Having a boolean at your hand makes this decision making the most straightforward: If the boolean in the parentheses (called **condition**) evaluates to true, then go into the first (here: if) block of curly brackets. If the boolean evaluates to false, go into the second (here: else) block and execute its code. The else block is optional though. Hence it's also common to have only the if block which only executes if the boolean evaluates to true:
+Having a boolean at your hand makes this decision making the most straightforward: If the boolean in the parentheses (called **condition**) evaluates to `true`, then go into the first (here: `if`) block of curly brackets. If the boolean evaluates to `false`, go into the second (here: `else`) block and execute its code. The `else` block is optional though. Hence it's also common to have only the `if` block which only executes if the boolean evaluates to `true`:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -885,7 +896,7 @@ if (isDeveloper) console.log(`${firstName} is a developer.`);
 // but it's better to use curly brackets
 ~~~~~~~
 
-In the other direction of just having one if without an else statement, there can be more than one condition expressed by using additional else/if statements in between:
+In the other direction of just having one `if` without an `else` statement, there can be more than one condition expressed by using additional else-if statements in between:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -908,7 +919,7 @@ if (isDeveloper) {
 
 This code has one flaw though, which we will adress properly in one of the next sections when we learn about logical operators. But can you spot it right now? Hint: What's printed if Robin is a developer and a lawyer? Try it yourself in the code.
 
-An if-else statement (with optional else/if statements) always runs only the block of the first truthful (also called truthy) condition. All the following blocks are ignored. If you would want to fix this without logical operators (which we introduce later), you would have to use two if-else statements:
+An if-else statement (with optional else-if statements) always runs only the block of the first truthful (also called truthy) condition. All the following blocks are ignored. If you would want to fix this without logical operators (which we introduce later), you would have to use two if-else statements:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -929,12 +940,13 @@ if (isLawyer) {
 }
 ~~~~~~~
 
-The drawback is that if both booleans are false, the code would execute both else blocks with their same instructions which wouldn't be desired either.
+The drawback is that if both booleans are `false`, the code would execute both else blocks with their same instructions which wouldn't be desired either.
 
-The if-else statement is one of the most used tools as a developer, because it enables one to move from coding a sequence of instructions to coding a tree of instructions with decision making based on conditions. Therefore not all code will be executed and only certain parts of the code will meet the conditions along the way. The if-else statement is one of several **control structures** (also called **control flows**) you will learn about.
+The if-else statement is one of the most used tools as a developer, because it enables one to move from coding a sequence of instructions to coding a tree of instructions with decision making based on conditions. Therefore not all code will be executed and only certain parts of the code will meet the conditions along the way. The if-else statement is one of several **control structures** (which enabled **control flows** in JavaScript) you will learn about.
 
 ### Exercises:
 
+* From your personal variables, print something depending based on your `isMarried` and `hasKids` status.
 * Read more about [if-else in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else).
   * Read more about [the lesser used switch-case in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch).
   * Read more about [a conditional in JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/Conditional).
@@ -953,7 +965,7 @@ console.log(isDeveloper);
 // true
 ~~~~~~~
 
-The newly created `isDeveloper` boolean can be used in an if-else statement as condition now. However, since the expression evaluates to an boolean anyway, we can use this *on the fly* as a condition, because it will evaluate within the parentheses:
+The newly created `isDeveloper` boolean can be used in an if-else statement as condition now. However, since the expression evaluates to an boolean anyway, we can use this *on the fly* as a condition in the if-else statement, because it will evaluate within the parentheses:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -967,9 +979,9 @@ if (yearsAsDeveloper > 0) {
 }
 ~~~~~~~
 
-Operators such as `>` (greater than), `<` (less than), `<=` (less than or equal), `>=` (greater than or equal), `==` (equality or double equal operator), or `===` (strict equality, identity, or tripple equal operator) are used to derive booleans or to make on the fly decisions based on these booleans in conditional statements such as the if-else statement.
+Operators such as `>` (greater than), `<` (less than), `<=` (less than or equal), `>=` (greater than or equal), `==` (equality or double equal operator), or `===` (strict equality, identity, or tripple equal operator) are used to derive booleans or to make on the fly decisions based on the derived booleans in conditional statements such as the if-else statement.
 
-You may have noticed that there are two similar comparison operators `==` (equality operator) and `===` (strict equality operator). While the equality operator coerces its values to a number data type if both values are of different types, the strict equality operator does not perform a coercion and keeps the data types intact:
+You may have noticed that there are two similar comparison operators `==` (equality operator) and `===` (strict equality operator). While the **equality operator** coerces its values to a number data type if both values are of different types, the **strict equality operator** does not perform a coercion and keeps the data types intact:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -980,7 +992,7 @@ console.log(1 === '1'); // keeps data types
 // false
 ~~~~~~~
 
-In other words, the equality operator does not care about data types. Therefore, it's a good rule of thumb to use the strict equality operator whenever you can to leave less room for errors, because most of the time you do want to compare values and their respective data types. As counterparts, there are also `!==` (strict non-equality) and `!=` (non-equality) operators.
+In other words, the equality operator does not care about data types. Therefore, it's a good rule of thumb to use the strict equality operator whenever you can to leave less room for errors, because most of the time you do want to compare values and their respective data types. As counterparts to both operators, there are also `!==` (strict non-equality) and `!=` (non-equality) operators.
 
 ### Exercises
 
@@ -995,13 +1007,13 @@ In other words, the equality operator does not care about data types. Therefore,
   * Answer: You get `true` as result, because when using a relational operator on booleans, `true` is coerced to `1` and `false` is coerced to `0`.
 * Question: What happens if you compare `'A' > 'a'`?
   * Answer: You get false as result, because when using a relation operator on strings, the underlying character's [unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) is used where `'A'` comes earlier in the unicode table than `'a'` and therefore isn't greater.
-* Come up with several variables yourself and apply comparison and relational operators on them without and with if-else statements.
+* Come up with variables yourself and apply comparison and relational operators on them without and with if-else statements.
 
 ## Statements vs Expressions
 
 Stepping a bit away from the actual code, this section will explain the terms statements and expressions. Both have been used in this book before, but without any explanation yet. Now we will address this, because these terms will come across more often when speaking code.
 
-**Statements** execute to make something happen in code. So a statement can be a `console.log()` statement or an if-else statement (which is also known under the term control structure as we have learned before). So essentially a statement gives instructions on how a piece of code has to execute.
+**Statements** execute to make something happen in code. So a statement can be a `console.log()` statement (because it's a method as we will learn later) or control structures such as an if-else statement. So essentially a statement gives instructions on how a piece of code has to execute.
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1016,20 +1028,20 @@ if (yearsAsDeveloper > 0) {
 }
 ~~~~~~~
 
-However, the last code snippet shows expressions too. In contrast to statements, **expressions** are used to *produce* a value. Hence you hear people say 1 + 2 *"results in"* or *"evaluates to"* 3. These are all words that describe the same term. So essentially expressions are values assigned to variables, variables that are derived from other values/variables, conditions used for an if-else statements, and everything else where a value appears.
+However, the last code snippet shows expressions too. In contrast to statements, **expressions** are used *to produce* a value. Hence you hear people say 1 + 2 *"results in"* or *"evaluates to"* 3. These are all words that describe the same term. So essentially expressions are values assigned to variables, variables that are derived from other values/variables (e.g. booleans derived from relational operators), conditions used for if-else statements, and everything else where a value appears.
 
 ![](images/statement-vs-expression.png)
 
-In conclusion, as mentioned partly before, the right-hand side of an value to variable assignment is called an expression. If the value happens to be just a plain data type such as `Robin` or `7`, it's also called **literal**, because the values that get produced are litteral written down.
+In conclusion, as mentioned partly before, the right-hand side of an value to variable assignment is called an expression. If the value happens to be just a plain data type such as `Robin` or `7`, it's also called **literal**, because the values that get produced are litteraly written down.
 
 ### Exercises:
 
-* Go through the code from the previous sections and mentaly assign each line statement, expression or both.
+* Go through the code from the previous sections and mentaly assign each part in a line of code either statement, expression or both.
 * Read more about [the hierarchy of statements (e.g. control structures and declarations)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements).
 
 ## Logical Operators
 
-Beyond relational and comparison operators which compute to booleans, there are also logical operators. Do you recall the flaw with "Robin being a developer and a lawyer" ?
+Beyond relational and comparison operators which compute to booleans, there are also logical operators. Do you recall the flaw that we had with "Robin being a developer and a lawyer" ?
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1046,7 +1058,7 @@ if (isDeveloper) {
 }
 ~~~~~~~
 
-The flaw of this decision tree is that it would only execute the first block: "Robin is a developer." This introduces a buggy behavior (read: bug), because Robin is a lawyer as well. What's missing are operators which can combine more than one boolean value: entering **logical operators**. In this case, the problem can be solved with an **logical && (AND) operator** which evaluates to `true` if all of the participating booleans are `true`:
+The flaw of this decision tree is that it would only execute the first block: "Robin is a developer." This introduces an errornous behavior (read: bug), because Robin is a lawyer as well. What's missing are operators which can combine more than one boolean value: entering **logical operators**. In this case, the problem can be solved with an **logical && (AND) operator** which evaluates to `true` if all of the participating booleans are `true`:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1067,7 +1079,7 @@ if (isDeveloper && isLawyer) {
 }
 ~~~~~~~
 
-The printed output will result in "Robin is a developer and a lawyer." Even though the other two conditions in the following else/if parenthaseses evaluate to `true` too, these blocks will not execute, because one of the earlier conditions (here: `isDeveloper && isLawyer`) already evaluated to `true` and executed its block.
+The printed output will result in "Robin is a developer and a lawyer." Even though the other two conditions in the following else-if parenthaseses evaluate to `true` too, these blocks will not execute, because one of the earlier conditions (here: `isDeveloper && isLawyer`) already evaluated to `true` and therefore executed its block.
 
 The equivalent of the logical AND operator is the **logical || (OR) operator** which evalutes to `true` if at least one of participating booleans is `true`:
 
@@ -1088,7 +1100,7 @@ if (isDeveloper && isLawyer) {
 }
 ~~~~~~~
 
-While relational and comparison operators are used to derive booleans from other primitives, using logical AND and OR operators is always helpful when combining multiple booleans into one boolean. Last but not least, it's important to know about the **logical ! (NOT) operator** which is there to flip a boolean from `false` to `true` or `true` to `false`:
+While relational and comparison operators are used to derive booleans from other primitives, using logical AND and OR operators is always helpful when combining multiple booleans into one boolean. Last but not least, you should know about the **logical ! (NOT) operator** which is there to flip a boolean from `false` to `true` or from `true` to `false`:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1131,7 +1143,9 @@ In this example, the output will not be printed, because Robin Wieruch has no mi
 {title="index.js",lang="javascript"}
 ~~~~~~~
 const firstName = 'Robin';
+# leanpub-start-insert
 const middleName = '';
+# leanpub-end-insert
 const lastName = 'Wieruch';
 
 if (middleName) {
@@ -1139,7 +1153,7 @@ if (middleName) {
 }
 ~~~~~~~
 
-In contrast, if a variable with the data type string or number is defined, it is coerced into truthy value. The following code snippet prints the output, because there is a defined middle name:
+In contrast, if a variable with the data type string or number is defined, it is coerced into a truthy value. The following code snippet prints the output, because there is a defined middle name:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1152,7 +1166,7 @@ if (middleName) {
 }
 ~~~~~~~
 
-Both, truthy and falsy values can negated by using the logical NOT operator:
+Both, truthy and falsy values can be negated by using the logical NOT operator:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1174,6 +1188,8 @@ You see that lots of things derive from data type coercion and conversion in Jav
 * Read more about [logical operators in JavaScript](https://javascript.info/logical-operators).
 * Read more about [truthy values](https://developer.mozilla.org/en-US/docs/Glossary/Truthy).
 * Read more about [falsy values](https://developer.mozilla.org/en-US/docs/Glossary/Falsy).
+* Use your variables from before and put them as conditions in if-else statements. See whether these conditions coerce into a truthy or falsy value and therefore whether the code in the if block runs.
+* From the variables that describe yourself, convert `countSiblings` and `countPets` into their respective `hasSiblings` and `hasPets` boolean variables by using the double NOT `!!` operator.
 
 ## Ternary Operator
 
@@ -1196,7 +1212,7 @@ console.log(hourlyRate);
 // '$100'
 ~~~~~~~
 
-In this example, we declare an `undefined` variable where we will assign the value based on a decision making process (e.g. if-else statement) eventually. Even though it's questionable whether this example of calculating once hourly rate as a freelance developer makes sense, we can see how decision making can be used to define variables based on a condition. However, this is one of the best use cases for the ternary operator, because it shortens the process of assigning a value to a variable conditionally:
+In this example, we declare an `undefined` variable `hourlyRate` where we will assign the value based on a decision making process (e.g. if-else statement) eventually. Even though it's questionable whether this example of calculating once hourly rate as a freelance developer makes sense, we can see how decision making can be used to define variables based on a condition. However, this is one of the best use cases for the ternary operator, because it shortens the process of assigning a value to a variable conditionally:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1235,5 +1251,3 @@ It's also possible to nest ternary operators into each other, but it's not recom
 ### Exercises:
 
 * Read more about the [ternary operator in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
-
-- TODO incooperate lectures from video course(s)
