@@ -10,11 +10,9 @@ javascript-fundamentals-two/index.md
 
 javascript-fundamentals-three/index.md
 
-javascript-project-setup/index.md
-
 javascript-dom-one/index.md
 
-javascript-async/index.md
+javascript-fundamentals-four/index.md
 
 javascript-dom-two/index.md
 
