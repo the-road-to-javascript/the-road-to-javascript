@@ -562,7 +562,7 @@ console.log({ yearsAsDeveloper });
 
 /*
   Note how we used variables
-  with curly brackets (braces)
+  with curly braces
   in the console.log statements
   which is useful for printing
   values with their variable name
@@ -871,7 +871,7 @@ if (isDeveloper) {
 }
 ~~~~~~~
 
-Having a boolean at your hand makes this decision making the most straightforward: If the boolean in the parentheses (called **condition**) evaluates to `true`, then go into the first (here: `if`) block of curly brackets. If the boolean evaluates to `false`, go into the second (here: `else`) block and execute its code. The `else` block is optional though. Hence it's also common to have only the `if` block which only executes if the boolean evaluates to `true`:
+Having a boolean at your hand makes this decision making the most straightforward: If the boolean in the parentheses (called **condition**) evaluates to `true`, then go into the first (here: `if`) block of curly braces. If the boolean evaluates to `false`, go into the second (here: `else`) block and execute its code. The `else` block is optional though. Hence it's also common to have only the `if` block which only executes if the boolean evaluates to `true`:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -883,7 +883,7 @@ if (isDeveloper) {
 }
 ~~~~~~~
 
-If this statement only executes one line in its block, then it can be expressed in a shorter version without curly brackets too. Note however that it's recommended to use the curly bracktes for having the blocks more explicit:
+If this statement only executes one line in its block, then it can be expressed in a shorter version without curly braces too. Note however that it's recommended to use the curly bracktes for having the blocks more explicit:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -893,7 +893,7 @@ const isDeveloper = true;
 # leanpub-start-insert
 if (isDeveloper) console.log(`${firstName} is a developer.`);
 # leanpub-end-insert
-// but it's better to use curly brackets
+// but it's better to use curly braces
 ~~~~~~~
 
 In the other direction of just having one `if` without an `else` statement, there can be more than one condition expressed by using additional else-if statements in between:

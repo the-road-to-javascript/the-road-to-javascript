@@ -14,7 +14,7 @@ function askAndSayMyName() {
 }
 ~~~~~~~
 
-A **function declaration** starts with the `function` keyword, a descriptive name for this function, and an opening and closing parantheses. Everything that follows inside of the curly brackets is the code which should run when this function gets called. Hence functions are like variables, except that they do not store any values, but code which runs when someone calls the function:
+A **function declaration** starts with the `function` keyword, a descriptive name for this function, and an opening and closing parantheses. Everything that follows inside of the curly braces is the code which should run when this function gets called. Hence functions are like variables, except that they do not store any values, but code which runs when someone calls the function:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -629,7 +629,7 @@ const robin = {
 };
 ~~~~~~~
 
-In this example, an object gets declared as variable with the name `robin` whereas everything in the curly brackets are **properties** of this object. While the left-hand side of these properties is called **object keys** (also called: property names, names, or keys, here: `firstName`, `lastName`, `yearBirth`, `isDeveloper`), the right-hand side is called **object values** (also called: values). Essentially an object is a wrapper around a bunch of values (of any data type) which are grouped into an **entity** of a specific **domain** (e.g. person domain).
+In this example, an object gets declared as variable with the name `robin` whereas everything in the curly braces are **properties** of this object. While the left-hand side of these properties is called **object keys** (also called: property names, names, or keys, here: `firstName`, `lastName`, `yearBirth`, `isDeveloper`), the right-hand side is called **object values** (also called: values). Essentially an object is a wrapper around a bunch of values (of any data type) which are grouped into an **entity** of a specific **domain** (e.g. person domain).
 
 ![](images/object-anatomy.png)
 
@@ -854,7 +854,7 @@ For a beginner, a JavaScript object seems to be similar to a JavaScript class co
 
 ## Arrays
 
-An **array** in JavaScript represents a list of items. Informally it's also called **list** or **list of items**. While objects (from the last section) represent one entity (here: object) with certain properties defined in curly brackets, arrays represent multiple entities (here: strings, numbers, but also objects) in a list defined in brackets.
+An **array** in JavaScript represents a list of items. Informally it's also called **list** or **list of items**. While objects (from the last section) represent one entity (here: object) with certain properties defined in curly braces, arrays represent multiple entities (here: strings, numbers, but also objects) in a list defined in brackets.
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1130,7 +1130,7 @@ My avatar moved 3 step(s).
 My avatar arrived the desired destination.
 ~~~~~~~
 
-Essentially a loop statement does always the same thing: perform a certain action a specific number of times. The for statement takes three expressions in parantatheses: initial expression, condition expression, and increment expression. Most often you will encounter the initial expression as a variable which is defined with 0. If the condition expression evaluates to true (e.g. `0 < 3`), the loop's body in curly brackets gets executed. If the condition evaluates to false though, the for loop terminates (read: it jumps out of the curly brackets and continues with the next line of code below the for statement). After each execution of a loop's body, the update condition executes (e.g. increment by one) and we continue with the condition expression.
+Essentially a loop statement does always the same thing: perform a certain action a specific number of times. The for statement takes three expressions in parantatheses: initial expression, condition expression, and increment expression. Most often you will encounter the initial expression as a variable which is defined with 0. If the condition expression evaluates to true (e.g. `0 < 3`), the loop's body in curly braces gets executed. If the condition evaluates to false though, the for loop terminates (read: it jumps out of the curly braces and continues with the next line of code below the for statement). After each execution of a loop's body, the update condition executes (e.g. increment by one) and we continue with the condition expression.
 
 ![](images/for-statement.png)
 

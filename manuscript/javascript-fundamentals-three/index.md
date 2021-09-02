@@ -879,7 +879,7 @@ console.log(`My initials are ${firstName[0]}${lastName[0]}.`);
 // My initials are RW.
 ~~~~~~~
 
-Basically you can assign each property from an object by using curly brackets on the left-hand side and the proptery name. When destructuring multiple properties, the list of properties becomes comma separated. If you want to have a different name for a property, you can use an alias which are used to avoid variable name collision:
+Basically you can assign each property from an object by using curly braces on the left-hand side and the proptery name. When destructuring multiple properties, the list of properties becomes comma separated. If you want to have a different name for a property, you can use an alias which are used to avoid variable name collision:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1568,7 +1568,7 @@ const getFullName = (firstName, lastName) => {
 };
 ~~~~~~~
 
-You can also see how an arrow function is only available as function expression, thus the more official name **arrow function expression**. But that's not all to arrow function's conciseness. If an arrow function only has a return statement in its body, one can remove the curly brackets and the return keyword:
+You can also see how an arrow function is only available as function expression, thus the more official name **arrow function expression**. But that's not all to arrow function's conciseness. If an arrow function only has a return statement in its body, one can remove the curly braces and the return keyword:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1576,7 +1576,7 @@ const getFullName = (firstName, lastName) =>
   `${firstName} ${lastName}`;
 ~~~~~~~
 
-Essentially this strips down a function to its essential parts and ecourages keeping functions small. However, often you will have functions with more lines of code in their body, so stripping away the return keyword and the curly brackets does not become the default.
+Essentially this strips down a function to its essential parts and ecourages keeping functions small. However, often you will have functions with more lines of code in their body, so stripping away the return keyword and the curly braces does not become the default.
 
 ![](images/arrow-function-anatomy.png)
 
