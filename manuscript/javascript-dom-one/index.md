@@ -305,6 +305,68 @@ Finally, open up the browser on the printed URL (usually `http://localhost:3000`
 * Read more about [how we used to set up JavaScript manually in the old days](https://www.robinwieruch.de/javascript-project-setup).
 * Read more about [Vite and how it's used to set up modern JavaScript projects](https://vitejs.dev/).
 
+## DOM API: JavaScript meets HTML
+
+The DOM (Document Object Model) API enables developers to talk with JavaScript to HTML. In this section, we will explore this particular API for the browser step by step while we will continue using it throughout the rest of this book. Coming back our freshly created modern JavaScript project, open the *index.html* file in your editor/IDE. The content may be the same or similar (depending on your current build tool and its version):
+
+{title="index.html",lang="html"}
+~~~~~~~
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
+~~~~~~~
+
+The HTML file does not display much inside its `<body>` tag except for two crucial pieces which power your JavaScript application. First, there is a `<div>` tag which has an `id` attribut. The `id` attribute can be later used in JavaScript to reference this particular HTML element (see *main.js*). And second, there is a `<script>` tag which loads a JavaScript file called *main.js*. Head over to this JavaScript file and check its content:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+import './style.css'
+
+document.querySelector('#app').innerHTML = `
+  <h1>Hello Vite!</h1>
+  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
+`
+~~~~~~~
+
+The JavaScript file imports a *style.css* file which applies all its CSS to the HTML. Furthermore, the JavaScript file uses the DOM API to manipulate the HTML. We will use the DOM API throughout the following sections to read from and write to the HTML. For now, let's examine the JavaScript code in this file.
+
+The `document` object is a globally available built-in object for client-side JavaScript in the browser. This object represents your access point to the HTML of your website. In this case, it gives you access to the *index.html* file, because the JavaScript file is loaded in this file. By using methods on the `document` object, we can read information from the HTML or write information to the HTML. In this example, the code performs the latter by writing new inner HTML to the selected HTML element.
+
+The `querySelector()` method is one modern DOM API method to select a specific HTML element (programmatically also referred to as **HTML node**). Because we are using `#app` with a `#`, we select a HTML element by its `id` attribute whereas the attribute's value on the HTML element is `app`. When you look back at yout *index.html* file, where the JavaScript file is loaded, you can see that we have such HTML element. Selecting a HTML element by its `class` attribute, for example `querySelector('.app')` with a leading `.` is another common scenario.
+
+Now, by having access to a HTML element after selecting it, we can read or write to it. As said, in this example, the code is writing to the HTML element by mutating its `innerHTML` property and assigning a JavaScript string to it. The string is not a mere string, but uses HTML tags such as `<h1>` and `<a>` to be used as structural elements. Change the HTML modification to the following and verify it in the browser after saving the file (and running the application with `npm run dev`):
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+document.querySelector("#app").innerHTML = `
+# leanpub-start-insert
+  <h1>Hello JavaScript!</h1>
+  <p>I am a paragraph.</p>
+# leanpub-end-insert
+`;
+~~~~~~~
+
+In conclusion, the DOM API allows you to access HTML with JavaScript. While the Document Object Model (DOM) is a logical tree of nodes in memory, its API is the interface which allows us to interact with it (e.g. `querySelector()`). In a nutshell, the DOM API is the bridge between HTML and JavaScript. While we can display *static content* by only using HTML, we can display *dynamic content* by leveraging the DOM API and JavaScript. We will use the DOM API to create dynamic HTML by leveraging our JavaScript knowledge throughout the rest of the book.
+
+### Exercises:
+
+* Read more about [the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction).
+* Read more about [the built-in document object](https://developer.mozilla.org/en-US/docs/Web/API/Document).
+* Read more about [the querySelector() method](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector).
+* Read more about [the innerHTML property](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML).
+* Question: When to use the `innerHTML` and `innerText` properties to change an HTML element's content?
+  * Answer: While `innerHTML` allows a developer to mix text with HTML with formatting, `innerText` is used for only text without formatting. Another popular alternative to `innerText` is `textContent` which have only subtle differences.
+
 ## Import/Export Statements
 
 When we worked with JavaScript, we used so far only one file to perform all of our work. However, this does not scale well for larger applications where you want to organise JavaScript code in multiple folders and files. In our new project, you may already have seen the following line which imports a CSS file in our JavaScript file:
@@ -314,8 +376,8 @@ When we worked with JavaScript, we used so far only one file to perform all of o
 import './style.css'
 
 document.querySelector('#app').innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
+  <h1>Hello JavaScript!</h1>
+  <p>I am a paragraph.</p>
 `
 ~~~~~~~
 
@@ -457,7 +519,7 @@ document.querySelector('#app').innerHTML = `
 
 Once you display the website in a browser, you should see how Lodash's `kebabCase()` and `camelCase()` alter both strings. These functions are not available in native JavaScript, so libraries like Lodash give us these functionalities without implementing them ourselves.
 
-After you have learned how to import code from file and from packages, we will continue with learning JavaScript in combination with HTML. Throughout the rest of the book, we will apply all of our fundamental JavaScript learnings in a web application which is displayed on a browser with the help of HTML.
+After you have learned how to import code from file and from packages, we will continue with learning JavaScript in combination with HTML by using the DOM API. Throughout the rest of the book, we will apply all of our fundamental JavaScript learnings in a web application which is displayed on a browser with the help of HTML.
 
 ### Exercises:
 
@@ -467,65 +529,3 @@ After you have learned how to import code from file and from packages, we will c
 * Question: Earlier when you set up the project, you used `npm install` before running the project with the development server. What happens when entering `npm install`?
   * Answer: When running `npm install` on the command line, all `dependencies` and `devDependencies` from the *package.json* get installed. The installation of all the packages ends up in the *node_modules* folder from where it can be later imported in your JavaScript project.
 
-## DOM API: JavaScript meets HTML
-
-The DOM (Document Object Model) API enables developers to talk with JavaScript to HTML. In this section, we will explore this particular API for the browser step by step while we will continue using it throughout the rest of this book. Coming back our freshly created modern JavaScript project, open the *index.html* file in your editor/IDE. The content may be the same or similar (depending on your current build tool and its version):
-
-{title="index.html",lang="html"}
-~~~~~~~
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
-</html>
-~~~~~~~
-
-The HTML file does not display much inside its `<body>` tag except for two crucial pieces which power your JavaScript application. First, there is a `<div>` tag which has an `id` attribut. The `id` attribute can be later used in JavaScript to reference this particular HTML element (see *main.js*). And second, there is a `<script>` tag which loads a JavaScript file called *main.js*. Head over to this JavaScript file and check its content:
-
-{title="main.js",lang="javascript"}
-~~~~~~~
-import './style.css'
-
-document.querySelector('#app').innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
-~~~~~~~
-
-The JavaScript file imports a *style.css* file which applies all its CSS to the HTML. Furthermore, the JavaScript file uses the DOM API to manipulate the HTML. We will use the DOM API throughout the following sections to read from and write to the HTML. For now, let's examine the JavaScript code in this file.
-
-The `document` object is a globally available built-in object for client-side JavaScript in the browser. This object represents your access point to the HTML of your website. In this case, it gives you access to the *index.html* file, because the JavaScript file is loaded in this file. By using methods on the `document` object, we can read information from the HTML or write information to the HTML. In this example, the code performs the latter by writing new inner HTML to the selected HTML element.
-
-The `querySelector()` method is one modern DOM API method to select a specific HTML element (programmatically also referred to as **HTML node**). Because we are using `#app` with a `#`, we select a HTML element by its `id` attribute whereas the attribute's value on the HTML element is `app`. When you look back at yout *index.html* file, where the JavaScript file is loaded, you can see that we have such HTML element. Selecting a HTML element by its `class` attribute, for example `querySelector('.app')` with a leading `.` is another common scenario.
-
-Now, by having access to a HTML element after selecting it, we can read or write to it. As said, in this example, the code is writing to the HTML element by mutating its `innerHTML` property and assigning a JavaScript string to it. The string is not a mere string, but uses HTML tags such as `<h1>` and `<a>` to be used as structural elements. Change the HTML modification to the following and verify it in the browser after saving the file (and running the application with `npm run dev`):
-
-{title="main.js",lang="javascript"}
-~~~~~~~
-document.querySelector("#app").innerHTML = `
-# leanpub-start-insert
-  <h1>Hello JavaScript!</h1>
-  <p>I am a paragraph.</p>
-# leanpub-end-insert
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`;
-~~~~~~~
-
-In conclusion, the DOM API allows you to access HTML with JavaScript. While the Document Object Model (DOM) is a logical tree of nodes in memory, its API is the interface which allows us to interact with it (e.g. `querySelector()`). In a nutshell, the DOM API is the bridge between HTML and JavaScript. While we can display *static content* by only using HTML, we can display *dynamic content* by leveraging the DOM API and JavaScript. We will use the DOM API to create dynamic HTML by leveraging our JavaScript knowledge throughout the rest of the book.
-
-### Exercises:
-
-* Read more about [the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction).
-* Read more about [the built-in document object](https://developer.mozilla.org/en-US/docs/Web/API/Document).
-* Read more about [the querySelector() method](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector).
-* Read more about [the innerHTML property](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML).
-* Question: When to use the `innerHTML` and `innerText` properties to change an HTML element's content?
-  * Answer: While `innerHTML` allows a developer to mix text with HTML with formatting, `innerText` is used for only text without formatting. Another popular alternative to `innerText` is `textContent` which have only subtle differences.
