@@ -216,11 +216,11 @@ In the end, you will likely encounter many different property and property value
 * Read more about [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
 * Create a `<div>` tag as parent element for some other elements (e.g. a combination of headline, paragraph, image) and style this block element with `margin`, `border`, and `padding`. Afterward, read more about [the box model in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model).
 
-## Linking Files
+## Linking Files in HTML
 
 If you went through the previous crash courses for HTML and CSS, or if you are already quite familiar with HTML, you may already know how to link files (e.g. CSS files, JavaScript files, etc.) to a HTML file. In the previous section, we already linked a CSS file to our HTML file, so that we were able to style the HTML with CSS. In this section, let's go through an example for linking a JavaScript file to our HTML file, so that it gets executed once the HTML is displayed in a browser.
 
-First, let's create an *index.html* file and fill it with the following content. After you created this file, you can open it in a browser to see its content displayed like a website:
+First, we will create a *index.html* file and fill it with the following content. After you have created this file, you can open it in a browser to see its content displayed like a website:
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -242,7 +242,7 @@ Second, create a *index.js* file next to your HTML file and give it the followin
 console.log('Hello JavaScript');
 ~~~~~~~
 
-And third, in contrast to linking a CSS file with a `<link>` tag and its `href` attribute, include the JavaScript file in the *index.html* file with a `<script>` tag and its `src` attribute. We are using the `async` attribute here to load the JavaScript file in paralell to the HTML file and to execute the JavaScript file as soon as possible:
+And third, in contrast to linking a CSS file with a `<link>` tag and its `href` attribute, link the JavaScript file in the *index.html* file with a `<script>` tag and its `src` attribute. We are using the `async` attribute here to load the JavaScript file in paralell to the HTML file and to execute the JavaScript file as soon as possible (read: non-blocking):
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -260,9 +260,9 @@ And third, in contrast to linking a CSS file with a `<link>` tag and its `href` 
 </html>
 ~~~~~~~
 
-We are using a relative path *./index.js* which always takes the current file as origin and looks for another file from there in relative perspective. In this case, it indicates that the file must be in the same folder (see exercises if the file wouldn't be in the same folder). Since all files are top-level files in our project, we could use an absolute path by just using *index.js* too.
+We are using a relative path *./index.js* which always takes the current file as origin and looks for another file from there in relative perspective. In this case, it indicates that the file must be in the same folder (see exercises when the file wouldn't be in the same folder). Since all files are top-level files in our project, we could also use an absolute path by just using *index.js*.
 
-Finally, refresh (or open if you didn't open it already) the HTML file in your browser, see how the HTML markup shows up, and open up the browser's developer tools and its console to verify the logging of your JavaScript code. Yuu made it! You linked successfully a JavaScript file in a HTML file and made it execute upon opening the HTML file in a browser.
+Finally, refresh (or open if you didn't open it already) the HTML file in your browser, see how the HTML markup shows up, and open up the browser's developer tools and its console to verify the logging of your JavaScript code. You made it! You linked successfully a JavaScript file in a HTML file and made it execute upon opening the HTML file in a browser.
 
 ### Exercises:
 
@@ -277,18 +277,18 @@ Finally, refresh (or open if you didn't open it already) the HTML file in your b
 
 TODO VIDEO
 
-After we recaped how to write HTML/CSS and how to link files to each other, you may be wondering whether there is some kind of tool which helps us with the latter in a more sophisticated way. And indeed, in the modern JavaScript world you will rarely see developers linking files manually to each other. Therefore, we will use a [bleeding edge](https://dictionary.cambridge.org/dictionary/english/bleeding-edge) JavaScript frontend development server and file bundler called **Vite**.
+After we recaped how to write HTML/CSS and how to link files to each other, you may be wondering whether there is some kind of tool which helps us with the latter in a more sophisticated way. And indeed, in the modern JavaScript world you will rarely see developers linking files manually to each other. Therefore, we will use a [bleeding edge](https://dictionary.cambridge.org/dictionary/english/bleeding-edge) JavaScript tool called Vite which includes a frontend development server and a file bundler.
 
-*Note: At the time of writing this book, Vite is becoming the status quo of modern frontend build tooling. However, JavaScript is a fast moving ecosystem, so Vite will not be the last frontend build tool that you will be using as professional JavaScript developer.*
+*Note: At the time of writing this book, Vite is becoming one of the status quo frontend build tools. However, JavaScript is a fast moving ecosystem, so Vite will not be the last frontend build tool that you will be using as professional JavaScript developer eventually.*
 
-At the beginning of this book, you have installed Node.js which allowed you to learn JavaScript in a Node.js environment by executing JavaScript files with just one command (here: `node index.js`) on the terminal. If you haven't set up Node.js yet, now is the time to do it. Afterward, we will use the Node Package Manager (npm) to set up our modern JavaScript project with Vite from the command line or integrated terminal of our IDE (e.g. VSCode) by executing the following command:
+Somewhen at the beginning of this book, you have installed Node.js which allowed you to learn JavaScript in a Node.js environment by executing JavaScript files with just one command (here: `node index.js`) on the terminal without worrying about HTML and CSS. If you haven't set up Node.js yet, now is the time to do it. Now we will use the Node Package Manager (npm) which comes with our Node installation to set up our modern JavaScript project with Vite from the command line or integrated terminal of our IDE (e.g. VSCode) by executing the following command:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
 npm init vite@latest javascript-modern -- --template vanilla
 ~~~~~~~
 
-You see that we used a template called vanilla (meaning: vanilla JavaScript) here. Vite comes with many more templates for modern libraries and frameworks like React.js. Now, after a successful setup, use the following commands to navigate into the project, to install all of its dependencies (we will talk about this later), and to run the development server:
+You see that we used a template called vanilla (meaning: vanilla JavaScript) here. Vite comes with many more templates for modern libraries and frameworks like React.js. Now, after a successful setup, use the following commands to navigate into the project, to install all of its dependencies (we will talk about dependencies later), and to run the development server:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -297,12 +297,175 @@ npm install
 npm run dev
 ~~~~~~~
 
-Finally, open up the browser on the printed URL (usually `http://localhost:3000`) and see what a default Vite project displays there. Congratulations, you created a modern JavaScript project with Vite.
+Finally, open up the browser on the printed URL (usually `http://localhost:3000`) and see what a default Vite project displays there. Congratulations, you created a modern JavaScript project with Vite which bundles all the files for you and has a development server which you can just run from the command line.
 
 ### Exercises:
 
+* Explore the *main.js* file of your project. It is responsible for displaying the content in the browser with the help of the *index.html* file. Try to understand what's happening here. We will explain everything in more detail later.
 * Read more about [how we used to set up JavaScript manually in the old days](https://www.robinwieruch.de/javascript-project-setup).
 * Read more about [Vite and how it's used to set up modern JavaScript projects](https://vitejs.dev/).
+
+## Import/Export Statements
+
+When we worked with JavaScript, we used so far only one file to perform all of our work. However, this does not scale well for larger applications where you want to organise JavaScript code in multiple folders and files. In our new project, you may already have seen the following line which imports a CSS file in our JavaScript file:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+import './style.css'
+
+document.querySelector('#app').innerHTML = `
+  <h1>Hello Vite!</h1>
+  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
+`
+~~~~~~~
+
+Instead of linking a file manually in our HTML file, like we have learned before, with a modern build tool it's possible to just import files (e.g. JavaScript, CSS, SVG) in JavaScript. So importing this CSS file will automatically apply the styles to all HTML elements.
+
+But let's take a step back to our initial use case: Splitting up a JavaScript application into multiple files. Change the code in the *main.js* to the following content where we retrieve a headline by returning it from a arrow function expression:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const getHeadline = () => 'Hello JavaScript!';
+
+document.querySelector('#app').innerHTML = `
+  <h1>${getHeadline()}</h1>
+`;
+~~~~~~~
+
+Now you might want to split up the code that interacts with the DOM from the JavaScript functions. Therefore, create a new file next to your *main.js* file called *utility.js*. In there, put the following code:
+
+{title="utility.js",lang="javascript"}
+~~~~~~~
+const getHeadline = () => 'Hello JavaScript!';
+~~~~~~~
+
+In order to make this code available to other files, we need to export it:
+
+{title="utility.js",lang="javascript"}
+~~~~~~~
+const getHeadline = () => 'Hello JavaScript!';
+
+export { getHeadline };
+~~~~~~~
+
+If you want to have a shorter and more inline export, the following works too:
+
+{title="utility.js",lang="javascript"}
+~~~~~~~
+export const getHeadline = () => 'Hello JavaScript!';
+~~~~~~~
+
+Between both exports there is a tradeoff: While the former export can be used to group all the exports at the bottom of a file, which makes it clearer for every developer what gets exported by just scrolling to this place, the latter export makes the export more concise with the cavaet that a developer has to scan the file for export statements:
+
+{title="utility.js",lang="javascript"}
+~~~~~~~
+// inline exports in a file
+
+export const getHeadline = () => 'Hello JavaScript!';
+
+export const getText = () => 'I like JS, but also HTML and CSS.';
+
+// vs export at the end of a file
+
+const getHeadline = () => 'Hello JavaScript!';
+
+const getText = () => 'I like JS, but also HTML and CSS.';
+
+export {
+  getHeadline,
+  getText,
+};
+~~~~~~~
+
+Personally I like to group the exports at the end of the file whenever a file grows too much in size. However, when there are only a few things exported from a file, I like to keep them inline. Now, after we have talked about exports, let's discuss how to import a variable in the *main.js* file:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+import { getHeadline } from './utility.js';
+
+document.querySelector('#app').innerHTML = `
+  <h1>${getHeadline()}</h1>
+`;
+~~~~~~~
+
+If we would want to import more than one variable, we can just add them in a comma separated list:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+import { getHeadline, getText } from './utility.js';
+
+document.querySelector('#app').innerHTML = `
+  <h1>${getHeadline()}</h1>
+  <p>${getText()}</p>
+`;
+~~~~~~~
+
+It's important to note that we are using a relative path here. In the case of having folders and files nested in these folders, you would have to include the folder path when importing from a folder (e.g. *./folder/utility.js*) and you would have to include `../` instead of `./` when importing from a file that's up the folder hierarchy.
+
+The imports and exports that we have used here are called **named imports and exports** which are the best practice when developing applications with JavaScript. However, you should also learn about the **default export and import** in the exercises. Anyway, import and export statements not only help us to split up our JavaScript code and organise it in folders and files, but also to import CSS and other assets (e.g. SVG) when using a modern build tool.
+
+### Exercises:
+
+* Read more about [import and export statements in JavaScript](https://www.robinwieruch.de/javascript-import-export).
+* At the moment the `getHeadline()` function returns a static string where a function is not very much needed in the first place. Add an argument for the `getHeadline()` function, so that you can dynamically display whether you like JavaScript, HTML, or CSS.
+* Add an argument for the `getText()` function which allows you to pass in an array of strings containing subjects you like (e.g. CSS, HTML like `['CSS', 'HTML']`). Then use the built-in array's `join()` method to concatenate the lists item to a text which gets returned eventually.
+
+## Third-Party Dependencies
+
+A programming language thrives with its ecosystem. In JavaScript land, the ecosystem with libraries and frameworks is mainly driven through Node.js and its **packages** (also called node packages, libraries, frameworks, third-parties, dependencies, or as long term: third-party dependencies). Even though Node.js is used for JavaScript in the backend, the Node Package Manager (npm) is available for JavaScript in the frontend (read: browser) too.
+
+In this section, we will explore how to use the ecosystem to our benefit in our current setup. We will install one library via npm as a **third-party dependency** to our project. Then we will import utilities (mostly functions) from the library them.
+
+First of all, we can install a new package via npm to our project. Since we created the project with a modern build tool, it knows about npm and knows where to put the installed package. So on the command line, type the following command to install a popular library called Lodash:
+
+{title="Command Line",lang="text"}
+~~~~~~~
+npm install lodash
+~~~~~~~
+
+Afterward, start the application again with `npm run dev`. After the successful installation of Lodash, let's use one of Lodash's functions to explore this library and to learn how to use a library. We will start with the following code in the *main.js* file:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const headline = 'Hello JavaScript!';
+const text = 'I like JS, but also HTML and CSS.';
+
+document.querySelector('#app').innerHTML = `
+  <h1>${headline}</h1>
+  <p>${text}</p>
+`;
+~~~~~~~
+
+Now, since we have installed Lodash, we can import code from Lodash. It works the same way as importing code from another file from within our project. This time do not point to another file though, but to Lodash as installed package:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+# leanpub-start-insert
+import { kebabCase, camelCase } from 'lodash';
+# leanpub-end-insert
+
+const headline = 'Hello JavaScript!';
+const text = 'I like JS, but also HTML and CSS.';
+
+document.querySelector('#app').innerHTML = `
+# leanpub-start-insert
+  <h1>${kebabCase(headline)}</h1>
+  <p>${camelCase(text)}</p>
+# leanpub-end-insert
+`;
+~~~~~~~
+
+Once you display the website in a browser, you should see how Lodash's `kebabCase()` and `camelCase()` alter both strings. These functions are not available in native JavaScript, so libraries like Lodash give us these functionalities without implementing them ourselves.
+
+After you have learned how to import code from file and from packages, we will continue with learning JavaScript in combination with HTML. Throughout the rest of the book, we will apply all of our fundamental JavaScript learnings in a web application which is displayed on a browser with the help of HTML.
+
+### Exercises:
+
+* Read more about [Lodash's functions](https://lodash.com/).
+  * Try other functions from Lodash that work on strings, numbers, and arrays.
+* Explore the *package.json* file which lists all the dependencies of your JavaScript project.
+* Question: Earlier when you set up the project, you used `npm install` before running the project with the development server. What happens when entering `npm install`?
+  * Answer: When running `npm install` on the command line, all `dependencies` and `devDependencies` from the *package.json* get installed. The installation of all the packages ends up in the *node_modules* folder from where it can be later imported in your JavaScript project.
 
 ## DOM API: JavaScript meets HTML
 
@@ -337,7 +500,7 @@ document.querySelector('#app').innerHTML = `
 `
 ~~~~~~~
 
-The JavaScript file imports a *style.css* file. We will revisit the `import` (and `export`) statement later. Furthermore, the JavaScript file uses the DOM API to manipulate the HTML. We will use the DOM API throughout the following sections to read from and write to the HTML. For now, let's examine the JavaScript code in this file.
+The JavaScript file imports a *style.css* file which applies all its CSS to the HTML. Furthermore, the JavaScript file uses the DOM API to manipulate the HTML. We will use the DOM API throughout the following sections to read from and write to the HTML. For now, let's examine the JavaScript code in this file.
 
 The `document` object is a globally available built-in object for client-side JavaScript in the browser. This object represents your access point to the HTML of your website. In this case, it gives you access to the *index.html* file, because the JavaScript file is loaded in this file. By using methods on the `document` object, we can read information from the HTML or write information to the HTML. In this example, the code performs the latter by writing new inner HTML to the selected HTML element.
 
@@ -366,34 +529,3 @@ In conclusion, the DOM API allows you to access HTML with JavaScript. While the 
 * Read more about [the innerHTML property](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML).
 * Question: When to use the `innerHTML` and `innerText` properties to change an HTML element's content?
   * Answer: While `innerHTML` allows a developer to mix text with HTML with formatting, `innerText` is used for only text without formatting. Another popular alternative to `innerText` is `textContent` which have only subtle differences.
-
-## JavaScript's Import/Export Statements
-
-When we worked with JavaScript, we used so far only one file to perform all of our work. However, this does not scale well for larger applications where you want to organise JavaScript code in multiple files. In our new project, you may already have seen the following line which imports a CSS file in our JavaScript file:
-
-
-
-
-
-
-- CSS
-- JavaScript file
-
-## Third-Party Dependencies
-
-A programming language thrives with its ecosystem. In JavaScript land, the ecosystem with libraries and frameworks is mainly driven through Node.js and its packages (also called node packages, libraries, frameworks, third-party, dependencies, or as long term: third-party dependencies). Now even though Node.js is used for JavaScript in the backend, like we use it right now by just executing JavaScript on the command line and not inside a browser, the node package manager (npm) is available for JavaScript in the frontend (read: browser) too.
-
-In this section, we will explore how to use the ecosystem to our benefit in our current setup. We will install one library via npm as third-party dependency to our project. Then we will import code (e.g. functions) from the library and use this code. Before we can install a library though, we have to initialize a project first. Go on the command line, stop your running project if neccessary, and initialize the project properly by typing:
-
-{title="Command Line",lang="text"}
-~~~~~~~
-npm init -y
-~~~~~~~
-
-This setup has to be done only once per project and allows you to install packages afterward. Once the command went through successfully, you should see a *package.json* file in the same folder where all your libraries (here called dependencies) will get allocated:
-
-npm install
-
-https://lodash.com/docs/4.17.15
-
-### Exercises:
