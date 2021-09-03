@@ -351,7 +351,7 @@ Now, by having access to a HTML element after selecting it, we can read or write
 document.querySelector("#app").innerHTML = `
 # leanpub-start-insert
   <h1>Hello JavaScript!</h1>
-  <p>I am a paragraph.</p>
+  <p>I like JS, but also HTML and CSS.</p>
 # leanpub-end-insert
 `;
 ~~~~~~~
@@ -377,7 +377,7 @@ import './style.css'
 
 document.querySelector('#app').innerHTML = `
   <h1>Hello JavaScript!</h1>
-  <p>I am a paragraph.</p>
+  <p>I like JS, but also HTML and CSS.</p>
 `
 ~~~~~~~
 
@@ -529,3 +529,213 @@ After you have learned how to import code from file and from packages, we will c
 * Question: Earlier when you set up the project, you used `npm install` before running the project with the development server. What happens when entering `npm install`?
   * Answer: When running `npm install` on the command line, all `dependencies` and `devDependencies` from the *package.json* get installed. The installation of all the packages ends up in the *node_modules* folder from where it can be later imported in your JavaScript project.
 
+## Selecting HTML Elements
+
+We have learned how JavaScript and HTML play together by using the DOM API. We will explore this API more in this and the coming sections by applying our fundamental JavaScript learnings. In the previous sections, we have only selected one HTML element by its identifier. When we look again at our *index.html* file, we see a `<div>` with an `id` attribute. This `id` attribute is used in the *main.js* file to reference this HTML element. Now we will exchange the *index.html* file with the following two elements:
+
+{title="index.html",lang="html"}
+~~~~~~~
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>JavaScript App</title>
+  </head>
+  <body>
+# leanpub-start-insert
+    <h1 id="headline"></h1>
+    <p class="text"></p>
+# leanpub-start-insert
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
+~~~~~~~
+
+In the following, I will just focus on the content of the `<body>` tag without including every time the `<script>` tag anymore, because this and the rest will stay the same over the next sections of the book:
+
+{title="index.html",lang="html"}
+~~~~~~~
+<h1 id="headline"></h1>
+<p class="text"></p>
+~~~~~~~
+
+At the moment, both tags do not have any content. We could add static content between the tags, however, we could also move over to our *main.js* file where we can change the content dynamically with JavaScript and the DOM API:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const headline = 'Hello JavaScript!';
+const text = 'I like JS, but also HTML and CSS.';
+
+document.querySelector('#headline').textContent = headline;
+document.querySelector('.text').textContent = text;
+~~~~~~~
+
+In the JavaScript file, we created two string variables and assigned them to both HTML elements. Whereas we selected one HTML element by using its `id` attribute (CSS `id` selector), we selected the other HTML element by using its `class` attribute (CSS `class` selector). In HTML, the value for an `id` attribute should only be used once. In contrast, `class` attributes are often used with the same values in order to style them with CSS. For example, we could have two paragraph elements with the same `class` attribute, because later they get styled the same way with CSS:
+
+{title="index.html",lang="html"}
+~~~~~~~
+<h1 id="headline"></h1>
+# leanpub-start-insert
+<p class="text">I like Apples</p>
+<p class="text">I like Bananas</p>
+<p class="text">I like Cashews</p>
+# leanpub-end-insert
+~~~~~~~
+
+Now, when we keep our JavaScript as before, we can see how only the first paragraph changes its content while the other paragraphs stay intact, because the `querySelector()` method only selects the first occurence. If we would want to change this, we would have to use the `querySelectorAll()` method instead which returns us all occurences:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const headline = 'Hello JavaScript!';
+document.querySelector('#headline').textContent = headline;
+
+# leanpub-start-insert
+const textElements = document.querySelectorAll('.text');
+textElements[0].textContent = 'I like JS';
+textElements[1].textContent = 'I like HTML';
+textElements[2].textContent = 'I like CSS';
+# leanpub-end-insert
+~~~~~~~
+
+Whenever you have to select multiple elements, use `querySelectorAll()` instead of `querySelector()`. Now, since all paragraphs share the same class and there are no other paragraphs, we could also use an element selector instead to just select all paragraphs:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+# leanpub-start-insert
+const textElements = document.querySelectorAll('p');
+# leanpub-end-insert
+
+textElements[0].textContent = 'I like JS';
+textElements[1].textContent = 'I like HTML';
+textElements[2].textContent = 'I like CSS';
+~~~~~~~
+
+Since we can read from HTML elements with the DOM API as well, we could also read their contents and modify them with JavaScript:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const textElements = document.querySelectorAll('p');
+
+textElements[0].textContent =
+  textElements[0].textContent.toUpperCase();
+
+textElements[1].textContent =
+  textElements[1].textContent.toUpperCase();
+
+textElements[2].textContent =
+  textElements[2].textContent.toUpperCase();
+~~~~~~~
+
+This should display "I LIKE APPLES", "I LIKE BANANAS", and "I LIKE CASHEWS" in the browser. When you learned about arrays in JavaScript, you got introduced to array methods such as the built-in `map()` method. This method could be used here instead of assigning the modification to all HTML elements one by one. When using the `map()` method, we iterate over every element in the array and get access to each element in the `map()` methods callback function. In this callback function, we can then modify each element:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const textElements = document.querySelectorAll('p');
+
+const toUpperCaseTransformation = (element) => {
+  return (element.textContent = element.textContent.toUpperCase());
+};
+
+textElements.map(toUpperCaseTransformation);
+~~~~~~~
+
+This example is not working though and you should see the error: `Uncaught TypeError: textElements.map is not a function` in your developer's tools logging in the browser. The error says that `map()` is not available of our `textElements` variable. Once we read up about the return value from the `querySelectorAll()` method, we learn that the method does not return a JavaScript array but a [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) (which is a DOM specific data type). We can circumvent this by using a helper method:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+# leanpub-start-insert
+const nodeListElements = document.querySelectorAll('p');
+const elements = Array.from(nodeListElements);
+# leanpub-end-insert
+
+const toUpperCaseTransformation = (element) => {
+  return (element.textContent = element.textContent.toUpperCase());
+};
+
+# leanpub-start-insert
+elements.map(toUpperCaseTransformation);
+# leanpub-end-insert
+~~~~~~~
+
+Let's take one step back at our selectors. Change the body's elements content in the *index.html* file to the following content:
+
+{title="index.html",lang="html"}
+~~~~~~~
+<h1 id="headline"></h1>
+# leanpub-start-insert
+<div class="food">
+# leanpub-end-insert
+  <p>I like Apples</p>
+  <p>I like Bananas</p>
+  <p>I like Cashews</p>
+</div>
+# leanpub-start-insert
+<div class="animal">
+  <p>I like Squirrels</p>
+</div>
+# leanpub-end-insert
+~~~~~~~
+
+When running the file in the browser, the JavaScript code still upper cases all the texts. What if you would want to change only the food paragraphs and not the animal paragraphs via JavaScript? We could use a more specific selector which entails the surrounding `<div>` element's `class` attribute:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+# leanpub-start-insert
+const nodeListElements = document.querySelectorAll('.food p');
+# leanpub-end-insert
+~~~~~~~
+
+If we would want to be more specific, we could also address the container element (read: `<div> tag`) too. This way, paragraph elements that are child of `<div>` tags that have a `class` attribute with `food` get selected. If another element which is not a `<div>` tag with the `class` attribute `food` would be present, it wouldn't be selected by this selector:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+# leanpub-start-insert
+const nodeListElements = document.querySelectorAll('div.food p');
+# leanpub-end-insert
+~~~~~~~
+
+What's interesting is that a selection doesn't stop after one selector. Essentially when selecting one HTML element, we have this element at our hands and can from there select other child elements of this element:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const animalParagraphNode = document
+  .querySelector('div.animal')
+  .querySelector('p');
+
+animalParagraphNode.textContent = 'I like Elephants';
+~~~~~~~
+
+Since every selection returns an element, you could also store the intermediate element as a variable for later usage:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const animalNode = document.querySelector('div.animal');
+const animalParagraphNode = animalNode.querySelector('p');
+~~~~~~~
+
+So far, we have only used the `textContent` property of an element to change it. However, the [Element API](https://developer.mozilla.org/en-US/docs/Web/API/Element) has many different properties and even methods which are available. You should take some time to scan through the API documentation. The exercises offer some tasks of this kind for you.
+
+After all, knowing about selecting one (here: `querySelector()`) or multiple (here: `querySelectorAll()`) elements, navigating from one parent element to its child element, reading and assigning values, becomes the access point  for a JavaScript developer to interact with HTML.
+
+### Exercises:
+
+* Read more about [the querySelectorAll() method](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll).
+* Read more about [the built-in Array.from() method and how it helps us to transform an iterable NodeList to an array data type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
+* Read more about [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors) that are used for selecting elements via the DOM API.
+* Print an element's height with the property `clientHeight` to your browser's console.
+* Select `div.animal` with `querySelector()` and print its `children` property to your browser's console.
+* Use a second `class` for the container element with the "animal" `class` (e.g. `class="animal forest-animal"`), select this element with the DOM API, and print both properties called `className` and `classList`. What's the difference between both properties?
+
+## Creating HTML Elements
+
+- lists
+
+## HTML Events
+
+- asdasd
