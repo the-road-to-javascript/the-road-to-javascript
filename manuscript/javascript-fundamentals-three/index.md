@@ -747,7 +747,7 @@ console.log(b);
 // [1, 2, 3]
 ~~~~~~~
 
-The last example shows two cases of mutability on arrays which are often major causes for unpredicted behavior (read: bugs): First, there exist built-in array methods (e.g. `push()`, `pop()`) which mutate arrays. In this example, adding an item to a list with `push()` will mutate the original array. But that's not everything to it. If another array (here: `b`) is based on an array (here: `a`), mutating the origin array will change the other array too (ripple effect).
+The last example shows two cases of mutability on arrays which are often major causes for unpredicted behavior (read: bugs): First, there are built-in array methods (e.g. `push()`, `pop()`) which mutate arrays. In this example, adding an item to a list with `push()` will mutate the original array. But that's not everything to it. If another array (here: `b`) is based on an array (here: `a`), mutating the origin array will change the other array too (ripple effect).
 
 Most developers discovering the mutability of arrays (and objects) have their struggle with it. What's the benefit of mutating the original array plus causing ripple effects when variables depend on each other? Imagine an ecommerce application where you have a shopping basket. The shopping basket lists 5 items that you wanna buy. As a developer, you know that this list is an array with 5 objects whereas each object has a title, price and so on. The benefit of mutability would be that you can change the variable once (e.g. remove an item from the shopping basket) and it would be reflected everywhere in the application.
 

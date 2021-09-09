@@ -739,3 +739,5 @@ After all, knowing about selecting one (here: `querySelector()`) or multiple (he
 ## HTML Events
 
 - asdasd
+
+## Removing HTML Elements
