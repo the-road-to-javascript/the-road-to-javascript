@@ -951,7 +951,7 @@ The if-else statement is one of the most used tools as a developer, because it e
   * Read more about [the lesser used switch-case in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch).
   * Read more about [a conditional in JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/Conditional).
 
-## Relational and Comparison Operators
+## Relational and Equality Operators
 
 For many if-else statements you will not always have a boolean at your hand. Instead, you will make decisions based on other primitive or structural types which are evaluated into booleans. For example, **relational operators** are used to derive booleans from an expression between two values of a relation:
 
@@ -981,7 +981,7 @@ if (yearsAsDeveloper > 0) {
 
 Operators such as `>` (greater than), `<` (less than), `<=` (less than or equal), `>=` (greater than or equal), `==` (equality or double equal operator), or `===` (strict equality, identity, or tripple equal operator) are used to derive booleans or to make on the fly decisions based on the derived booleans in conditional statements such as the if-else statement.
 
-You may have noticed that there are two similar comparison operators `==` (equality operator) and `===` (strict equality operator). While the **equality operator** coerces its values to a number data type if both values are of different types, the **strict equality operator** does not perform a coercion and keeps the data types intact:
+You may have noticed that there are two similar equality operators `==` (equality operator) and `===` (strict equality operator). While the **equality operator** (also called **comparison operator**) coerces its values to a number data type if both values are of different types, the **strict equality operator** does not perform a coercion and keeps the data types intact:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -997,8 +997,8 @@ In other words, the equality operator does not care about data types. Therefore,
 ### Exercises
 
 * Read more about [the if-else statement in JavaScript](https://javascript.info/ifelse).
-* See more examples in action about [relational and comparison operators in JavaScript](https://javascript.info/comparison).
-* Read more about [comparison operators in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness).
+* See more examples in action about [relational and equality operators in JavaScript](https://javascript.info/comparison).
+* Read more about [equality operators in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness).
   * Read more about [JavaScript's equality operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality).
   * Read more about [JavaScript's strict equality operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality).
 * Question: What happens if you compare `4 >= 5`?
@@ -1041,7 +1041,7 @@ In conclusion, as mentioned partly before, the right-hand side of an value to va
 
 ## Logical Operators
 
-Beyond relational and comparison operators which compute to booleans, there are also logical operators. Do you recall the flaw that we had with "Robin being a developer and a lawyer" ?
+Beyond relational and equality operators which compute to booleans, there are also logical operators. Do you recall the flaw that we had with "Robin being a developer and a lawyer" ?
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1100,7 +1100,7 @@ if (isDeveloper && isLawyer) {
 }
 ~~~~~~~
 
-While relational and comparison operators are used to derive booleans from other primitives, using logical AND and OR operators is always helpful when combining multiple booleans into one boolean. Last but not least, you should know about the **logical ! (NOT) operator** which is there to flip a boolean from `false` to `true` or from `true` to `false`:
+While relational and equality operators are used to derive booleans from other primitives, using logical AND and OR operators is always helpful when combining multiple booleans into one boolean. Last but not least, you should know about the **logical ! (NOT) operator** which is there to flip a boolean from `false` to `true` or from `true` to `false`:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~

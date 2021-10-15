@@ -301,7 +301,8 @@ function getQuestion(isDeveloper) {
 In this case, our function from the start could call these other smaller functions and aggregate their return values:
 
 {title="index.js",lang="javascript"}
-~~~~~~~# leanpub-start-insert
+~~~~~~~
+# leanpub-start-insert
 function getConversationStarter(firstName, lastName, isDeveloper) {
   const fullName = getName(firstName, lastName);
 # leanpub-end-insert

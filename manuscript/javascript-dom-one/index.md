@@ -21,9 +21,9 @@ Let's create an *index.html* file and fill it with the following content. After 
 </html>
 ~~~~~~~
 
-Whereas **HTML tags** (e.g. `<h1>`) are used to give a website structure, the space within these HTML tags can be filled with information (e.g. `Hello HTML`). HTML tags in combination with their content are called **HTML elements** (e.g. `<h1>Hello HTML</h1>`). However, don't be too dogmatic about HTML element and HTML tag, because many developers use them interchangeably and most of them will refer to it as HTML element if they are not adressing specifically the HTML tag's representation with angle brackets.
+Whereas **HTML tags** (e.g. `<h1>`) are used to give a website structure, the space within these HTML tags can be filled with information (e.g. `Hello HTML`). HTML tags in combination with their content are called **HTML elements** (e.g. `<h1>Hello HTML</h1>`). However, don't get too dogmatic about the naming (HTML element vs HTML tag), because many developers use these terms interchangeably and most of them will refer to it as HTML element if they are not adressing specifically the HTML tag's representation with angle brackets.
 
-In the last example, you have sees HTML in its natural existence as a tree of tags. The tree always starts with a `<html>` tag, followed by the nested `<head>` and `<body>`. While the `<head>` tag acts mostly as parent tag for website settings, for example the `<title>` tag which changes the browser tab's title of the website, the `<body>` tag acts as parent tag for all your content displayed in the browser (except for the `<script>` tag which includes more files). If we would ignore JavaScript for a moment, we could use the `<body>` tag to display just structured yet static content in the browser:
+In the last example, you have seen HTML in its natural existence as a tree of tags. The tree always starts with a `<html>` tag, followed by the nested `<head>` and `<body>`. While the `<head>` tag acts mostly as parent tag for website settings, for example the `<title>` tag which changes the browser tab's title of the website, the `<body>` tag acts as parent tag for all your content displayed in the browser. We can use the `<body>` tag to display just structured yet static content in the browser:
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -43,11 +43,11 @@ In the last example, you have sees HTML in its natural existence as a tree of ta
 </html>
 ~~~~~~~
 
-Here we are using a `<h1>` tag for a primary headline, a `<p>` tag for a paragraph, and a `<a>` tag for an anchor (read: link) to another URL. HTML tags inside tags (e.g. using `<a>` inside `<p>`) are called **nested tags** (or **nested elements** when including the paragraph's content). Not every HTML tag can be nested in another one (e.g. `<p>` should not be nested in another `<p>`, because it does not make sense semantically).
+Here we are using a `<h1>` tag for a primary headline, a `<p>` tag for a paragraph, and a `<a>` tag for an anchor (read: link) to another URL. HTML tags inside tags (e.g. using `<a>` inside `<p>`) are called **nested tags** (or **nested elements** when including the paragraph's content). Not every HTML tag can be nested in another one (e.g. `<p>` should not be nested in another `<p>`, because it does not make sense semantically to nest a paragraph into a paragraph).
 
-You can also see that HTML elements behave differently in there structural context: While each paragraph element (read: `<p>` tag) takes up vertically more space, the anchor element (read: `<a>` tag) displays inline within its parent paragraph element. Hence the different naming: **inline element** (e.g. anchor element) and *block element* (e.g. paragraph element).
+You can also see that HTML elements behave differently in there structural context: While each paragraph element (read: `<p>` tag) is displayed one below the other, the anchor element (read: `<a>` tag) displays inline within its parent paragraph element. Hence the different types of HTML elements: **inline element** (e.g. anchor element) and *block element* (e.g. paragraph element).
 
-All tags we have used so far have a semantic meaning. The headline element (read: `<h1>` tag) is used for headlines, the paragraph element for text, and the anchor element for links navigating a user to another page of the website or to another website. Other HTML tags such as `<div>` (block element) and `<span>` (inline element) are used for layouting the elements without using any style (read: CSS) yet.
+All tags we have used so far have a semantic meaning. The headline element (read: `<h1>` tag) is used for headlines, the paragraph element for text, and the anchor element for links -- navigating a user to another page of the same website or to another website. Other HTML tags such as `<div>` (block element) and `<span>` (inline element) are used for layouting the elements without using any style (read: CSS) yet.
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -104,7 +104,7 @@ HTML offers you all the elements that you need for giving a modern website its s
 
 * Read more about [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML).
 * Change the `<title>` tag's content and see it reflected in the browser.
-* Use the `for` attribute on the `<label>` tag and a matching `id` attribute for the `<input>` tag for each pair of label/input elements. Afterward, by clicking ob a label element the input element will be focused. When using `id` attributes (or other attributes like `class`), always use kebab-case as best practice naming convention.
+* Use the `for` attribute on the `<label>` tag and a matching `id` attribute for the `<input>` tag with the same value for each pair of label/input elements. Afterward, by clicking ob a label element the input element will be focused. When using `id` attributes (or other attributes like `class`), always use kebab-case as best practice naming convention.
 * Use the `<img>` tag with a `src` attribute to display an image in the browser.
 * Question: What's the difference between HTML tag and HTML element?
   * Answer: While a HTML tag refers to the opening and closing entity (e.g. `<h1>` and `</h1>`) in angle brackets, a HTML element encompasses the opening tag, the closing tag, and the content in between (e.g. `<h1>Hello JavaScript</h1>`).
@@ -126,7 +126,7 @@ We will start off with the following *index.html* with structured but not yet st
   </head>
   <body>
     <h1>Hello CSS</h1>
-    <p class="attention">I like JS, but also HTML and CSS.</p>
+    <p class="look-at-me">I like JS, but also HTML and CSS.</p>
     <p>
       This is my first website written with
       <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a> and
@@ -138,7 +138,7 @@ We will start off with the following *index.html* with structured but not yet st
 </html>
 ~~~~~~~
 
-In order to use another file in a HTML file, we can use the `<link>` tag. For example, if we would want to load a CSS file which styles our HTML file, we can include it by referencing it:
+In order to include another file in a HTML file, we can use the `<link>` tag. For example, if we would want to load a CSS file which styles our HTML file, we can include it by referencing it:
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -166,7 +166,7 @@ h1 {
 }
 ~~~~~~~
 
-Here we are using CSS to colorize all headlines with the `<h1>` tag of our HTML in red and reduce the general font weight. The whole structure that we have used to style the headlines is called **ruleset** (short: **rule**). However, we can dissect each individual part. The `h1` in the ruleset is called **selector**. In this case, the selector selects all `<h1>` tags in our HTML and applies the styling to them. It's possible to select more than one HTML tag with a comma separated list:
+Here we are using CSS to colorize all headlines with the `<h1>` tag of our HTML in red and reduce the general font weight. All information that we have used to style the headlines is called **ruleset** (short: **rule**). However, we can dissect each individual part. The `h1` in the ruleset is called **selector**. In this case, the selector selects all `<h1>` tags in our HTML and applies the styling to them. It's possible to select more than one HTML tag with a comma separated list:
 
 {title="style.css",lang="css"}
 ~~~~~~~
@@ -178,16 +178,16 @@ h1, p {
 }
 ~~~~~~~
 
-The last example shows how to select all `<h1>` and all `<p>` tags with an **element selector**. If we want to select a specific element though, we would use a **class selector** instead. In the HTML file we already specified a `class` attribute on a `<p>` tag with the attribute value `attention`. In CSS, we can reference this specific class with a class selector by prefixing the selector with a `.`:
+The last example shows how to select all `<h1>` and all `<p>` tags with an **element selector**. If we want to select a specific element though, we would use a **class selector** instead. In the HTML file we already specified a `class` attribute on a `<p>` tag with the attribute value `look-at-me`. In CSS, we can reference this specific class with a class selector by prefixing the selector with a `.`:
 
 {title="style.css",lang="css"}
 ~~~~~~~
-.attention {
+.look-at-me {
   color: red;
 }
 ~~~~~~~
 
-Alternatives to element selectors and class selectors are **id selectors** and **attribute selectors** which are rarely used though. Typically you would use `class` attributes on your HTML to style various parts of your application. Another more popular selector is the **pseudo-class selector** which selects an element in a specific state. In the following example, we change the color of the anchor elements whenever a user hovers over one:
+Alternatives to element selectors and class selectors are **id selectors** (prefixing the selector with a `#`) and **attribute selectors** which are rarely used though. Typically you would use `class` attributes on your HTML to style various parts of your application. Another more popular selector is the **pseudo-class selector** which selects an element in a specific state. In the following example, we change the color of the anchor elements whenever a user hovers over one:
 
 {title="style.css",lang="css"}
 ~~~~~~~
@@ -196,7 +196,7 @@ a:hover {
 }
 ~~~~~~~
 
-Last but not least, it's also possible to use a combination of selectors for nested elements. In the following example, we select only all anchor elements within paragaph elements. All the other anchor tags should not be styled this way:
+Last but not least, it's also possible to use a combination of selectors for nested elements. In the following example, we select only all anchor elements within paragraph elements. All the other anchor tags should not be styled this way:
 
 {title="style.css",lang="css"}
 ~~~~~~~
@@ -205,7 +205,7 @@ p a {
 }
 ~~~~~~~
 
-From here we will continue with the terminology after we went through the different kinds of selectors. A **declaration** in CSS consists of property and property value. In our example, the property is `color`, the property value is `red` (which comes with many other options), and the declaration is `color: red;`. Every declaration has a mandatory `:` which separates the property from the property value and a `;` to end a declaration.
+Let's finish up with the terminology after we went through the different kinds of selectors in CSS. A **declaration** in CSS consists of property and property value. In our example, the property is `color`, the property value is `red` (which comes with many other options), and the declaration is `color: red;`. Every declaration has a mandatory `:` which separates the property from the property value and a `;` to end a declaration.
 
 ![](images/css-anatomy.png)
 
@@ -214,11 +214,11 @@ In the end, you will likely encounter many different property and property value
 ### Exercises:
 
 * Read more about [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
-* Create a `<div>` tag as parent element for some other elements (e.g. a combination of headline, paragraph, image) and style this block element with `margin`, `border`, and `padding`. Afterward, read more about [the box model in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model).
+* Create a `<div>` tag as parent element for some other elements (e.g. a combination of headline, paragraph, image) and style this block element with `margin: 10px;`, `border: 1px solid red;`, and `padding: 20px;`. Afterward, read more about [the box model in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model).
 
 ## Linking Files in HTML
 
-If you went through the previous crash courses for HTML and CSS, or if you are already quite familiar with HTML, you may already know how to link files (e.g. CSS files, JavaScript files, etc.) to a HTML file. In the previous section, we already linked a CSS file to our HTML file, so that we were able to style the HTML with CSS. In this section, let's go through an example for linking a JavaScript file to our HTML file, so that it gets executed once the HTML is displayed in a browser.
+If you went through the previous crash courses for HTML and CSS, or if you were already quite familiar with HTML, you may already know how to link files (e.g. CSS files, JavaScript files, etc.) to a HTML file. In the previous section, we already linked a CSS file to our HTML file, so that we were able to style the HTML with CSS. In this section, let's go through an example for linking a JavaScript file to our HTML file, so that it gets executed once the HTML is displayed in a browser.
 
 First, we will create a *index.html* file and fill it with the following content. After you have created this file, you can open it in a browser to see its content displayed like a website:
 
@@ -260,7 +260,7 @@ And third, in contrast to linking a CSS file with a `<link>` tag and its `href` 
 </html>
 ~~~~~~~
 
-We are using a relative path *./index.js* which always takes the current file as origin and looks for another file from there in relative perspective. In this case, it indicates that the file must be in the same folder (see exercises when the file wouldn't be in the same folder). Since all files are top-level files in our project, we could also use an absolute path by just using *index.js*.
+We are using a relative path *./index.js* which always takes the current file as origin and looks for another file from there in relative perspective. In this case, it indicates that the file must be in the same folder (see exercises for more information about this topic). Since all files are top-level files in our project, we could also use an absolute path by just using *index.js*.
 
 Finally, refresh (or open if you didn't open it already) the HTML file in your browser, see how the HTML markup shows up, and open up the browser's developer tools and its console to verify the logging of your JavaScript code. You made it! You linked successfully a JavaScript file in a HTML file and made it execute upon opening the HTML file in a browser.
 
@@ -307,7 +307,7 @@ Finally, open up the browser on the printed URL (usually `http://localhost:3000`
 
 ## DOM API: JavaScript meets HTML
 
-The DOM (Document Object Model) API enables developers to talk with JavaScript to HTML. In this section, we will explore this particular API for the browser step by step while we will continue using it throughout the rest of this book. Coming back our freshly created modern JavaScript project, open the *index.html* file in your editor/IDE. The content may be the same or similar (depending on your current build tool and its version):
+The DOM (Document Object Model) API enables developers to talk with JavaScript to HTML. In this section, we will explore this particular API for the browser step by step while we will continue using it throughout the rest of this book. Coming back to our freshly created modern JavaScript project, open the *index.html* file in your editor/IDE. The content may be the same or similar (depending on your current build tool and its version):
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -340,9 +340,9 @@ document.querySelector('#app').innerHTML = `
 
 The JavaScript file imports a *style.css* file which applies all its CSS to the HTML. Furthermore, the JavaScript file uses the DOM API to manipulate the HTML. We will use the DOM API throughout the following sections to read from and write to the HTML. For now, let's examine the JavaScript code in this file.
 
-The `document` object is a globally available built-in object for client-side JavaScript in the browser. This object represents your access point to the HTML of your website. In this case, it gives you access to the *index.html* file, because the JavaScript file is loaded in this file. By using methods on the `document` object, we can read information from the HTML or write information to the HTML. In this example, the code performs the latter by writing new inner HTML to the selected HTML element.
+The `document` object is a globally available built-in object for client-side JavaScript in the browser. This object represents your programmatic access point to the HTML of your website. In this case, it gives you access to the *index.html* file, because the JavaScript file is loaded in this file. By using methods on the `document` object, we can read information from the HTML or write information to the HTML. In this example, the code performs the latter by writing new inner HTML to the selected HTML element.
 
-The `querySelector()` method is one modern DOM API method to select a specific HTML element (programmatically also referred to as **HTML node**). Because we are using `#app` with a `#`, we select a HTML element by its `id` attribute whereas the attribute's value on the HTML element is `app`. When you look back at yout *index.html* file, where the JavaScript file is loaded, you can see that we have such HTML element. Selecting a HTML element by its `class` attribute, for example `querySelector('.app')` with a leading `.` is another common scenario.
+The `querySelector()` method is a modern DOM API method to select a specific HTML element (programmatically also referred to as **HTML node**). Because we are using `#app` with a `#`, we select a HTML element by its `id` attribute whereas the attribute's value on the HTML element is `app`. When you look back at yout *index.html* file, where the JavaScript file is loaded, you can see that we have such HTML element. Selecting a HTML element by its `class` attribute, for example `querySelector('.app')` with a leading `.` is another common scenario.
 
 Now, by having access to a HTML element after selecting it, we can read or write to it. As said, in this example, the code is writing to the HTML element by mutating its `innerHTML` property and assigning a JavaScript string to it. The string is not a mere string, but uses HTML tags such as `<h1>` and `<a>` to be used as structural elements. Change the HTML modification to the following and verify it in the browser after saving the file (and running the application with `npm run dev`):
 
@@ -407,7 +407,9 @@ In order to make this code available to other files, we need to export it:
 ~~~~~~~
 const getHeadline = () => 'Hello JavaScript!';
 
+# leanpub-start-insert
 export { getHeadline };
+# leanpub-end-insert
 ~~~~~~~
 
 If you want to have a shorter and more inline export, the following works too:
@@ -417,7 +419,7 @@ If you want to have a shorter and more inline export, the following works too:
 export const getHeadline = () => 'Hello JavaScript!';
 ~~~~~~~
 
-Between both exports there is a tradeoff: While the former export can be used to group all the exports at the bottom of a file, which makes it clearer for every developer what gets exported by just scrolling to this place, the latter export makes the export more concise with the cavaet that a developer has to scan the file for export statements:
+Between both exports there is a tradeoff: While the former export can be used to group all the exports at the bottom of a file, which makes it clearer for every developer who works on the code to see what gets exported by just scrolling to this place, the latter export makes the export more concise with the cavaet that a developer has to scan the file for export statements:
 
 {title="utility.js",lang="javascript"}
 ~~~~~~~
@@ -439,7 +441,7 @@ export {
 };
 ~~~~~~~
 
-Personally I like to group the exports at the end of the file whenever a file grows too much in size. However, when there are only a few things exported from a file, I like to keep them inline. Now, after we have talked about exports, let's discuss how to import a variable in the *main.js* file:
+Personally I like to group the exports at the end of the file whenever a file grows too much in size. However, when there are only a few things exported from a file, I like to keep them inline. Next, after we have talked about exports, let's discuss how to import a variable in the *main.js* file:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -450,7 +452,7 @@ document.querySelector('#app').innerHTML = `
 `;
 ~~~~~~~
 
-If we would want to import more than one variable, we can just add them in a comma separated list:
+If we want to import more than one variable, we can just add them in a comma separated list:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -531,7 +533,7 @@ After you have learned how to import code from file and from packages, we will c
 
 ## Selecting HTML Elements
 
-We have learned how JavaScript and HTML play together by using the DOM API. We will explore this API more in this and the coming sections by applying our fundamental JavaScript learnings. In the previous sections, we have only selected one HTML element by its identifier. When we look again at our *index.html* file, we see a `<div>` with an `id` attribute. This `id` attribute is used in the *main.js* file to reference this HTML element. Now we will exchange the *index.html* file with the following two elements:
+We have learned how JavaScript and HTML play together by using the DOM API. We will explore this API more in this and the coming sections by applying our fundamental JavaScript learnings. In the previous sections, we have only selected one HTML element by its identifier. When we look again at our *index.html* file, we see a `<div>` with an `id` attribute. This `id` attribute is used in the *main.js* file to reference this HTML element. Now we will exchange the *index.html* file content with the following two elements:
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -576,7 +578,7 @@ document.querySelector('#headline').textContent = headline;
 document.querySelector('.text').textContent = text;
 ~~~~~~~
 
-In the JavaScript file, we created two string variables and assigned them to both HTML elements. Whereas we selected one HTML element by using its `id` attribute (CSS `id` selector), we selected the other HTML element by using its `class` attribute (CSS `class` selector). In HTML, the value for an `id` attribute should only be used once. In contrast, `class` attributes are often used with the same values in order to style them with CSS. For example, we could have two paragraph elements with the same `class` attribute, because later they get styled the same way with CSS:
+In this JavaScript file, we created two string variables and assigned them to both HTML elements. Whereas we selected one HTML element by using its `id` attribute (CSS `id` selector), we selected the other HTML element by using its `class` attribute (CSS `class` selector). Semantically in HTML, a value for an `id` attribute should be unique. In contrast, `class` attributes are often used with the same values in order to style all of them with CSS the same way. For example, we could have two paragraph elements with the same `class` attribute, because later they get styled the same way with CSS:
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -588,7 +590,7 @@ In the JavaScript file, we created two string variables and assigned them to bot
 # leanpub-end-insert
 ~~~~~~~
 
-Now, when we keep our JavaScript as before, we can see how only the first paragraph changes its content while the other paragraphs stay intact, because the `querySelector()` method only selects the first occurence. If we would want to change this, we would have to use the `querySelectorAll()` method instead which returns us all occurences:
+Now, after we have inserted three paragraph tags in our HTML, and we keep our JavaScript file as before, we can see how only the first paragraph changes its content while the other paragraphs stay intact. That's because the `querySelector()` method from our JavaScript file only selects the first paragraph occurence from the HTML file. If we would want to change this, we would have to use the `querySelectorAll()` method instead which returns us all occurences:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -603,7 +605,7 @@ textElements[2].textContent = 'I like CSS';
 # leanpub-end-insert
 ~~~~~~~
 
-Whenever you have to select multiple elements, use `querySelectorAll()` instead of `querySelector()`. Now, since all paragraphs share the same class and there are no other paragraphs, we could also use an element selector instead to just select all paragraphs:
+Whenever you have to select multiple elements, use `querySelectorAll()`, which returns you multiple HTML nodes, instead of `querySelector()`, which returns only the first occurence of a HTML node. Since all paragraphs share the same class and there are no other paragraphs in our HTML, we could also use a more unspecific element selector instead to just select all paragraphs:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -616,11 +618,11 @@ textElements[1].textContent = 'I like HTML';
 textElements[2].textContent = 'I like CSS';
 ~~~~~~~
 
-Since we can read from HTML elements with the DOM API as well, we could also read their contents and modify them with JavaScript:
+However, recommended would always be using a more specific selector (e.g. `.text`), because it's more robust in the case of more paragraphs being added to the HTML file. Next, we can read from HTML elements with the DOM API as well. In the following, we are reading their contents and modify them with JavaScript. Since `textContent` is nothing more than a JavaScript string data type, we can use its built-in `toUpperCase()` method:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
-const textElements = document.querySelectorAll('p');
+const textElements = document.querySelectorAll('.text');
 
 textElements[0].textContent =
   textElements[0].textContent.toUpperCase();
@@ -632,20 +634,22 @@ textElements[2].textContent =
   textElements[2].textContent.toUpperCase();
 ~~~~~~~
 
-This should display "I LIKE APPLES", "I LIKE BANANAS", and "I LIKE CASHEWS" in the browser. When you learned about arrays in JavaScript, you got introduced to array methods such as the built-in `map()` method. This method could be used here instead of assigning the modification to all HTML elements one by one. When using the `map()` method, we iterate over every element in the array and get access to each element in the `map()` methods callback function. In this callback function, we can then modify each element:
+This should display "I LIKE APPLES", "I LIKE BANANAS", and "I LIKE CASHEWS" in the browser. When you learned about arrays in JavaScript, you got introduced to array methods, such as the built-in `map()` method, as well. This method could be used here instead of assigning the modification to all HTML elements one by one. When using the `map()` method, we iterate over every element in the array and get access to each element in the `map()` method's callback function. In this callback function, we can then modify each element:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
 const textElements = document.querySelectorAll('p');
 
 const toUpperCaseTransformation = (element) => {
-  return (element.textContent = element.textContent.toUpperCase());
+  element.textContent = element.textContent.toUpperCase();
+
+  return element;
 };
 
 textElements.map(toUpperCaseTransformation);
 ~~~~~~~
 
-This example is not working though and you should see the error: `Uncaught TypeError: textElements.map is not a function` in your developer's tools logging in the browser. The error says that `map()` is not available of our `textElements` variable. Once we read up about the return value from the `querySelectorAll()` method, we learn that the method does not return a JavaScript array but a [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) (which is a DOM specific data type). We can circumvent this by using a helper method:
+This example is not working though and you should see the error: `Uncaught TypeError: textElements.map is not a function` in your developer's tools logging in the browser. Essentially the error says that `map()` is not available of our `textElements` variable. Once we read up about the return value from the `querySelectorAll()` method, we learn that the method does not return a JavaScript array but a [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) (which is a DOM specific data type). We can circumvent this by using a helper method called `Array.from()` which transforms iterative data structures (e.g. NodeList) into an array:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -655,7 +659,9 @@ const elements = Array.from(nodeListElements);
 # leanpub-end-insert
 
 const toUpperCaseTransformation = (element) => {
-  return (element.textContent = element.textContent.toUpperCase());
+  element.textContent = element.textContent.toUpperCase();
+
+  return element;
 };
 
 # leanpub-start-insert
@@ -663,7 +669,7 @@ elements.map(toUpperCaseTransformation);
 # leanpub-end-insert
 ~~~~~~~
 
-Let's take one step back at our selectors. Change the body's elements content in the *index.html* file to the following content:
+Let's take one step back and look at our selectors. Change the body's elements content in the *index.html* file to the following content:
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -682,7 +688,7 @@ Let's take one step back at our selectors. Change the body's elements content in
 # leanpub-end-insert
 ~~~~~~~
 
-When running the file in the browser, the JavaScript code still upper cases all the texts. What if you would want to change only the food paragraphs and not the animal paragraphs via JavaScript? We could use a more specific selector which entails the surrounding `<div>` element's `class` attribute:
+When running the file in the browser, the JavaScript code still upper cases all the texts. What if you would want to change only the food paragraphs and not the animal paragraphs via JavaScript? We could use a more specific selector which entails the surrounding `<div>` element's `class` attribute. In this case, we want to select all paragraphs which are located in an element with the class `food`:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -721,7 +727,7 @@ const animalParagraphNode = animalNode.querySelector('p');
 
 So far, we have only used the `textContent` property of an element to change it. However, the [Element API](https://developer.mozilla.org/en-US/docs/Web/API/Element) has many different properties and even methods which are available. You should take some time to scan through the API documentation. The exercises offer some tasks of this kind for you.
 
-After all, knowing about selecting one (here: `querySelector()`) or multiple (here: `querySelectorAll()`) elements, navigating from one parent element to its child element, reading and assigning values, becomes the access point  for a JavaScript developer to interact with HTML.
+After all, knowing about selecting one (here: `querySelector()`) or multiple (here: `querySelectorAll()`) elements, navigating from one parent element to its child element, reading and assigning values, becomes the access point for a JavaScript developer to interact with HTML.
 
 ### Exercises:
 
@@ -734,10 +740,398 @@ After all, knowing about selecting one (here: `querySelector()`) or multiple (he
 
 ## Creating HTML Elements
 
-- lists
+The last sections have shown you how to update HTML elements in a HTML file via the DOM API from a JavaScript file. In these cases, the data was already there in the HTML and we only wanted to read from it (e.g. read text from a HTML element) or write to it (e.g. write text to a HTML element). Mostly this happens whenever there is a full-fledged HTML website where you want to use JavaScript for dynamic adjustments.
 
-## HTML Events
+However, in modern web applications, most often the data origins in JavaScript and as a developer we want to display it in HTML. Take for example the following JavaScript string that we will be using in a clean slate **main.js** file for our application:
 
-- asdasd
+{title="main.js",lang="javascript"}
+~~~~~~~
+const title = 'Hello JavaScript';
+~~~~~~~
 
-## Removing HTML Elements
+The content of the **index.html** HTML file's body tag is the following:
+
+{title="index.html",lang="html"}
+~~~~~~~
+<div id="app" />
+
+<script type="module" src="/main.js"></script>
+~~~~~~~
+
+From here we want to display the data (here: `title`) as headline element (read: `<h1>` tag) within the `<div>` tag without touching the HTML file, because the data comes from our JavaScript file in this case. Fortunatly the DOM API gives us a methods to create an HTML element, to set its content, and append this new HTML element as child to another element:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const title = 'Hello JavaScript';
+
+# leanpub-start-insert
+// create an HTML element
+const titleNode = document.createElement('h1');
+
+// set its content
+titleNode.textContent = title;
+
+// append it as element
+document.querySelector('#app').appendChild(titleNode);
+# leanpub-end-insert
+~~~~~~~
+
+By using the DOM API's `createElement()` method, we can create HTML elements out of thin air. After this element has been created, it lives in JavaScript's memory, because it has not been appended to some other element yet. Before appending it, usually a developer sets properties (such as `textContent` to make its content visible in the browser). Last but not least, the created element gets appended as a child element to a parent element.
+
+After all, JavaScript and its DOM API can not only be used to read and write data from and to HTML elements, but also to create new elements, to set their properties, and to append them as child element to a parent element.
+
+### Exercises:
+
+* Open the browser's developer tool's "Elements" tab and verify that all displayed elements of your website are there.
+* Read more about [the DOM API's createElement() method](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement).
+* Read more about [the DOM API's appendChild() method](https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild).
+* Question: If one would change the order of setting the `textContent` and appending the element with `appendChild()`, it would still work. Why does order not matter here?
+  * Answer: Since we have a reference to the element, we can update it whenever we want. Meaning: whether the element is already in the DOM or not appended yet, we can always set its properties.
+
+## Creating HTML Elements as Lists
+
+With the DOM API, it's possible to create HTML elements. The last section has shown us how to create a headline in HTML by using the DOM API and the JavaScript string primitive as data. But what about more complex data structures? Usually when speaking about data in JavaScript, it comes in more complex structures than a string. In the following, we want to display the following JavaScript array data structure from our clean slate *main.js* file on our website:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const list = [
+  {
+    title: 'React',
+    url: 'https://reactjs.org/',
+    author: 'Jordan Walke',
+    comments: 3,
+    points: 4,
+    id: 0,
+  },
+  {
+    title: 'Redux',
+    url: 'https://redux.js.org/',
+    author: 'Dan Abramov, Andrew Clark',
+    comments: 2,
+    points: 5,
+    id: 1,
+  },
+];
+~~~~~~~
+
+The content of the **index.html** HTML file's body tag is the following:
+
+{title="index.html",lang="html"}
+~~~~~~~
+<div>
+  <ul id="list" />
+</div>
+
+<script type="module" src="/main.js"></script>
+~~~~~~~
+
+Similar to the previous section, we want to display the data (here: `list`) as HTML element to make it visible in the browser. To be more specific, in this case we want to render each item of the list as `<li>` tag as a child of the `<ul>` tag. When we head over to our *main.js* file, we could accomplish this task the following way when considering what we have learned in the last section:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const list = [ ... ];
+
+# leanpub-start-insert
+const firstNode = document.createElement('li');
+firstNode.textContent = list[0].title;
+document.querySelector('#list').appendChild(firstNode);
+
+const secondNode = document.createElement('li');
+secondNode.textContent = list[1].title;
+document.querySelector('#list').appendChild(secondNode);
+# leanpub-end-insert
+~~~~~~~
+
+For each item in the list we repeat the procedure of creating a list item element, setting its content based on the JavaScript item's `title` property, and appending it to the parent list element which is already in the HTML. However, doing it this way is not only repetetive but also does not scale very well for a large list of items. Earlier we learned about for loop statements in JavaScript which help us in these situations:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const list = [ ... ];
+
+# leanpub-start-insert
+for (let i = 0; i < list.length; i++) {
+  const itemNode = document.createElement('li');
+  itemNode.textContent = list[i].title;
+  document.querySelector('#list').appendChild(itemNode);
+}
+# leanpub-end-insert
+~~~~~~~
+
+Now it does not matter how many items there are in the list, because the loop takes care of rendering all of them. In modern JavaScript though, you will often see a built-in array method being used over a for loop statement. In this case, a `forEach()` method may be appropriate to use as well, because in almost all cases it can be used to replace a loop:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const list = [ ... ];
+
+# leanpub-start-insert
+list.forEach((item) => {
+  const itemNode = document.createElement('li');
+  itemNode.textContent = item.title;
+  document.querySelector('#list').appendChild(itemNode);
+});
+# leanpub-end-insert
+~~~~~~~
+
+In modern JavaScript applications, rendering data via JavaScript in HTML is the norm. Most often you will have a JavaScript array at your hands and need to display it on your website. Then it's always time to use the DOM API to render your data.
+
+### Exercises:
+
+* Recap for loop statements, callback functions, and built-in array methods such as `forEach()`, `filter()`, `map()`, `reduce()`.
+
+## HTML Events in JavaScript
+
+From the previous section, we will advance the application with some interactions in this section. In order enable a user with interactions on the website, we would need to provide an input field HTML element. Let's add one of these to our *index.html* file:
+
+{title="index.html",lang="html"}
+~~~~~~~
+<div>
+# leanpub-start-insert
+  <input />
+# leanpub-end-insert
+
+  <ul id="list" />
+</div>
+~~~~~~~
+
+When displaying the HTML file in a browser, you should see the input field popping up above of the rendered list. To make this input field more accessible, we will provide a label HTML element too:
+
+{title="index.html",lang="html"}
+~~~~~~~
+<div>
+# leanpub-start-insert
+  <label for="search">Search: </label>
+  <input id="search" />
+# leanpub-end-insert
+
+  <ul id="list" />
+</div>
+~~~~~~~
+
+By using the `for` attribute for the label element and the `id` attribute for the input field, we connect both elements so that when a user clicks the label the input field gets focused. What's missing is capturing the value a user types into the input field. Therefore, we will head over to our *main.js* file and add an **event listener** to the HTML element where the `id` equals `search` -- which is in this case the input field element:
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const list = [
+  ...
+];
+
+list.forEach((item) => {
+  ...
+});
+
+# leanpub-start-insert
+document
+  .querySelector('#search')
+  .addEventListener('input', (event) => {
+    console.log(event.target.value);
+  });
+# leanpub-end-insert
+~~~~~~~
+
+With the DOM API, we are getting the element where the `id` equals `search`. Once we have this element, we add an event listener to it with the `addEventListener()` method which takes two arguments: While the first argument is the event type, the second argument is a callback function which runs every time a user triggers the event -- which in this case is typing into the input field.
+
+The callback function gives us access to the `event` parameter which holds all the information about the current input field. Accessing `event.target` returns us the input field itself. Going one step further and accessing `event.target.value` returns us the current value of the input field. Verify it yourself by going back to your browser, open the developer tool's "Console" tab, and start typing into the input field.
+
+Event listeners can be added to various HTML elements by using different event types. For example, a button can receive an event listener of type `click`. Whenever a user clicks on the button, the callback function will run. Another example: The `blur` event type on an input field runs every time an input field switches its internal state from focused to unfocused.
+
+### Exercises:
+
+* Read more [about the DOM API's addEventListener method](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
+* Question: Exchange the `addEventListener()` method's first argument from `input` to `change`. When does this event trigger compared to the previous one?
+  * Answer: The event triggers only when a user leaves the input field and its value has changed.
+
+## JavaScript Interactions in HTML
+
+asdasd
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const list = [
+  ...
+];
+
+list.forEach((item) => {
+  ...
+});
+
+document
+  .querySelector('#search')
+  .addEventListener('input', (event) => {
+# leanpub-start-insert
+    // append list items
+    list.forEach((item) => {
+      const itemNode = document.createElement('li');
+      itemNode.textContent = item.title;
+      document.querySelector('#list').appendChild(itemNode);
+    });
+# leanpub-end-insert
+  });
+~~~~~~~
+
+asdasd
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const list = [
+  ...
+];
+
+list.forEach((item) => {
+  ...
+});
+
+document
+  .querySelector('#search')
+  .addEventListener('input', (event) => {
+# leanpub-start-insert
+    // remove list elements
+    document.querySelector('#list').textContent = '';
+# leanpub-end-insert
+
+    // append list items
+    list.forEach((item) => {
+      const itemNode = document.createElement('li');
+      itemNode.textContent = item.title;
+      document.querySelector('#list').appendChild(itemNode);
+    });
+  });
+~~~~~~~
+
+asdasd
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+...
+
+document
+  .querySelector('#search')
+  .addEventListener('input', (event) => {
+    // remove list elements
+    document.querySelector('#list').textContent = '';
+
+# leanpub-start-insert
+    const searchTerm = event.target.value;
+
+    // append list items
+    // but only the ones which meet the search criteria
+    list
+      .filter((item) => item.title.includes(searchTerm))
+# leanpub-end-insert
+      .forEach((item) => {
+        const itemNode = document.createElement('li');
+        itemNode.textContent = item.title;
+        document.querySelector('#list').appendChild(itemNode);
+      });
+  });
+~~~~~~~
+
+Try to search for "React". Caveat, "react" does not work.
+
+
+
+Then extract
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+...
+
+document
+  .querySelector('#search')
+  .addEventListener('input', (event) => {
+    // remove list elements
+    document.querySelector('#list').textContent = '';
+
+    const searchTerm = event.target.value;
+
+# leanpub-start-insert
+    const searchByTitle = (item) => item.title.includes(searchTerm);
+# leanpub-end-insert
+
+    // append list items
+    // but only the ones which meet the search criteria
+# leanpub-start-insert
+    list.filter(searchByTitle).forEach((item) => {
+# leanpub-end-insert
+      const itemNode = document.createElement('li');
+      itemNode.textContent = item.title;
+      document.querySelector('#list').appendChild(itemNode);
+    });
+  });
+~~~~~~~
+
+  - theb
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+...
+
+  document
+  .querySelector('#search')
+  .addEventListener('input', (event) => {
+    // remove list elements
+    document.querySelector('#list').textContent = '';
+
+    const searchTerm = event.target.value;
+
+# leanpub-start-insert
+    const searchByTitle = (item) =>
+      item.title.toLowerCase().includes(searchTerm.toLowerCase());
+# leanpub-end-insert
+
+    // append list items
+    // but only the ones which meet the search criteria
+    list.filter(searchByTitle).forEach((item) => {
+      const itemNode = document.createElement('li');
+      itemNode.textContent = item.title;
+      document.querySelector('#list').appendChild(itemNode);
+    });
+  });
+~~~~~~~
+
+- explanation
+
+- refactoring
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const list = [
+  ...
+];
+
+# leanpub-start-insert
+const appendItems = (item) => {
+  const itemNode = document.createElement('li');
+  itemNode.textContent = item.title;
+  document.querySelector('#list').appendChild(itemNode);
+};
+# leanpub-end-insert
+
+# leanpub-start-insert
+list.forEach(appendItems);
+# leanpub-end-insert
+
+document
+  .querySelector('#search')
+  .addEventListener('input', (event) => {
+    // remove list elements
+    document.querySelector('#list').textContent = '';
+
+    const searchTerm = event.target.value;
+
+    const searchByTitle = (item) =>
+      item.title.toLowerCase().includes(searchTerm.toLowerCase());
+
+    // append list items
+    // but only the ones which meet the search criteria
+# leanpub-start-insert
+    list.filter(searchByTitle).forEach(appendItems);
+# leanpub-end-insert
+  });
+~~~~~~~
+
+adqwd
+
+### Exercises:
+
+asdasd
+
