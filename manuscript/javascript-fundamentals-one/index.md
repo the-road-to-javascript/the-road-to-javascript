@@ -58,7 +58,6 @@ Throughout this introduction, you may have noticed me not only mentioning JavaSc
 
 ### Exercises:
 
-* Read more about [the evolution from website to web applications](https://www.robinwieruch.de/web-applications).
 * Read more about [the history of JavaScript](https://en.wikipedia.org/wiki/JavaScript).
 * Read more about [Brendan Eich and what he is up to these days](https://en.wikipedia.org/wiki/Brendan_Eich).
 * Read more about [ECMAScript (ES)](https://en.wikipedia.org/wiki/ECMAScript) and how it evolves JavaScript with its [proposals from stage 0 to 3](https://github.com/tc39/proposals) by the TC39.
