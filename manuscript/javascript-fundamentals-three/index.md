@@ -553,7 +553,7 @@ console.log(sum);
 
 Previously, `reduce()` coerced the initial accumulator to `0`, because we were using the `+` operator on numbers and we didn't specify any initial accumulator. However, this time we explicitly set the initial accumulator to `10`, hence our result is not `45` but `55`. You can read the function the following way: "We start with an accumulator. When iterating through the first item in the list, we return the sum of the initial `acc` (here: `10`) and the current value (here: `1`). When iterating through the second item in the list, we return the sum of the `acc` (here: `11`) -- which has been computed in the previous iteration -- and the current value. This goes on until we have added all the numbers on top of the initial accumulator of 10."
 
-The `reduce()` method can be used for any data manipulation of an array that isn't a fit for `filter()` or `map()`. Here the book isn't going any deeper into `reduce()`, but we will maybe see more usages of it (and the other methods) later. Another noteworthy fact about these methods is that they can be *chained* onto each other:
+The `reduce()` method can be used for any data manipulation of an array that isn't a fit for `filter()` or `map()`. Here the book isn't going any deeper into `reduce()`, but we will maybe see more usages of it (and the other methods) later. Another noteworthy fact about these methods is that they can be chained onto each other:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -577,7 +577,7 @@ console.log(result);
 // [ 60, 70, 80, 90 ]
 ~~~~~~~
 
-Since `filter()`, `map()`, and `reduce()` all return a new array, we can straight away continue working on them by using the `.` notation. Only when the whole chain got evaluated, the result gets assigned to the variables (see operator precedence from one of the earlier sections, e.g. `.` precedes `=`). Anyway, chaining methods onto each other is just a shortcut. You could also write it this way:
+Since `filter()`, `map()`, and `reduce()` all return a new array, we can straight away continue working on them by using the `.` notation. Only when the whole chain got evaluated, the result gets assigned to the variables (see operator precedence from one of the earlier sections, e.g. `.` precedes `=`). Anyway, **chaining methods** onto each other is just a shortcut. You could also write it this way:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~

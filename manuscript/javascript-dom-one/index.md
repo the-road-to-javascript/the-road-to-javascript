@@ -1,6 +1,6 @@
 # JavaScript and the DOM: Part I
 
-TODO summary
+Your JavaScript fundamentals knowledge has grown to a substantial level. However, all this time you have only seen the output on your command line -- which isn't bad per se, because as a developer you should feel comfortable with the command line -- however, seeing something in a browser is for many developers in their early stages a more rewarding feeling. Therefore, these next sections of the book will show you how to translate your JavaScript into the browser by using it in a HTML website. You will learn about HTML, CSS, and how to use JavaScript with its DOM API to manipulate anything you want in the browser.
 
 ## HTML Crash Course (Optional)
 
@@ -578,6 +578,22 @@ document.querySelector('#headline').textContent = headline;
 document.querySelector('.text').textContent = text;
 ~~~~~~~
 
+Keep in mind that the code could have been written the following way as well. In our case, we just used the return value of `querySelector()` right away to access the `textContent`.
+
+{title="main.js",lang="javascript"}
+~~~~~~~
+const headline = 'Hello JavaScript!';
+const text = 'I like JS, but also HTML and CSS.';
+
+# leanpub-start-insert
+const headlineNode = document.querySelector('#headline');
+headlineNode.textContent = headline;
+
+const textNode = document.querySelector('.text');
+textNode.textContent = text;
+# leanpub-end-insert
+~~~~~~~
+
 In this JavaScript file, we created two string variables and assigned them to both HTML elements. Whereas we selected one HTML element by using its `id` attribute (CSS `id` selector), we selected the other HTML element by using its `class` attribute (CSS `class` selector). Semantically in HTML, a value for an `id` attribute should be unique. In contrast, `class` attributes are often used with the same values in order to style all of them with CSS the same way. For example, we could have two paragraph elements with the same `class` attribute, because later they get styled the same way with CSS:
 
 {title="index.html",lang="html"}
@@ -654,8 +670,8 @@ This example is not working though and you should see the error: `Uncaught TypeE
 {title="main.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const nodeListElements = document.querySelectorAll('p');
-const elements = Array.from(nodeListElements);
+const nodeElements = document.querySelectorAll('p');
+const elements = Array.from(nodeElements);
 # leanpub-end-insert
 
 const toUpperCaseTransformation = (element) => {
@@ -693,7 +709,7 @@ When running the file in the browser, the JavaScript code still upper cases all 
 {title="main.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const nodeListElements = document.querySelectorAll('.food p');
+const nodeElements = document.querySelectorAll('.food p');
 # leanpub-end-insert
 ~~~~~~~
 
@@ -702,7 +718,7 @@ If we would want to be more specific, we could also address the container elemen
 {title="main.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const nodeListElements = document.querySelectorAll('div.food p');
+const nodeElements = document.querySelectorAll('div.food p');
 # leanpub-end-insert
 ~~~~~~~
 
@@ -776,11 +792,9 @@ document.querySelector('#app').appendChild(titleNode);
 # leanpub-end-insert
 ~~~~~~~
 
-By using the DOM API's `createElement()` method, we can create HTML elements out of thin air. After this element has been created, it lives in JavaScript's memory, because it isn't visible in the browser yet. Before making it visible, usually a developer sets properties (such as `textContent`). Then, the created element gets appended as a child element to a parent element which makes it visible in the browser.
+By using the DOM API's `createElement()` method, we can create HTML elements out of thin air. After this element has been created, it lives in JavaScript's memory as variable (here: `titleNode`), because it isn't visible in the browser yet. Before making it visible, usually a developer sets properties (here: `textContent`). Then, the created element gets appended as a child element to a potential parent element which ultimatively makes it visible in the browser.
 
-After all, JavaScript and its DOM API can not only be used to read and write data from and to HTML elements, but also to create new elements, to set their properties, and to append them as child element to a parent element. We will fortify this learning experience by going one step further.
-
-Usually when speaking about data in JavaScript, it comes in the form of more complex structures than a string. In the following, we want to display the following JavaScript array data structure from our clean slate *main.js* file on our website:
+After all, JavaScript and its DOM API can not only be used to read and write data from and to HTML elements, but also to create new elements, to set their properties, and to append them as child element to a parent element. We will fortify this learning experience by going one step further with more complex data structures than a string. In the following, we want to display the following JavaScript array data structure from our clean slate *main.js* file on our website:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -798,7 +812,7 @@ const list = [
 ];
 ~~~~~~~
 
-The content of the **index.html** HTML file's body tag is the following:
+The content of the **index.html** HTML file's body tag will be the following:
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -856,7 +870,7 @@ list.forEach((item) => {
 # leanpub-end-insert
 ~~~~~~~
 
-In modern JavaScript applications, displaying data via JavaScript in HTML is the norm. Most often you will have a JavaScript array at your hands, which has objects as items, and need to display it on your website. Then it's always time to use the DOM API to display your data.
+You may be wondering why we display the list programmatically via JavaScript in HTML. Wouldn't it be simpler to just use `<li>` tags in the HTML? And indeed it would be simpler, however, in modern JavaScript applications most data origins in JavaScript, so we need to have a way when having this data in JavaScript to display it in HTML. Using the DOM API is the status quo when not using a framework like React to perform such tasks.
 
 ### Exercises:
 
@@ -869,7 +883,7 @@ In modern JavaScript applications, displaying data via JavaScript in HTML is the
 
 ## HTML Events in JavaScript
 
-From the previous section, we will advance the application with some interactions in this section. In order enable a user to interact with the website, we would need to provide HTML elements such as an input field. Let's add one of these to our *index.html* file:
+We will continue with our little application from the previous section in this section by enriching it with a user interaction. In order enable a user to interact with the website, we would need to provide an HTML element such as an input element where a user can type into the field. Let's add one of these to our *index.html* file:
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -896,7 +910,7 @@ When displaying the HTML file in a browser, you should see the input field poppi
 </div>
 ~~~~~~~
 
-By using the `for` attribute for the label element and the `id` attribute for the input field, we connect both elements so that when a user clicks the label the input field gets focused. What's missing is capturing the value a user types into the input field. Therefore, we will head over to our *main.js* file and add an **event listener** to the HTML element where the `id` equals `search` -- which is in this case the input field element:
+By using the `for` attribute for the label element and the `id` attribute for the input field, we connect both elements so that when a user clicks the label the input field gets focused. What's missing is capturing the value that a user types into the input field. Therefore, we will head over to our *main.js* file and add a so called **event listener** to the HTML element:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -915,21 +929,13 @@ document
 # leanpub-end-insert
 ~~~~~~~
 
-With the DOM API, we are getting the element where the `id` equals `search`. Once we have this element, we add an event listener to it with the `addEventListener()` method which takes two arguments: While the first argument is the event type, the second argument is a callback function which runs every time a user triggers the event -- which in this case is typing into the input field.
+With the DOM API, we are selecting the element where the `id` equals `search` by using an id selector. Once we have this element, we add an event listener to it with the `addEventListener()` method which takes two arguments: While the first argument is the event type (others are `change`, `click`), the second argument is a callback function which runs every time a user triggers the event -- which in this case is typing into the input field.
 
 The callback function gives us access to the `event` parameter which holds all the information about the current input field. Accessing `event.target` returns us the input field itself. Going one step further and accessing `event.target.value` returns us the current value of the input field. Verify it yourself by going back to your browser, open the developer tool's "Console" tab, and start typing into the input field.
 
 Event listeners can be added to various HTML elements by using different event types. For example, a button can receive an event listener of type `click`. Whenever a user clicks on the button, the callback function will run. Another example: The `blur` event type on an input field runs every time an input field switches its internal state from focused to unfocused.
 
-### Exercises:
-
-* Read more [about the DOM API's addEventListener method](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
-* Question: Exchange the `addEventListener()` method's first argument from `input` to `change`. When does this event trigger compared to the previous one?
-  * Answer: The event triggers only when a user leaves the input field and its value has changed.
-
-# Interactions in HTML with JavaScript
-
-We have learned how to display elements via JavaScript and the DOM API on a website and how to listen to element interactions. With both these building blocks, we are going to create a search functionality for our little application. What we have done so far is displaying the list of items and hooking up an event listener on an input field element. What's missing is the implementation details within the callback function of the event listener which takes the current string from the input field, filters the list based on this string, and only displays the items from the list that match the search criteria. We could start this off by naivly just displaying all the items again when a user types into the input field:
+Now we have learned how to display elements via JavaScript and the DOM API on a website and how to listen to element interactions. With both these building blocks, we are going to create a search functionality for our little application. What we have done so far is displaying the list of items and hooking up an event listener on an input field element. What's missing is the implementation details within the callback function of the event listener which takes the current string from the input field, filters the list based on this string, and only displays the items from the list that match the search criteria. We could start this off by naivly just displaying all the items again when a user types into the input field:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -980,7 +986,7 @@ document
   });
 ~~~~~~~
 
-The previous implementation details made sure that we are always refreshing the displayed items when a user types into the input field. First we remove all item elements, then we add them again. That's the foundation for a so called re-rendering mechanism (read more about this in the next section). Next, we are going to implement the search functionality:
+The previous implementation details made sure that we are always refreshing the displayed items when a user types into the input field. First we remove all item elements, then we add them again. That's the foundation for a so called re-rendering mechanism (read more about this in the next section). Next, we are going to implement the actual search functionality itself:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -1008,9 +1014,9 @@ document
   });
 ~~~~~~~
 
-As learned before, we can receive the current value from the input field element by using the listener's event. From there, wen use this value as search criteria to filter our list. An array's built-in `filter()` method iterates over every item and returns each item to the new list when the conditional equals `true`. For example, when the `searchTerm` is "Rea", one of the items title's includes this partial string and therefore stays in the list while the other one gets removed. Afterward, we continue with the built-in `forEach()` method which displays all the remaining items.
+As learned before, we can receive the current value from the input field element by using the listener's event. From there, we use this value as search criteria to filter our list. An array's built-in `filter()` method iterates over every item and returns each item to the new list when the conditional equals `true`. For example, when the `searchTerm` is "Rea", one of the items title's includes this partial string and therefore stays in the list while the other one gets removed. Afterward, we continue with the built-in `forEach()` method which displays all the remaining items.
 
-The search functionality works, but it's not robust yet. Try to search for "react" instead of "React". The former will not work, because the search functionality is case sensitive. Before we change this implementation detail, let's extract the filter's callback function:
+The search functionality works, but it's not robust yet. Try to search for "react" instead of "React". The former will not work, because the search functionality is case sensitive. Before we change this implementation detail, let's extract the filter's callback function as standalone function:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -1040,7 +1046,7 @@ document
   });
 ~~~~~~~
 
-Now we can extend its logic by lower casing each item's title and the search term before checking whether one includes the other:
+Now the logic needs to implement a case insensitive searching. So we can extend the callback function's logic by lower casing each item's title and the search term before checking whether one includes the other:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -1069,17 +1075,20 @@ document
   });
 ~~~~~~~
 
-That's it. You have used JavaScript to display a filtered list to your user. Whenever the user types into the input field, the displayed list gets updated by first removing the previous list elements and then adding the filtered list elements based on the data and the search criteria. Since we are working with the DOM API here, we make everything visible to the end user here.
+That's it. You have used JavaScript to display a filtered list to your user. Whenever the user types into the input field, the displayed list gets updated by first removing the previous list elements and then adding the filtered list elements based on the data and the search criteria. Since we are working with the DOM API here, we make everything visible to the end user in HTML here, while implementing all the logic in JavaScript.
 
 ### Exercises:
 
+* Read more [about the DOM API's addEventListener method](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener).
 * Recap the following topic from earlier sections: built-in array methods such as `filter()`.
+* Question: Exchange the `addEventListener()` method's first argument from `input` to `change`. When does this event trigger compared to the previous one?
+  * Answer: The event triggers only when a user leaves the input field and its value has changed.
 * Question: What would happen if we would not remove all list item elements every time a user types into the input field?
   * Answer: For every typing, a new list (here: filtered list) would get appended to the previous list. The list would get longer, because there are never list item elements removed from it. By removing all list item elements for every typing, we make sure that the implentation logic starts with an empty list element and appends only items that match the search criteria.
 
-# Rendering and Re-Rendering
+## Rendering and Re-Rendering
 
-Previously the word "display" was used when we showed HTML via JavaScript in the browser. Another popular word these days, taken from game engines, is "render". So instead of saying "we display the array as HTML list element", we can say "we render the array as HTML list element". That's only the terminology, however, in the last section we performed an actual rendering and re-rendering (read: display and update display). First, the rendering in our code:
+Previously the word "display" was used when we showed HTML via JavaScript in the browser. Another popular word these days, taken from game engines, is "render". So instead of saying "we display the array as HTML list element", we can say "we render the array as HTML list element". That's only the terminology, however, in the last section we performed an actual rendering and re-rendering (read: display and updated display). First, we have the rendering in our code:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -1103,6 +1112,7 @@ While the rendering happens only once when the JavaScript file gets executed, th
 document
   .querySelector('#search')
   .addEventListener('input', (event) => {
+    // re-rendering step 1: remove content
     document.querySelector('#list').textContent = '';
 
     const searchTerm = event.target.value;
@@ -1110,6 +1120,7 @@ document
     const searchByTitle = (item) =>
       item.title.toLowerCase().includes(searchTerm.toLowerCase());
 
+    // re-rendering step 2: add updated content
     list.filter(searchByTitle).forEach((item) => {
       const itemNode = document.createElement('li');
       itemNode.textContent = item.title;
@@ -1118,7 +1129,7 @@ document
   });
 ~~~~~~~
 
-When comparing both code snippets, you can see that there are two pieces callback functions equally used. These callback functions are responsible for the actual rendering (and re-rendering), so let's extract them to one reusable function:
+When comparing both code snippets, you can see that both callback functions in the `forEach()` have identical implementation details. These callback functions are responsible for the actual rendering (and re-rendering), so let's extract them to one reusable function:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -1154,7 +1165,7 @@ document
   });
 ~~~~~~~
 
-By extracting the rendering logic into one function, which is used by the initial render and every re-rerender, we can extend this one function with the knowledge that it applies to both renderings. In the following, we will not only show the title in the list item element, but also the author. First, remove the one line of code where the title gets rendered:
+By extracting the rendering logic into one function, which is used by the initial render and every re-render, we can extend this one function with the knowledge that it applies to both renderings after all. In the following, we will not only show the title in the list item element, but also the author. First, remove the one line of code where the title gets rendered:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -1211,5 +1222,5 @@ That's it. We are rendering each item from the list with all of its properties w
 
 ### Exercises:
 
-* Compare your JavaScript application and its code with this [React application](https://codesandbox.io/s/elastic-framework-pishg). Both are performing the same use case, and the React one may be more intimidating at this stage, however, a framework like React is the status quo for large scale applications in modern JavaScript. So once you feel comfortable enough with JavaScript, I encourage you to check out my other book called The Road to React.
+* Compare your JavaScript application and its code with this [React application](https://codesandbox.io/s/elastic-framework-pishg). Both are performing the same use case, and the React one may be more intimidating at this stage, however, a framework like React is the status quo for modern JavaScript applications. So once you feel comfortable enough with JavaScript, I encourage you to check out my other book called The Road to React.
 
