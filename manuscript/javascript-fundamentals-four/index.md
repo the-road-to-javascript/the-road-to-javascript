@@ -195,7 +195,7 @@ There are two steps we did in this section: First, we created a promise on the c
 * Read more about [Promises in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
   * See more examples in action about [Promises](https://javascript.info/promise-basics).
 
-## Client-Server Communication
+## Client-Server Communication with APIs
 
 When writing client-side applications with JavaScript, most of the time you will have to deal with a server which enables you to read and write data from and to a database via a server. For example, when writing articles for a blogging platform, these articles get written to a database. When a user visits an article on the blogging platform, the article gets read from the database. Between client and database sits the server which implements among other things the read and write operations to access the database.
 
@@ -226,7 +226,7 @@ Second, declare Hacker News' API by using its specific search API endpoint. In t
 import axios from 'axios';
 
 # leanpub-start-insert
-const API_ENDPOINT = 'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
 # leanpub-start-insert
 ~~~~~~~
 
@@ -236,11 +236,10 @@ Third, we make a HTTP GET request with axio's `get()` method to the API endpoint
 ~~~~~~~
 import axios from 'axios';
 
-const API_ENDPOINT =
-  'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
 
 # leanpub-start-insert
-const promise = axios.get(API_ENDPOINT);
+const promise = axios.get(API);
 # leanpub-end-insert
 ~~~~~~~
 
@@ -250,10 +249,9 @@ And fourth, whenever the data arrives for this promise, get notified in the prom
 ~~~~~~~
 import axios from 'axios';
 
-const API_ENDPOINT =
-  'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
 
-const promise = axios.get(API_ENDPOINT);
+const promise = axios.get(API);
 
 # leanpub-start-insert
 promise.then((response) => {
@@ -268,11 +266,10 @@ As you have learned before, you can also chain these methods onto each other. Be
 ~~~~~~~
 import axios from 'axios';
 
-const API_ENDPOINT =
-  'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
 
 # leanpub-start-insert
-axios.get(API_ENDPOINT).then((response) => {
+axios.get(API).then((response) => {
   console.log(response);
 });
 # leanpub-end-insert
@@ -284,7 +281,7 @@ Start the application and open your browser's "Console" tab. After a delay, you 
 ~~~~~~~
 ...
 
-axios.get(API_ENDPOINT).then((response) => {
+axios.get(API).then((response) => {
 # leanpub-start-insert
   console.log(response.data.hits);
 # leanpub-end-insert
@@ -300,7 +297,7 @@ However, not every request to a remote server is successful. In the case of an e
 ...
 
 axios
-  .get(API_ENDPOINT)
+  .get(API)
   .then((response) => {
     console.log(response.data.hits);
   })
@@ -317,8 +314,7 @@ Last but not least, you could move the implementation logic into a reusable func
 ~~~~~~~
 import axios from 'axios';
 
-const API_ENDPOINT =
-  'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
 
 # leanpub-start-insert
 const getDataFromServer = (url) => {
@@ -327,7 +323,7 @@ const getDataFromServer = (url) => {
 # leanpub-end-insert
 
 # leanpub-start-insert
-const promise = getDataFromServer(API_ENDPOINT);
+const promise = getDataFromServer(API);
 # leanpub-end-insert
 
 # leanpub-start-insert
