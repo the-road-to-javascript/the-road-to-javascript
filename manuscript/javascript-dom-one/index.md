@@ -281,7 +281,7 @@ After we recaped how to write HTML/CSS and how to link files to each other, you 
 
 *Note: At the time of writing this book, Vite is becoming one of the status quo frontend build tools. However, JavaScript is a fast moving ecosystem, so Vite will not be the last frontend build tool that you will be using as professional JavaScript developer eventually.*
 
-Somewhen at the beginning of this book, you have installed Node.js which allowed you to learn JavaScript in a Node.js environment by executing JavaScript files with just one command (here: `node index.js`) on the terminal without worrying about HTML and CSS. If you haven't set up Node.js yet, now is the time to do it. Now we will use the Node Package Manager (npm) which comes with our Node installation to set up our modern JavaScript project with Vite from the command line or integrated terminal of our IDE (e.g. VSCode) by executing the following command:
+Somewhen at the beginning of this book, you have installed Node.js which allowed you to learn JavaScript in a Node.js environment by executing JavaScript files with just one command (here: `node index.js`) on the terminal without worrying about HTML and CSS. If you haven't set up Node.js yet, now is the time to do it. Now we will use the Node Package Manager (npm) which comes with our Node installation to set up our modern JavaScript project with Vite from the command line or integrated terminal of our IDE (e.g. VS Code) by executing the following command:
 
 {title="Command Line",lang="text"}
 ~~~~~~~

@@ -1,20 +1,20 @@
 # JavaScript Fundamentals: Part I
 
-JavaScript is eating the world of software engineering and web development. This is a bold statement to start a book with, however, developers across the globe feel this sentiment. The [Stack Overflow survey from 2021](https://insights.stackoverflow.com/survey/2021#most-popular-technologies-language-prof) shows that 68.62% of the respondents see JavaScript as the most popular technology in the category of programming, scripting, and markup languages followed closely (55.9%) by its related HTML/CSS markup and style sheet languages. The survey also sees *"moderate gains for TypeScript [a more powerful variant of JavaScript]"* with an absolute of 36.42% in popularity. If you want to go further down the rabbit hole in this survey, you will see mainly JavaScript frameworks and libraries among the most popular ones across all programming languages.
+JavaScript is eating the world of software engineering and web development. This is a bold statement to start a book with, however, developers across the globe feel this sentiment. The [Stack Overflow survey from 2021](https://insights.stackoverflow.com/survey/2021#most-popular-technologies-language-prof) shows that 68.62% of the respondents see JavaScript as the most popular technology in the category of programming, scripting, and markup languages followed closely (55.9%) by its related HTML/CSS markup and style sheet languages. The survey also sees *"moderate gains for TypeScript"* (which can be seen as a more powerful variant of JavaScript) with an absolute of 36.42% in popularity. If you want to go further down the rabbit hole in this survey, you will see primarily JavaScript frameworks and libraries among the most popular third-party tools across all programming languages.
 
 ![](images/so.png)
 
-GitHub ([aquired by Microsoft in 2018](https://blogs.microsoft.com/blog/2018/10/26/microsoft-completes-github-acquisition/)) is one of the most popular websites which manages developer's and company's code. GitHub as a platform for managing code doesn't need a survey to conclude the most popular programming languages, because it has all the codebases in their cloud for internal analytics. Once a year, they keep us updated about the [most popular languages](https://octoverse.github.com) and so it states that JavaScript was the most popular one from 2014 to 2020 followed by TypeScript as a rising star.
+GitHub ([aquired by Microsoft in 2018](https://blogs.microsoft.com/blog/2018/10/26/microsoft-completes-github-acquisition/)) is one of the most popular websites which manages developer's and company's code. GitHub, as a platform for managing code, doesn't need a survey to conclude the most popular programming languages, because it has all the codebases in their cloud for internal analytics. Once a year, they keep us updated about the [most popular languages](https://octoverse.github.com) and so it states that JavaScript was the most popular one from 2014 to 2021 followed by TypeScript as a rising star.
 
 ![](images/github.png)
 
-Independent from your prior exposure to programming, you should have noticed the advances of tech around you as well. This may have been one motivational trigger for you to start learning JavaScript. However, there are many other triggers such as learning a new skill, getting your foot into a well paying industry, or being able to work remotely while sustaining your desired lifestyle. Regardless of your motivation, learning to code is hard. That's why I always keep saying to beginners: "It's a marathon and not a sprint, so make sure to enjoy the journey. The road will be bumpy, however, every bump gives you a challenge for getting closer to your goal."
+Independent from your prior exposure to programming, you should have noticed the advances of tech around you as well. This may have been one motivational trigger for you to start learning JavaScript. However, there are many other triggers such as learning a new skill, getting your foot into a well paying industry, or being able to work remotely while sustaining your desired lifestyle. Regardless of your motivation, learning to code is tough. That's why I always keep saying to beginners: "It's a marathon and not a sprint, so make sure to enjoy the journey. The road will be bumpy, however, every bump gives you a challenge to achieve your goal."
 
 ### JavaScript
 
-[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) is a dynamic programming language and is one of the three pillars for the world wide web. Together with HTML and CSS, it's the language running in a browser which makes websites like Facebook, Twitter, and Airbnb work. Nowadays every browser has a dedicated JavaScript engine to execute the code on a user's device.
+[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) is a dynamic programming language and is one of the three pillars for the world wide web. Together with HTML and CSS, it's the language running in a browser which makes websites like Facebook, Twitter, and Amazon work. Nowadays every browser has a dedicated JavaScript engine to execute the code on a user's device.
 
-According to Wikipedia, JavaScript powers 97% the world's websites. While HTML and CSS are used to display static content like tables and images, JavaScript is the engine which makes a website interactive. It happens when you click the like button on Facebook, when you scroll down and more content is loaded on Twitter, or when you filter a list for the most popular books on Amazon. That's why modern websites are rather called web applications by developers, because they are more than just static content on a page.
+According to Wikipedia, JavaScript powers 97% of the world's websites. While HTML and CSS are used to display static content like tables and images, JavaScript is the engine which makes a website interactive. It happens when you click the like button on Facebook, when you scroll down and more content is loaded on Twitter, or when you filter a list for the most popular books on Amazon. That's why modern websites are rather called web applications by developers, because they are more than just static content on a page that's defined by a website.
 
 ![](images/three-pillars.png)
 
@@ -24,9 +24,9 @@ When the developer community saw a lack of interactivty, there was a big desire 
 
 ![](images/three-pillars-tasks.png)
 
-JavaScript runs mainly on the client-side (frontend) in contrast to other server-side (backend) programming languages (e.g. PHP). I say mainly, because there are popular technologies like [Node.js](https://en.wikipedia.org/wiki/Node.js) (2009) by Ryan Dahl which brought JavaScript to the backend/server as well. Anyway, as mentioned earlier, when a user visits a website via their browser (client), all HTML, CSS, and JavaScript is loaded as files from a web server. While HTML and CSS get interpreted and displayed in the browser, JavaScript gets executed by the browser's JavaScript engine.
+JavaScript runs mainly on the client-side (frontend) in contrast to other server-side (backend) programming languages (e.g. PHP). I say mainly, because there are popular technologies like [Node.js](https://en.wikipedia.org/wiki/Node.js) (2009) by Ryan Dahl which brought JavaScript to the backend-side (server) as well. Anyway, speaking primarily about the frontend here, as mentioned earlier, when a user visits a website via their browser (client), all HTML, CSS, and JavaScript is loaded as files from a web server. While HTML and CSS get interpreted and displayed in the browser, JavaScript gets executed by the browser's JavaScript engine.
 
-From its release up to the early 2010 years, JavaScript got smiled at by many veteran developers as inferior scripting language. These days, the tide has turned. What started as a scripting language in the browser which made animations and user interactions happen, has become a giant in the industry used not only by websites, but also on desktop, mobile (e.g. React Native), backend (e.g. server-side JavaScript with Node.js), internet of things, embedded systems, machine learning (e.g. Tensorflow.js), and crypto. The most popular frameworks (e.g. React.js) are used among many large players in the industry.
+From its release up to the early 2010 years, JavaScript got smiled at by many veteran developers as inferior scripting language. These days, the tide has turned. What started as a scripting language in the browser which made animations and user interactions happen, has become a giant in the industry used not only by websites, but also on desktop (e.g. Electron), mobile (e.g. React Native), backend (e.g. server-side JavaScript with Node.js), internet of things, embedded systems, machine learning (e.g. Tensorflow.js), and blockchain technologies. The most popular frameworks (e.g. React.js) are used among many large players (e.g. Facebook) in the industry.
 
 From my own experience as someone who is conducting workshops and consulting work, I can verify the ever increasing demand for JavaScript in every vertical industry, the high rates/salaries of freelancers/employers, and the shortage of developers in every company. So I am happy to have you on board for this journey and I hope my enthusiasm for JavaScript gets well reflected in this book.
 
@@ -34,7 +34,7 @@ From my own experience as someone who is conducting workshops and consulting wor
 
 You may have heard about libraries and frameworks when it comes to programming in general. You will get to understand these terms while reading the book, however, since I already associated the term framework with React.js, I want to give you a brief introduction here.
 
-Once you mastered JavaScript, you will eventualyl learn more tools that build on top of JavaScript. These tools are commonly refered to as libraries and frameworks which are build (mostly) in JavaScript and used in JavaScript applications. They make you more productive as a developer and can be installed and used in your JavaScript codebase with a few clicks. For example, a library might be there to help you with conversion rates from one currency (EUR) to another currency (USD), so that you as a developer do not have to take care about the indivudual conversion rates. You just use the library to convert an amount from EUR to USD. In contrast, a framework is larger than a library, because it offers you a whole suite of tools. For example, React.js is one popular framework which helps you to architect modern web applications with JavaScript.
+Once you mastered JavaScript, you will eventually learn more tools that build on top of JavaScript. These tools are commonly refered to as libraries and frameworks which are build (mostly) in JavaScript and used in JavaScript applications. They make you more productive as a developer and can be installed and used in your JavaScript codebase with a few clicks. For example, a library might be there to help you with conversion rates from one currency (EUR) to another currency (USD), so that you as a developer do not have to take care about the indivudual conversion rates. You just use the library to convert an amount from EUR to USD. In contrast, a framework has a larger than a library, because it offers you a whole suite of tools. For example, React.js is one popular framework which helps you to architect modern web applications with JavaScript.
 
 ![](images/pyramid.png)
 
@@ -64,46 +64,47 @@ Throughout this introduction, you may have noticed me not only mentioning JavaSc
 
 ## Hello JavaScript
 
-*If you have any trouble with the following setup, you can also watch this video as introduction. TODO*
+- TODO video to follow optionally, where to dowqnload vs code, node, how create a project folders folder, how to create a project folder, how to open vscode for this folder, how to write javascriopt, how to open the command line, how to riun the code, optionally how to run cocde in browser, how to run code in codesandbox
 
-Developers spend most of their time in a software where they can write code. This software is usually called **editor** or **IDE** (integrated development environment). I will use both terms interchangeably throughout this book. To get you started, we will install and use the most popular one called Visual Studio Code (VSCode). So as first step in your career as a JavaScript developer, head over to [VSCode's website](https://code.visualstudio.com), download it, and install it. Afterward start it as your favorite new place where you will spend most your time as a developer.
+Developers spend most of their time in a software where they can write code. This software is usually called **editor** or **IDE** (integrated development environment). I will use both terms interchangeably throughout this book. To get you started, we will install and use the most popular one called Visual Studio Code (VS Code). So as first step in your career as a JavaScript developer, head over to [VS Code's website](https://code.visualstudio.com), download it, and install it. Afterward start it as your hopefully favorite new place where you will spend most your time as a developer.
 
 Usually JavaScript runs in the browser and thus you should not need to install anything else to execute it. And that's what we will do once we put JavaScript together with HTML and CSS later in this book. However, to kick things off, we will take a different approach by learning *only* JavaScript *without* HTML/CSS *outside* of the browser: entering Node.js -- the JS runtime for the backend.
 
 Starting things off with Node.js does not mean that you will learn server-side JavaScript, that you will become a backend developer, or that you will not run JavaScript in the browser eventually. It just means that we will establish a learning environment where you can learn *only* JavaScript without any displayed (also called **rendered**) HTML/CSS in the browser. Instead, you will write code, execute it with a command, and see its plain output. Later in this book though, we will switch over to the common client-side JavaScript which is executed in the browser with HTML and CSS.
 
-As second step in your career as a JavaScript developer, you need to install Node.js to execute only JavaScript from within VSCode. Head over to [Node's website](https://nodejs.org/en), download the latest recommended release, and install it. After it has been installed, open VSCode and enable the **intergated terminal** (also called terminal, command line, or command line interface (CLI) -- which I will use interchangeably throughout this book). On the command line, type the following command which should output your current Node version if you have installed it correctly:
+Hence as second step in your career as a JavaScript developer, you need to install Node.js to execute only JavaScript from within VS Code. Head over to [Node's website](https://nodejs.org/en), download the latest recommended release, and install it. After it has been installed, open VS Code and open there the **intergated terminal** (also called terminal, command line, or command line interface (CLI) -- which I will use interchangeably throughout this book). On the command line, type the following command which should output your current Node version if you have installed it correctly:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
 node --version
 ~~~~~~~
 
-What's missing is a physical place on your machine for your first JavaScript project. Open up your Finder (MacOS), File Explorer (Windows), or your equivalent on Linux and create a folder (e.g. folder with the name "LearnJavaScript") for your first project somewhere (e.g. folder with the name "Projects") where you want to keep all your future JavaScript projects. After creating this folder, open VSCode and open the folder of your new project with it. There create a new file with the name *index.js* and fill it with the following content:
+What's missing is a physical place on your machine for your first JavaScript project. Open up your Finder (MacOS), File Explorer (Windows), or your equivalent on Linux and create a folder (e.g. folder with the name "LearnJavaScript") for your first project somewhere (e.g. folder with the name "Projects") where you want to keep all your future JavaScript projects. After creating this folder, open VS Code and open the folder of your new project with it. There create a new file with the name *index.js* and fill it with the following content:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
 console.log('Hello JavaScript');
 ~~~~~~~
 
-With VSCode and Node, you are good to go to execute your first JavaScript. Open the integrated terminal (most often I will call it command line in the future) in VSCode and type:
+With VS Code and Node, you are good to go to execute your first JavaScript. Open the integrated terminal (most often I will call it command line in the future) in VS Code and type:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
 node index.js
 ~~~~~~~
 
-Node should run your server-side JavaScript file and should output "Hello JavaScript" on the command line. In the future, whenever you change code in your JavaScript file, run the node command again. Congratulations, you have executed your first code in JavaScript.
+Node should run your (server-side) JavaScript file and should output "Hello JavaScript" on the command line. In the future, whenever you change code in your JavaScript file, run the node command again. Congratulations, you have executed your first code in JavaScript.
 
 ### Exercises:
 
-* Learn to use [VSCode](https://code.visualstudio.com/learn), apply a [custom theme](https://code.visualstudio.com/docs/getstarted/themes) for a more personal touch, and make VSCode to your second home!
+* Learn to use [VS Code](https://code.visualstudio.com/learn), apply a [custom theme](https://code.visualstudio.com/docs/getstarted/themes) for a more personal touch, and make VS Code to your second home!
+* Optional: Read more about [how I set up my development environment](https://www.robinwieruch.de/developer-setup/).
 
 ## Values and Variables
 
 Imagine you are about to move from one city to another city and you have to pack all your stuff. You gather a bunch of boxes for all your belongings and label them with their content. This way, when you unpack these boxes later, you know what's in there without opening them. Values and variables in programming are similar to this analogy. While values are all your belongings in these boxes, the variables are the labels which mark the boxes.
 
-Values and variables are the most fundamental building blocks in JavaScript (and other programming languages). A value is a representation of data (any piece of information). For example, the previously used "Hello JavaScript" is a value. Since we have put it into a `console.log()` statement, it's printed for us. The same would happen for printing my name as value. Change the code accordingly and run it again with `node index.js` on the command line.
+Values and variables are the most fundamental building blocks in JavaScript (and other programming languages). A value is a representation of data (any piece of information). For example, the previously used "Hello JavaScript" is a value. Since we have put it into a `console.log()` statement, it's printed for us. The same would happen for printing my name as value. Change the code accordingly and run it again with `node index.js` on the command line:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -127,13 +128,13 @@ console.log(firstName);
 console.log(firstName);
 ~~~~~~~
 
-Behind the scenes, the machine running the code allocates memory for this variable, because it needs to be able to retrieve its stored value every time we use it. Then it replaces the variable with the actual value. Now you can change the value of the variable at one place and it will be reflected at all the places where it is used. Try it yourself, by changing the `firstName` to your own name. Then run the `node index.js` command again.
+Behind the scenes, the machine running the code allocates memory for this variable, because it needs to be able to read its stored value every time we use (here: print) it. Whenever we use the variable, it replaces it with the actual value. Now you can change the value of the variable at one place and it will be reflected at all the places where it is used. Try it yourself, by changing the `firstName` to your or another name. Then run the `node index.js` command again.
 
 What's noteworthy: The previous paragraph mentioned memory allocation when variables get created in JavaScript. This happens for other programming languages as well. However, since JavaScript is a so called **high level programming language**, we do not need to take care of the memory allocation. In other programming languages such as C++, which is a **low level programming language**, a developer has to take care of these things.
 
 ![](images/variable-value.png)
 
-In JavaScript, variables are usually created in [camelCase](https://en.wikipedia.org/wiki/Camel_case). So it's not `first_name` (snake_case) or `first-name` (kebab-case), but `firstName` as we have used it in the example above. Other naming conventions that are allowed for specific cases are `FIRST_NAME` (UPPER_CASE or SCREAMING_SNAKE_CASE) or `FirstName` (PascalCase).
+In JavaScript, variables are usually created in [camelCase](https://en.wikipedia.org/wiki/Camel_case). So it's not `first_name` (snake_case) or `first-name` (kebab-case), but `firstName` (camelCase) as we have used it in the example above. Other naming conventions that are allowed for specific cases are `FIRST_NAME` (UPPER_CASE or SCREAMING_SNAKE_CASE) or `FirstName` (PascalCase). Anyway, for now we will stick to camelCase:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -142,7 +143,7 @@ let yearBirth = 1988;
 console.log(yearBirth);
 ~~~~~~~
 
-In conclusion, variables are there to reference values in your code. Meaning: You declare a variable with a value once and then reuse it as reference later when you need to do something with it (e.g. printing it with `console.log()`). This makes values reusable and helps developers to change values only once and not everywhere in the codebase. In addition, there are naming conventions for programming languages which should be followed to make the code more readable to other developers. You should get an overvier about these conventions by going through the exercises.
+In conclusion, variables are there to **reference** values in your code. Meaning: You declare a variable with a value once and then reuse it as reference later when you need to do something with it (e.g. printing it with `console.log()`). This makes values reusable which helps developers to change values only once instead of everywhere in the codebase and to carry values around in larger codebases later on. In addition, you have learned that there are naming conventions for JavaScript which should be followed to make the code more readable to other developers. You should get an overvier about these conventions by going through the exercises.
 
 ### Exercises:
 
@@ -155,7 +156,7 @@ Structuring your code in a readable and natural way is important, because you ca
 
 ### Code Structure
 
-As someone new to programming, it's not intuitive from the beginning how to structure code in a readable flow. We will learn later about a tool which helps us with structuring our code (also called **code formatting**), however, for the early sections of this book you have to sturcture the code yourself to get comfortable with it. Now take for example the following code snippet:
+As someone new to programming, it's not intuitive from the beginning how to structure code in a readable flow. You may later learn about tools (e.g. Prettier) which help you with structuring your code (also called **code formatting**), however, for this book you have to sturcture the code yourself which helps you getting comfortable with it. Take for example the following code snippet:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -176,7 +177,7 @@ let yearBirth = 1988;
 console.log(yearBirth);
 ~~~~~~~
 
-If you leave a blank line in between is often a matter of taste. This doesn't mean that there should be a blank line between every line of code though. Usually you want to form **logical blocks of code** like one block for variables and one block for printing statements:
+Leaving a blank line in between is often a matter of taste. This doesn't mean that there should be a blank line between every line of code though. Usually you want to form **logical blocks of code** like one block for variables and one block for printing statements:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -187,7 +188,7 @@ console.log(firstName);
 console.log(yearBirth);
 ~~~~~~~
 
-JavaScript is *most of the time* able to execute code without semicolons, however, it's not always the case. Thus, whenever you can use semicolons as a best practice to end statements. The majority of the JavaScript community stands behind this rule.
+JavaScript is *most of the time* able to execute code without semicolons, however, it's not always the case. Thus, whenever you can use semicolons as a best practice to end statements in JavaScript. The majority of the JavaScript community stands behind this best practice.
 
 ### Comments
 
@@ -223,7 +224,7 @@ You can also use multiline comments with a block comment with a slash and asteri
 */
 ~~~~~~~
 
-Anyway, I will use comments throughout this book to annotate code for you. However, while reading this book and coding alogn, you should use comments for learning purposes (e.g. adding explanations, showing alternatives from the book, linking to external URLs as explanations). Once you are working with other developers on an application, you will most likely see comments when things are not sufficently self-descriptive (e.g. variable names) and need further explanation.
+Anyway, I will use comments throughout this book to annotate code for you. However, while reading this book and coding along, you should use comments for learning purposes (e.g. adding explanations, showing alternatives from the book, linking to external URLs as explanations). Once you are working with other developers on an application, you will most likely see comments when things are not sufficently self-descriptive (e.g. variable names) and need further explanation.
 
 ### Debugging
 
@@ -238,7 +239,7 @@ Regarding the previous section, you will notice that not all variable names are 
 let new = 'Robin';
 ~~~~~~~
 
-Try it yourself, by giving your variable a name that isn't allowed. For example, using `new` would lead to the following error in VSCode:
+Try it yourself, by giving your variable a name that isn't allowed. For example, using `new` would lead to the following error in VS Code:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -256,7 +257,7 @@ let new = 'Robin';
 SyntaxError: Unexpected token 'new'
 ~~~~~~~
 
-Errors in JavaScript describe what's wrong (here: syntax) and where to find the errornous code (here: line 1). Start early to read your errors carefully, because tracking down errors (debugging) in code will become your daily duty as a developer. If you get stuck on a bug, invest the time to solve it yourself, because perseverance is what makes you a great developer.
+Errors in JavaScript describe what's wrong (here: syntax) and where to find the errornous code (here: line 1). Start early to read your errors carefully, because tracking down errors (debugging) in code will become second nature as a developer. If you get stuck on a bug, invest the time to solve it yourself, because perseverance is what makes you a great developer.
 
 ### Exercises:
 
@@ -271,7 +272,7 @@ Errors in JavaScript describe what's wrong (here: syntax) and where to find the 
 
 ## Data Types: Primitives
 
-Every programming language comes with data types which help developers to represent different kinds of information. You have learned about two of them already: string and number. While a **string** represents a sequence of characters (essentialy text) in quotes (single or double -- choose and stick to one of them), a **number** represents fixed point (also called integer or int) or floating point (also called decimal or float) digits which can be positive or negative:
+Back to the actual code. Every programming language comes with data types which help developers to represent different kinds of information. You have learned about two of them already: string and number. While a **string** represents a sequence of characters (essentialy text) in quotes (single or double -- choose and stick to one of them), a **number** represents fixed point (also called integer or int) digits or floating point (also called decimal or float) digits which can be positive or negative:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -290,7 +291,7 @@ let height = 1.80;
 // yes, it's height in meters ;-)
 ~~~~~~~
 
-In contrast, the **boolean** is the logical data type which can have the representations `true` or `false`. Based on a boolean, JavaScript code can make decisions (e.g. if-else statement which we will get to know later) when it evaluates these values:
+In contrast, the **boolean** is the logical data type which can only have the representations `true` or `false`. Based on a boolean, JavaScript code can make decisions (e.g. if-else statement which we will get to know later) when it evaluates these values:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -322,7 +323,7 @@ When using `null`, it signals a more deliberate choice of an empty value. For ex
 let middleName = null;
 ~~~~~~~
 
-Newer and less used data types are [Symbol (ES2015)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) and [BigInt (ES2020)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) which I will not cover in this book, because they are not very much adopted yet. As a JavaScript beginner and even as advanced JavaScript developer, for a while you will not cross these data types.
+Newer and less used data types are [Symbol (ES2015)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) and [BigInt (ES2020)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) which I will not cover in this book, because they are not widely used yet. As a JavaScript beginner and even as advanced JavaScript developer, for a while you will not cross these data types.
 
 ![](images/data-types.png)
 
@@ -337,13 +338,13 @@ Altogether, there are 7 data types categorized as **primitives** in JavaScript: 
   * Answer: Yes. For example `let someNumber = '42';`. But the underlying data type, as you will learn later, is of type string and not number.
 * Question: When would it be reasonable to mix double and single quotes for string variables?
   * Answer: If the quote is part of the text like in `let text = 'He said that "I am a good developer"';`.
+* See more examples in action about [data types in JavaScript](https://javascript.info/types).
 * Read more about [JavaScript's primitive data types](https://developer.mozilla.org/en-US/docs/Glossary/Primitive).
   * Read more about [JavaScript's string primitive](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String).
   * Read more about [JavaScript's number primitive](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number).
   * Read more about [JavaScript's boolean primitive](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean).
   * Read more about [JavaScript's undefined primitive](https://developer.mozilla.org/en-US/docs/Glossary/undefined).
   * Read more about [JavaScript's null primitive](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null).
-* See more examples in action about [data types in JavaScript](https://javascript.info/types).
 
 ## Variable Declaration and Initialization
 
@@ -440,7 +441,7 @@ age = '30 years'; // to string
 
 Over the long run, JavaScript's properties of being a loosely typed, dynamic, and high level programming language running in the browser helped the language evolve to the giant in our industry with a high adoption rate by people being new to programming.
 
-This section has taught you about different terms when creating and changing variables in JavaScript. It's okay if you don't know all of these terms from the top of your head, however, the book tries to establish a baseline for a vocabulary, so that you always can refer back to certain sections if terms are unclear to you.
+This section has taught you about different terms when creating and changing variables in JavaScript. It's okay if you don't know all of these terms from the top of your head, however, the book tries to establish a baseline of a vocabulary, so that you always can refer back to certain sections if terms are unclear to you.
 
 ### Exercises:
 
@@ -452,17 +453,21 @@ This section has taught you about different terms when creating and changing var
 * Questions: What happens if you `console.log()` a variable that's not declared.
   * Answer: You will get an error.
 * Question: What's the advantage of defining ones age in a computer program with `yearBirth` instead of `age`?
-  * Answer: If the computer program gets older, the `age` in the program would have to change whereas the `yearBirth` could stay the same. Thus, when using `yearBirth`, with every passing year the program would still be without bugs.
+  * Answer: With every passing year, the `age` in the program would have to get adjusted by a developer whereas the `yearBirth` can stay the same. Thus, when using `yearBirth`, the program would be without bugs even though a year passes.
 * From the previous section's exercises, where you came up with variables about yourself, change the `age` variable to `yearBirth`.
 
 ## let, const, and var
 
-When you learned about variables and values, you have used both on the left and right of the equation. What I never explained until yet was the keyword `let`, which is used to declare a variable for the first time. Afterward, it isn't needed anymore for (re-)assignments:
+When you learned about variables and values, you have used both on the left and right of the equation respectively. What I never explained until yet was the keyword `let`, which is used to declare a variable for the first time. Afterward, it isn't needed anymore for usage or (re-)assignments:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
 let age = 30;
 
+// usage
+console.log(age);
+
+// re-assignment
 age = 31;
 ~~~~~~~
 
@@ -496,7 +501,7 @@ yearBirth = 1990;
 // TypeError: Assignment to constant variable.
 ~~~~~~~
 
-The big question in the room: When to use `let` and when to use `const`? Essentially `let` is used when a variable changes throughout the codebase and `const` is used when a variable will not change. If you want to take the simple road, you could use `let` everywhere, because then you can have both: variables that change and variables that do not change. However, as a best practice, use `const` whenever a variable should not change. In programming, having variables that do not change is an advantage, because less bugs get introduced this way. Once variables start to change, we loose some stability and predictability in our code and its easier to run into problems. We will get more into this topic later in the book.
+The big question in the room: When to use `let` and when to use `const`? Essentially `let` is used when a variable changes throughout the codebase and `const` is used when a variable will not change. You *could* use `let` everywhere, because then you can have both: variables that change and variables that do not change. However, as a best practice, use `const` whenever a variable should not change. In programming, having variables that do not change is an advantage, because less bugs get introduced this way. Once variables start to change, we loose some stability and predictability in our code and its easier to run into problems. We will get more into this topic later in the book.
 
 ### Exercises:
 
@@ -511,7 +516,7 @@ The big question in the room: When to use `let` and when to use `const`? Essenti
 
 ## Arithmetic Operators
 
-So far, we have only defined variables with their values. In real JavaScript code, you will do something with these values eventually, otherweise there would be no need to assign them to variables in the first place. In this section, we will talk through your first kind of operators in JavaScript. The book touches *only several* operators in this section and throughout the rest of the book, because there are too many operators to cover all of them. But be assured that we will cover the most popular ones.
+So far, we have only defined variables with their values. In real JavaScript code, you will do something with these values eventually, otherweise there would be no need to assign them to variables in the first place. In this section, we will walk through your first set of operators in JavaScript. The book touches *only several* operators in this section and throughout the rest of the book, because there are too many operators to cover all of them. But be assured that we will cover the most important and popular ones.
 
 You have already learned about one operator before: the `+` operator. It's one of several **arithmetic operators**. Another one is the `-` operator. While the `+` operator is used for addition, the `-`, `*`, and `/` operators are used for subtraction, multiplication, and division:
 
@@ -539,7 +544,7 @@ console.log('years as developer:', today - yearGraduation);
 */
 ~~~~~~~
 
-Let's advance the previous example by **extracting values as variables**:
+Let's advance the previous example by **extracting values as variables** before printing them:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -628,7 +633,7 @@ const lastName = 'Wieruch';
 console.log('My name is' + firstName + lastName);
 ~~~~~~~
 
-This will print "My name isRobinWieruch" though, so when concatenating a string with the + operator, always think about the spaces between variables and/or values. In this case, we can put an empty string between the variables/values and also add the punctation at the end of the sentence:
+This will print "My name isRobinWieruch" though, so when concatenating a string with the + operator, always think about the spaces between variables and values. In this case, we can put an empty string between the variables/values and also add the punctation at the end of the sentence:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -727,7 +732,7 @@ const yearToday = yearBirth + age;
 console.log(yearToday);
 ~~~~~~~
 
-Against ones expecations this prints "199130" and not 2021. Whenever a string is involved, the arithmetic `+` operator becomes a string operation like we have learned before. Thus every number just gets concatenated. Changing all variables to number data types fixes this issue:
+Against ones expecations this prints "199130" and not 2021. Whenever a string is involved, the arithmetic `+` operator becomes a string operation like we have learned before. Thus every number just gets coerced and concatenated to the string(s) if string(s) are part of the operation. Changing all variables to number data types fixes this issue:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -743,7 +748,7 @@ console.log(yearToday);
 # leanpub-end-insert
 ~~~~~~~
 
-JavaScript automatically adjusts data types for us under the hood, which is not always the desired behavior, however, once we get used to it, it saves us lots of extra work which we would normally have to perform with manual/explicit **type conversions**. The following example shows this redundancy:
+JavaScript automatically adjusts data types for us under the hood, which is not always the desired behavior, however, once we get used to it, it saves us lots of extra work which we would normally have to perform with manual/explicit **type conversions**. The following example shows this redundancy that we would have to deal with without type coercion by using manual/explicit type conversions:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -777,13 +782,18 @@ console.log(yearToday);
 // 2021
 ~~~~~~~
 
-Considering the primitives string, number, and boolean, we can use their counterparts `String()`, `Number()`, and `Boolean()` to manually transform them from one data type to another:
+Considering the primitives string, number, and boolean, we can use their counterparts `String()`, `Number()`, and `Boolean()` to manually transform them from one data type to another. We will learn about these counterparts later in detail:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
 let yearBirth = '1991';
+console.log(yearBirth);
+
 yearBirth = Number(yearBirth);
+console.log(yearBirth);
+
 yearBirth = String(yearBirth);
+console.log(yearBirth);
 ~~~~~~~
 
 Previously you have also learned about operators in JavaScript. Occasionally the **unary operator** `typeof` helps us to retrieve the data type of a variable:
@@ -826,7 +836,7 @@ console.log(Boolean(30));
 // true
 ~~~~~~~
 
-Essentially this conversion always results in true when the string or number values are defined. If they are not defined, null, or have some other for JavaScript interpreted falsy value (e.g. number `0` or empty string `''`), the conversion will result in false:
+Essentially this conversion always results in true when the string or number values are defined. If they are not defined (`undefied`), `null`, or have some other for JavaScript interpreted falsy value (e.g. number of `0` or empty string `''`), the conversion will result in false:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -836,7 +846,7 @@ console.log(Boolean(0)); // false
 console.log(Boolean('')); // false
 ~~~~~~~
 
-This knowledge will later help us to make decisions in JavaScript not only based on booleans, but also implictly on empty strings or `undefined`/`null`. Anyway, while type coercion helps us as a developer not to take care of the conversions manually all the time, type conversion gives us the tools whenever we have to perform it ourselves.
+This knowledge will later help us to make decisions in JavaScript not only based on booleans, but also implictly on empty strings or `undefined`/`null` values. Anyway, while type coercion helps us as a developer not to take care of the conversions manually all the time, type conversion gives us the tools whenever we have to perform it ourselves.
 
 ### Exercises:
 
@@ -852,7 +862,7 @@ This knowledge will later help us to make decisions in JavaScript not only based
 
 ## If-Else Statement
 
-Imagine an elevator which just dropped a person at the 7th floor. One person at the 1st floor is already waiting for the elevator and pushed the button a while ago. Another person just arrived at the elevator at the 8th floor and pushes the button. Where should the elevator go next? Should it go to the person who was the first (fairness) or should it go to the person who is the nearest (efficience)? These kinds of decisions need to be made in computer programs.
+Imagine an elevator which just dropped a person at the 7th floor. One person at the 1st floor is already waiting for the elevator and pushed the button a while ago. Another person just arrived at the elevator at the 8th floor and pushes the button. Where should the elevator go next? Should it go to the person who was the first (fairness) or should it go to the person who is the nearest (efficience)? These kinds of decisions need to be made in computer programs on every level.
 
 ![](images/if-else.png)
 
@@ -866,7 +876,7 @@ const isDeveloper = true;
 if (isDeveloper) {
   console.log(`${firstName} is a developer.`);
 } else {
-  console.log(`${firstName} may be still a student.`);
+  console.log(`${firstName} may still be a student.`);
 }
 ~~~~~~~
 
@@ -882,7 +892,7 @@ if (isDeveloper) {
 }
 ~~~~~~~
 
-If this statement only executes one line in its block, then it can be expressed in a shorter version without curly braces too. Note however that it's recommended to use the curly bracktes for having the blocks more explicit:
+If this statement only executes one line in its block, then it can be expressed in a shorter version without curly braces too. Note however that it's recommended to use the curly braces for having the blocks more explicit:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -892,7 +902,7 @@ const isDeveloper = true;
 # leanpub-start-insert
 if (isDeveloper) console.log(`${firstName} is a developer.`);
 # leanpub-end-insert
-// but it's better to use curly braces
+// note that it's better to use curly braces though
 ~~~~~~~
 
 In the other direction of just having one `if` without an `else` statement, there can be more than one condition expressed by using additional else-if statements in between:
@@ -912,11 +922,11 @@ if (isDeveloper) {
   console.log(`${firstName} is a lawyer.`);
 # leanpub-end-insert
 } else {
-  console.log(`${firstName} may be still a student.`);
+  console.log(`${firstName} may still be a student.`);
 }
 ~~~~~~~
 
-This code has one flaw though, which we will adress properly in one of the next sections when we learn about logical operators. But can you spot it right now? Hint: What's printed if Robin is a developer and a lawyer? Try it yourself in the code.
+This code has one flaw though, which we will adress properly in one of the next sections when we learn about logical operators. But can you spot it right now? Hint: What's printed if Robin has a hybrid profession and therefore is a developer and a lawyer? Try it yourself in the code.
 
 An if-else statement (with optional else-if statements) always runs only the block of the first truthful (also called truthy) condition. All the following blocks are ignored. If you would want to fix this without logical operators (which we introduce later), you would have to use two if-else statements:
 
@@ -929,19 +939,19 @@ const isLawyer = false;
 if (isDeveloper) {
   console.log(`${firstName} is a developer.`);
 } else {
-  console.log(`${firstName} may be still a student.`);
+  console.log(`${firstName} may still be a student.`);
 }
 
 if (isLawyer) {
   console.log(`${firstName} is a lawyer.`);
 } else {
-  console.log(`${firstName} may be still a student.`);
+  console.log(`${firstName} may still be a student.`);
 }
 ~~~~~~~
 
-The drawback is that if both booleans are `false`, the code would execute both else blocks with their same instructions which wouldn't be desired either.
+The drawback is that if both booleans are `false`, the code would execute both else blocks with their same instructions which wouldn't be desired either. Therefore we will have to use logical operators eventually.
 
-The if-else statement is one of the most used tools as a developer, because it enables one to move from coding a sequence of instructions to coding a tree of instructions with decision making based on conditions. Therefore not all code will be executed and only certain parts of the code will meet the conditions along the way. The if-else statement is one of several **control structures** (which enabled **control flows** in JavaScript) you will learn about.
+The if-else statement is one of the most used tools as a developer, because it enables one to move from coding a sequence of instructions to coding a tree of instructions with decision making based on conditions. Therefore not all code will be executed and only certain parts of the code will meet the conditions along the way. The if-else statement is one of several **control structures** (which enabled **control flows** in JavaScript) which you will learn about while reading this book.
 
 ### Exercises:
 
@@ -952,7 +962,7 @@ The if-else statement is one of the most used tools as a developer, because it e
 
 ## Relational and Equality Operators
 
-For many if-else statements you will not always have a boolean at your hand. Instead, you will make decisions based on other primitive or structural types which are evaluated into booleans. For example, **relational operators** are used to derive booleans from an expression between two values of a relation:
+For many if-else statements you will not always have a boolean at your hand. Instead, you will make decisions based on other primitive or structural types which are evaluated into booleans. For example, **relational operators** are used to **derive** booleans from an expression between two values of a relation:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -991,7 +1001,7 @@ console.log(1 === '1'); // keeps data types
 // false
 ~~~~~~~
 
-In other words, the equality operator does not care about data types. Therefore, it's a good rule of thumb to use the strict equality operator whenever you can to leave less room for errors, because most of the time you do want to compare values and their respective data types. As counterparts to both operators, there are also `!==` (strict non-equality) and `!=` (non-equality) operators.
+In other words, the equality operator does not care about data types. Therefore, it's a good rule of thumb to use the strict equality operator whenever you can to leave less room for errors, because most of the time you do want to compare values and their respective data types as identical. As counterparts to both operators, there are also `!==` (strict non-equality) and `!=` (non-equality) operators.
 
 ### Exercises
 
@@ -1023,24 +1033,24 @@ const yearsAsDeveloper = 7;
 if (yearsAsDeveloper > 0) {
   console.log(`${fullName} is a developer.`);
 } else {
-  console.log(`${fullName} may be still a student.`);
+  console.log(`${fullName} may still be a student.`);
 }
 ~~~~~~~
 
-However, the last code snippet shows expressions too. In contrast to statements, **expressions** are used *to produce* a value. Hence you hear people say 1 + 2 *"results in"* or *"evaluates to"* 3. These are all words that describe the same term. So essentially expressions are values assigned to variables, variables that are derived from other values/variables (e.g. booleans derived from relational operators), conditions used for if-else statements, and everything else where a value appears.
+However, the last code snippet shows expressions too. In contrast to statements, **expressions** are used *to produce* a value. Hence you hear people say 1 + 2 *"results in"* (when speaking human) or *"evaluates to"* 3 (when speaking code). These are all words that describe the same term. So essentially expressions are values assigned to variables, variables that are derived from other values/variables (e.g. booleans derived from relational operators), conditions used for if-else statements, and everything else where a value appears.
 
 ![](images/statement-vs-expression.png)
 
-In conclusion, as mentioned partly before, the right-hand side of an value to variable assignment is called an expression. If the value happens to be just a plain data type such as `Robin` or `7`, it's also called **literal**, because the values that get produced are litteraly written down.
+In conclusion, as mentioned partly before, the right-hand side of an value to variable assignment is called an expression. If the value happens to be just a plain data type such as `'Robin'` or `7`, it's also called **literal**, because the values that get produced are litteraly written down. So you will hear about the term literal from time to time as well.
 
 ### Exercises:
 
-* Go through the code from the previous sections and mentaly assign each part in a line of code either statement, expression or both.
+* Go through the code from the previous sections and mentaly assign each part in a line of code either statement, expression or both. In addition, check which variable initializations are literals.
 * Read more about [the hierarchy of statements (e.g. control structures and declarations)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements).
 
 ## Logical Operators
 
-Beyond relational and equality operators which compute to booleans, there are also logical operators. Do you recall the flaw that we had with "Robin being a developer and a lawyer" ?
+Beyond relational and equality operators which compute to booleans, there are also logical operators that we have mentioned before. Do you recall the flaw that we had with "Robin being a developer and a lawyer" from earlier?
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1053,11 +1063,11 @@ if (isDeveloper) {
 } else if (isLawyer) {
   console.log(`${firstName} is a lawyer.`);
 } else {
-  console.log(`${firstName} may be still a student.`);
+  console.log(`${firstName} may still be a student.`);
 }
 ~~~~~~~
 
-The flaw of this decision tree is that it would only execute the first block: "Robin is a developer." This introduces an errornous behavior (read: bug), because Robin is a lawyer as well. What's missing are operators which can combine more than one boolean value: entering **logical operators**. In this case, the problem can be solved with an **logical && (AND) operator** which evaluates to `true` if all of the participating booleans are `true`:
+The flaw of this decision tree is that it would only execute the first block: "Robin is a developer." This introduces an errornous behavior (read: bug), because Robin, in this example, is a lawyer as well. What's missing are operators which can combine more than one boolean value: entering **logical operators**. In this case, the problem can be solved with an **logical && (AND) operator** which evaluates to `true` if *all of* the participating booleans are `true`:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1074,13 +1084,13 @@ if (isDeveloper && isLawyer) {
 } else if (isLawyer) {
   console.log(`${firstName} is a lawyer.`);
 } else {
-  console.log(`${firstName} may be still a student.`);
+  console.log(`${firstName} may still be a student.`);
 }
 ~~~~~~~
 
-The printed output will result in "Robin is a developer and a lawyer." Even though the other two conditions in the following else-if parenthaseses evaluate to `true` too, these blocks will not execute, because one of the earlier conditions (here: `isDeveloper && isLawyer`) already evaluated to `true` and therefore executed its block.
+The printed output will result in "Robin is a developer and a lawyer." Even though the other two conditions in the following else-if parenthaseses evaluate to `true` too, these blocks will not execute, because one of the earlier conditions (here: `isDeveloper && isLawyer`) already evaluated to `true` and therefore executed its block and therefore no other block gets evaluated anymore (hence: `else if`).
 
-The equivalent of the logical AND operator is the **logical || (OR) operator** which evalutes to `true` if at least one of participating booleans is `true`:
+The equivalent of the logical AND operator is the **logical || (OR) operator** which evalutes to `true` if *at least one of* participating booleans is `true`:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1095,7 +1105,7 @@ if (isDeveloper && isLawyer) {
   console.log(`${firstName} is a developer or a lawyer.`);
 # leanpub-end-insert
 } else {
-  console.log(`${firstName} may be still a student.`);
+  console.log(`${firstName} may still be a student.`);
 }
 ~~~~~~~
 
@@ -1137,7 +1147,7 @@ if (middleName) {
 }
 ~~~~~~~
 
-In this example, the output will not be printed, because Robin Wieruch has no middle name. Everything that's used as a condition in an if-else statements gets coerced into a boolean. Therefore, the variable `middleName` with its value `null` is coerced into false, because `null` is a falsy value. Other falsy values are `undefined`, `0`, and empty string:
+In this example, the output will not be printed, because Robin Wieruch has no middle name. Everything that's used as a condition (expression) in an if-else statements gets coerced into a boolean. Therefore, the variable `middleName` with its value `null` is coerced into false, because `null` is a falsy value. Other falsy values are `undefined`, `0`, and empty string, which means the following code would also not run into the block:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1165,7 +1175,7 @@ if (middleName) {
 }
 ~~~~~~~
 
-Both, truthy and falsy values can be negated by using the logical NOT operator:
+Both, truthy and falsy values can be negated (the same way as explicit truthty and falsy values such as `true` and `false`) by using the logical NOT operator:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1180,7 +1190,7 @@ if (!middleName) {
 }
 ~~~~~~~
 
-You see that lots of things derive from data type coercion and conversion in JavaScript. Data types which are not booleans are coerced into booleans when they are needed in a boolean context such as an if-else statement. Initially that's a lot to digest, however, it helps one in the long run to shortcut decision makings.
+You see that lots of things derive from data type coercion and conversion in JavaScript. Data types which are not booleans are coerced into booleans when they are needed in a boolean context such as an if-else statement. Initially that's a lot to digest as a novice developer, however, it helps one in the long run to shortcut decision makings.
 
 ### Exercises:
 
@@ -1232,7 +1242,7 @@ The anatomy of the ternary operator consists of the following buildings blocks:
 
 ![](images/ternary-operator.png)
 
-If you think about it, a ternary operator (or if-else statement) could be used to assign booleans based on comparison/relational operator too. However, since a comparison or relational operator already evlautes a result into a boolean, it becomes redundant to do it oneself:
+If you think about it, a ternary operator (or if-else statement) could be used to assign booleans based on comparison/relational operator too. However, since a comparison or relational operator already evaluates a result into a boolean, it becomes redundant to do it oneself:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1245,7 +1255,7 @@ console.log(isDeveloper);
 // true
 ~~~~~~~
 
-It's also possible to nest ternary operators into each other, but it's not recommended because the code becomes less readable. Anyway, ternary operators are a great way to keep if-else statements short. However, be comfortable with using if-else statements first before dipping your toes into its more concise sibling.
+It's also possible to nest ternary operators into each other, but it's not recommended because the code becomes less readable and therefore I will not go into anymore detail here. Anyway, ternary operators are a great way to keep if-else statements short. However, be comfortable with using if-else statements first as a beginner before dipping your toes into its more concise sibling. You will encounter many if-else statements in your career, so keep coding them in their long form.
 
 ### Exercises:
 

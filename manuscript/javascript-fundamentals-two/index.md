@@ -1,6 +1,6 @@
 # JavaScript Fundamentals: Part II
 
-So far, you have learned about variables and values, their associated data types, implicit type coercion and explicit type conversion, and a few control structures such as the if-else statement in JavaScript. That's already one third through the fundamentals of JavaScript. In the following second part, you will learn about extracting reusable parts of code from your program with functions and more complex data structures beyond primitives such as objects and arrays.
+So far, you have learned about variables and values, their associated data types, implicit type coercion and explicit type conversion, and a few control structures such as the if-else statement in JavaScript. That's already 25% through the fundamentals of JavaScript. In the following 25%, you will learn about extracting reusable parts of code from your program with functions and more complex data structures beyond primitives such as objects and arrays.
 
 ## Functions
 
@@ -14,7 +14,7 @@ function askAndSayMyName() {
 }
 ~~~~~~~
 
-A **function declaration** starts with the `function` keyword, a descriptive name for this function, and an opening and closing parantheses. Everything that follows inside of the curly braces is the code which should run when this function gets called. Hence functions are like variables, except that they do not store any values, but code which runs when someone calls the function:
+A **function declaration** starts with the `function` keyword, a descriptive name for this function, and an opening and closing parantheses. Everything that follows inside of the curly braces is the code which should run when this function gets called. Hence functions are like variables, except that they do not store any values, but instead code which runs when someone calls the function:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
