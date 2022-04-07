@@ -1,7 +1,3 @@
-![](images/intro-map.png)
-
-{pagebreak}
-
 # Foreword
 
 TODO - not comprehensive, but a road with lots of fundamentals to make you an efficeint and effective JavbaScript developer
@@ -68,3 +64,5 @@ If you are coming from another programming language, you should be more familiar
 **Designers and UI/UX Enthusiasts**
 
 If your main profession is in design, user interaction, or user experience, don't hesitate to pick up this book. You may be already quite familiar with HTML and CSS which is a plus. After going through some more JavaScript fundamentals, you should be good to get through this book. These days UI/UX is moving closer to the implementation details which are often taken care of with React. It would be your perfect asset to know how things work in code.
+
+![](images/intro-map.png)
