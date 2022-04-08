@@ -1,10 +1,12 @@
 # JavaScript Fundamentals: Part II
 
-So far, you have learned about variables and values, their associated data types, implicit type coercion and explicit type conversion, and a few control structures such as the if-else statement in JavaScript. That's already 25% through the fundamentals of JavaScript. In the following 25%, you will learn about extracting reusable parts of code from your program with functions and more complex data structures beyond primitives such as objects and arrays.
+So far, you have learned about variables and values, their associated data types, implicit type coercion and explicit type conversion, several operators, and a few control structures such as the if-else statement in JavaScript. These are the basics in JavaScript, because it's important to know your building blocks from the ground up, whether they are data types, control structures, or operators.
 
-## Functions
+I am happy to tell you that this is already 25% through the fundamentals of JavaScript. These fundamentals don't allow you to create complex JavaScript applications yet, but you can print text, compute numbers, and apply conditions. However, stay tuned for the following 25% where you will learn about extracting reusable parts of code from your program with JavaScript functions and more complex data structures beyond primitives such as classes, objects and arrays. The following sections are getting more difficult, but we have to raise the bar eventually.
 
-Everything you have written so far in JavaScript can be called *a program* (also called routine in programming, but rarely in JavaScript). However, sometimes you want to extract parts of a program (also called subroutine in programming) to reuse them without writing them twice. Functions can be used to extract these parts, which become reusable and executable.
+## JavaScript Functions
+
+Everything you have written so far in JavaScript can be called *a program* (also called routine in programming, but rarely in JavaScript). However, sometimes you want to extract parts of a program (also called subroutine in programming) to reuse them without writing them twice. Functions can be used to extract these parts, which become executable and reusable:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -31,7 +33,7 @@ askAndSayMyName();
 askAndSayMyName();
 ~~~~~~~
 
-Calling a function (also refered to as running/executing/invoking a function) is as straightforward as using the function's name with added paranthaseses at the end. In the last example, you can already see how this function allowed us to reuse code, because otherwise we would have written repetetive code as the next example shows:
+If a function is only declared but not called, it never runs. Calling a function (also refered to as running, executing, or invoking a function) is as straightforward as using the function's name with added paranthaseses at the end. In the last example, you can already see how this function allowed us to reuse code, because otherwise we would have written repetetive code as the next code snippet shows:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -58,7 +60,7 @@ const argument = 'Robin Wieruch';
 askAndSayMyName(argument);
 ~~~~~~~
 
-Equipping a function with parameters, using those parameters within the function, and passing arguments from the outside enables writing **dynamic code** in functions. It's worth to know that arguments and parameters do not need to share the same name, just the order matters when using more than one argument/parameter pair:
+Equipping a function with parameters, using those parameters within the function, and passing arguments from the outside enables writing **dynamic code** in functions. It's worth to know that arguments and parameters do not need to share the same name. If one argument is passed from the outside to a function (here: `myName`), then the function can decide how it wants to name the argument (here: `fullName`):
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -72,7 +74,7 @@ const myName = 'Robin Wieruch';
 askAndSayMyName(myName);
 ~~~~~~~
 
-As you can see, we declare our function, a variable `myName` and call the function with the variable as argument. Inside of the function, the variable is used as parameter called `fullName` which is only usable within this function. As mentioned earlier, it's also possible to pass more than one argument to functions:
+As you can see, we declare a function, a variable `myName`, and call the function with a variable as argument. Inside of the function, the variable is used as parameter called `fullName` which is only usable within this function. It's also possible to pass more than one argument to functions where the order of passed arguments gets reflected in the order of received parameters in the function:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -106,9 +108,11 @@ function askAndSayMyName() {
 askAndSayMyName();
 ~~~~~~~
 
-However, it's a best practice to have functions that only use variables which are passed as arguments to them. Under certian circumstances, you can use variables which are declared outside of a function without passing them as arguments, but try to avoid it for embracing best practice coding habits from the beginning when starting out with JavaScript.
+However, it's a best practice to have functions that only use variables which are passed as arguments to them. Under certain circumstances, you can use variables which are declared outside of a function without passing them as arguments (as seen in the last code snippet), but try to avoid it for cultivating a best practice from the beginning when starting out with JavaScript.
 
-While there exists an (optional) input for functions in the form of parameter(s), there also exists an (optional) output for functions in the form of a **return statement**:
+![](images/pure-function.png)
+
+While you have learned about the optional input for functions in the form of arguments/parameters, there also exists an optional output for functions in the form of a **return statement** which returnes values from a function:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -144,7 +148,7 @@ const myFullName = getFullName(myFirstName, myLastName);
 console.log(myFullName);
 ~~~~~~~
 
-Since arguments are mostly values stored in variables, it's also possible to pass values to functions (1) or to use the returned value right away (2):
+Since arguments are mostly values stored in variables, it's also possible to pass values to functions directly (1) or to use the returned value right away (2):
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -158,18 +162,19 @@ console.log(robin);
 console.log(getFullName('Sarah', 'Finnley')); // (2)
 ~~~~~~~
 
-Functions allow us to write *[generic code](https://en.wikipedia.org/wiki/Generic_programming)* with the concept of *"fill in the blanks"* by using parameters. From the outside, we can call these functions and fill in the blanks with *specific* arguments while returning something specific (e.g. full name of a user) from the function with the help of the return statement.
+Functions allow us to write *[generic code](https://en.wikipedia.org/wiki/Generic_programming)* with the concept of *"fill in the blanks"* by using parameters. From the outside, we can call these functions and fill in the blanks with *specific* arguments while returning something specific (e.g. full name of a user) from the function with the help of the return statement and the parameters we are offered within the function.
 
 ![](images/function-anatomy.png)
 
-Functions enhance the concept of **DRY** (Don't repeat yourself) in code. Everything that can be extracted as function, because it is reused or used at multiple places of the application, helps us to keep the code maintainable and readable for others. Actually before we have learned about functions, we have already used one built-in function all the time: `console.log()`.
+Functions enhance the concept of [DRY (Don't repeat yourself)](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) in code. Everything that can be extracted as a function, because it is used at multiple places of the application, helps us to keep the code maintainable and readable for others. Before we have learned about functions actually, we have already used and reused one JavaScript built-in function all the time: `console.log()`.
+
+Functions are good for many things. First of all, as mentioned in this section, they make code blocks reusable. You can write a function once and use it anywhere in your application. Second, even though a function may be only used once in your application, it can be still an advatange to have it as function in the first place, because it may encapsulate complex implementation logic that should sit at one place. And third, again even though this function is only used once, it can often help to give a function a descriptive name for all the implementation logic for the sake of documenting the code.
 
 Functions are one of the most important **structural data types** in JavaScript. As a best practice, try to keep function names as descriptive as possible and keep functions scoped to one utility (e.g. `getFullName()` and `multiplyNumbers()` should be two distinct functions). As a beginner to coding, this may be one of these times that you feel overwhelmed by the sheer amount of information. However, take your time to grok the concept of a function and experiment with it in your code environment.
 
 ### Exercises:
 
 * Read more about [functions in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions).
-* Read more about [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
 * Create a function which adds two numbers and returns the sum of it.
 * Create a function which mulitplies two numbers and returns the product of it, but this time make sure that the code still runs without flaws if a developer inputs strings which represent numbers instead of numbers as arguments. Thus take care of the data type conversion internally before using the arithmetic operator.
 * Create a function which tells us based on one's professional years as a developer (e.g. takes `yearsAsDeveloper` number as argument) whether this person is a developer (e.g. returns `isDeveloper` boolean).
@@ -184,7 +189,7 @@ Functions are one of the most important **structural data types** in JavaScript.
 
 There are many more things to know about functions, although not all of them are must-knows for a JavaScript beginner. However, the book attempts to address these concepts early on, because it will make use of them throughout the book on certain occasions when there are other topics at stake. So don't shy away if you don't understand all of the following concepts for functions right away, but keep them in the back of your head and refer back to them when they are used later.
 
-Functions in JavaScript are powerful, because, in contrast to many other programming languages, functions are treated as first-class citizens in JavaScript. By definition, a function becomes a first-class citizen when it can be stored in a variable and thus becomes a **function expression**. In contrast to a function declaration, a function expression can be used to carry a function around as a variable:
+Functions in JavaScript are powerful, because, in contrast to many other programming languages, **functions are treated as first-class citizens** in JavaScript. By definition, a function becomes a first-class citizen when it can be stored in a variable and thus becomes a **function expression**. In contrast to a function declaration, a function expression can be used to carry a function around as a variable:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -201,7 +206,9 @@ console.log(isDeveloper);
 // true
 ~~~~~~~
 
-A function is called an **anonymous function** when it has no name. This works for function expressions, because the function gets called with the name of the variable anyway. However, when debugging the code in the case of a bug, anonymous functions are more difficult to spot than named functions:
+Carrying around a function in a variable may be useful, but its benefits cannot be really seen in this last example yet. But bear with me here, because there are many sections about functions in the rest of the book which will make use of function expressions, so let's continue by digging deeper into function expressions.
+
+A function is called an **anonymous function** when it has no name. This does not work for function declaration, but for function expressions, because the function gets called with the name of the variable (and the double naming from the previous example may have been confusing anyway). However, when debugging the code in the case of a bug, anonymous functions are more difficult to spot in the debugger than named functions. So while the following code snippet with an anonymous function is more readable (and therefore the prefered way of writing function expressions by developers), giving the function an actual name (like in the previous example) will help debugging the code:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -210,11 +217,11 @@ const hasExperience = function (yearsAsProfessional) {
 };
 ~~~~~~~
 
-Function expressions have subtle differences compared to function declarations. While for a function expression the function gets created when the code reaches the variable declaration, for the function declaration the function gets created once at the start:
+Function expressions have subtle differences compared to function declarations. While for a function expression the function gets created when the code reaches the variable declaration, for the function declaration the function gets created once at the start of the code execution:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
-// works due to function declaration
+// the following works due to function declaration
 
 console.log(multiplyThis(3, 4));
 
@@ -222,7 +229,7 @@ function multiplyThis(a, b) {
   return a * b;
 }
 
-// does not work due to function expression
+// the following does not work due to function expression
 
 console.log(multiplyThat(3, 4));
 // ReferenceError: Cannot access 'multiplyThat' before initialization
@@ -232,7 +239,7 @@ const multiplyThat = function (a, b) {
 };
 ~~~~~~~
 
-You will learn more about this concept called **hoisting** which enables this behavior later. Anyway, function expressions have their right to exist though. For example, you can use a function expression to create a function conditionally and thus only create one of both functions when the conditional runs:
+You will learn more about this concept called **hoisting** which underpins this behavior later. Anyway, as mentioned earlier function expressions have their right to exist though. For example, you can use a function expression to create a function conditionally and thus only create one of both functions when the conditional runs:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -249,7 +256,7 @@ const getConversationStarter = isDeveloper
 getConversationStarter();
 ~~~~~~~
 
-As a rule of thumb: Use function declarations whenever you can, because you will run into less bugs (due to their early instantiation). In addition, because functions are such a fundamental building block in JavaScript code, function declarations are more eye-catching and therefore more readable than their function expression counterparts. However, in contrast function expressions can signal that you want to pass this function around as value (e.g. passing a function into another function as argument). So get used to both, function declaration and function expressions, because you will see both of them out there in the wild. Especially when it comes to callback functions, as we will learn later, you will more often see function expressions.
+As a rule of thumb: Use function declarations whenever you can, because you will run into less bugs (due to their early instantiation). In addition, because functions are such a fundamental building block in JavaScript code, function declarations are more eye-catching and therefore more readable than their function expression counterparts. However, in contrast function expressions can signal that you want to pass this function around as value (e.g. passing a function into another function as argument). So get used to both, function declaration and function expressions, because you will see both of them out there in the wild. Especially when it comes to arrow functions and callback functions, as we will learn later, you will more often see function expressions.
 
 ### Exercises:
 
@@ -258,7 +265,7 @@ As a rule of thumb: Use function declarations whenever you can, because you will
 
 ## Working with Functions
 
-In this section, we will dive deeper into functions and how we can use them as developers. Before we have only worked with one function, however, once programs become more complex, you will most likely use more than one function side by side or composed into each other. Let's take the following example of a function which creates a text for us:
+In this section, we will dive deeper into functions and how we can use them as developers. Before we have only worked with one function, however, once programs become more complex, you will most likely use more than one function side by side or calling each other. Let's take the following example of a function which creates a text for us and elaborate on it afterward:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -277,9 +284,32 @@ const text = getConversationStarter('Robin', 'Wieruch', true);
 console.log(text);
 ~~~~~~~
 
-This function takes various arguments as input and uses them internally as parameters to create a text with a certain condition. Since we are assigning variables conditionally, we prefer using the ternary operator instead of the if-else statement. As exercise, try to write this function with if-else statements instead of the ternary operator and experience yourself how much more verbose it gets this way. Hint: You have to use `let` instead of `const` for `question`, declare but not initialize it, and initialize it with conditionally within the if and else blocks.
+This function takes various arguments as input and uses them internally as parameters to create a text with a certain condition as output. Since we are assigning variables conditionally, we prefer using the ternary operator instead of the if-else statement. As exercise, try to write the implementation details of this function with if-else statements instead of the ternary operator. As a small hint: You have to use `let` instead of `const` for `question`, declare `question` but not initialize it, and initialize it with conditionally within the if and else blocks based on the condition. If you want to check the solution, here it comes:
 
-The function for creating our conversation starter has a too many responsibilities. A good practice is splitting responsibilities into multiple functions for having smaller functions to reason about. They become functions with more atomic responsibilities:
+{title="index.js",lang="javascript"}
+~~~~~~~
+function getConversationStarter(firstName, lastName, isDeveloper) {
+  const welcome = `Hi ${firstName} ${lastName}!`;
+
+# leanpub-start-insert
+  let question;
+
+  if (isDeveloper) {
+    question = 'What programming languages do you speak?';
+  } else {
+    question = 'What languages do you speak?';
+  }
+# leanpub-end-insert
+
+  return `${welcome} ${question}`;
+}
+
+const text = getConversationStarter('Robin', 'Wieruch', true);
+
+console.log(text);
+~~~~~~~
+
+Now we want to learn some more takeaways about functions by examining this particular function. At the moment, the function for creating our conversation starter has a too many responsibilities. A good practice is splitting responsibilities into multiple functions for having smaller functions to reason about. They become functions with more atomic responsibilities:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -298,7 +328,7 @@ function getQuestion(isDeveloper) {
 # leanpub-end-insert
 ~~~~~~~
 
-In this case, our function from the start could call these other smaller functions and aggregate their return values:
+That's how smaller problems are solved by creating functions for them and by combining them in another function to solve one big problem. In this case, the function from the start could call these new smaller functions and aggregate their return values:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -315,7 +345,7 @@ function getConversationStarter(firstName, lastName, isDeveloper) {
 }
 ~~~~~~~
 
-As alternative, we could also evaluate one of the function's return values directly in the string interpolation, because we do not need the `fullName` variable anywhere else and we don't get any benefit to give it a descriptive name here, because the function already has a decriptive name:
+As alternative, we could also evaluate one of the function's return values directly in the string interpolation, because we do not need the `fullName` intermediate variable anywhere else and we don't get any benefit by having an intermediate variable with a descriptive name here, because the function already has a decriptive name:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -329,7 +359,7 @@ function getConversationStarter(firstName, lastName, isDeveloper) {
 }
 ~~~~~~~
 
-Now one could argue to go all the way and interpolate both directly in the return statement. But even though this would make the function's body more concise, it would make it in many eyes less readable:
+Now a developer could argue to go all the way and interpolate both directly in the return statement. But even though this would make the function's body more concise, it would make it in my eyes less readable. So it's always a tightrope walk between conciseness and readability:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -341,9 +371,9 @@ function getConversationStarter(firstName, lastName, isDeveloper) {
 }
 ~~~~~~~
 
-After all, what you can see from this example is that functions can call other functions. In a developer's words it's called "breaking down a problem into smaller problems" and therefore smaller solutions whereas each solution stands for one function. In your career as a JavaScript developer, you will often see functions calling other functions.
+After all, what you can take way from this example is that functions can call other functions. By "breaking down a problem into smaller problems" and therefore smaller solutions whereas each solution stands for one function, they can be aggregated in one function which solves the actual problem. In your career as a JavaScript developer, you will often see functions calling other functions.
 
-Reusability is another benefit of extracting functions from other functions. For example, another part of our program could reuse the `getName()` function now:
+Reusability is another benefit of extracting functions from other functions. For example, another part of our program could reuse the `getName()` function to create a conversation between two people:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -355,7 +385,7 @@ const sarahText = `Hi, I'm ${sarah}.`;
 console.log(sarahText);
 ~~~~~~~
 
-If we would want to introduce an optional nickname, we could extend everything with this additional argument:
+By having a function for each problem you want to solve, you are allowed to improve or extend the functionality within this function. For example, if we would want to introduce an optional `nickname` in the function, we could extend everything related by utilityzing this additional parameter:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -367,8 +397,17 @@ function getName(firstName, lastName, nickname) {
   return `${firstName} ${lastName}`;
 }
 
-...
+# leanpub-start-insert
+const robin = getName('Robin', 'Wieruch', 'Hood');
+# leanpub-end-insert
+~~~~~~~
 
+Note how the `getConversationStarter()` function still works though. Even though it still calls `getName()` with two arguments while the actual function expects three arguments now, the `nickname` parameter in `getName()` is `undefined` when it doesn't get passed to the function as argument. Since the if-statement evaluates the `undefined` as falsy value, it does not return the `nickname` and instead returns the full name.
+
+However, if we would want to include this new nickname feature in the `getConversationStarter()` function which uses the adapted `getName()` function, we would have to add the new parameter there too:
+
+{title="index.js",lang="javascript"}
+~~~~~~~
 function getConversationStarter(
   firstName,
   lastName,
@@ -395,20 +434,19 @@ const robinText = getConversationStarter(
 );
 ~~~~~~~
 
-By breaking down functions onto smaller problem spaces, we can compose more complex functions out of these smaller functions (e.g. `getConversationStarter()`) or reuse functions in other areas of our code (e.g. `getName()`). Challenge yourself by writing a larger function and by extracting smaller functions from it.
+In conclusion, by breaking down functions onto smaller problem spaces, we can compose more complex functions out of these smaller functions (e.g. `getConversationStarter()`) or reuse functions in other areas of our code (e.g. `getName()`). Challenge yourself by writing a larger function and by extracting smaller functions from it. The next sections will leave the domain of functions for now, so experiment as much as possible with functions before.
 
 ### Exercises:
 
-* Extend the example from before with more conditional text for the conversation which may or may not be passed on additional arguments that are passed to the function.
+* Extend the example from before with more conditional text for the conversation which may or may not be passed as additional arguments to the function.
 * Come up with problems that are solved by functions yourself. If you have created one bigger function, split it into smaller functions and aggregate their result in one main function.
+* Get comfortable with delcaring functions, calling them, and using parameters/arguments before you continue with the next section.
 
-## Classes
+## JavaScript Classes
 
-Even though the construct of a **class** is a shared concept across most programming languages, it was only introduced in modern JavaScript. Previously it was only possible to a create class like construct by using JavaScript's **prototype chain** ([in-depth article, but optional read at this stage](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)). While the prototype chain was known to many JavaScript developers back in the days, it's not as often mentioned these days anymore, because we are mostly using classes in JavaScript instead.
+Even though the construct of a **class** is a shared concept across most programming languages, it was only introduced in modern JavaScript. Previously it was only possible to a create class like construct by using JavaScript's **prototype chain** ([in-depth article, but optional read at this stage](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)). While the prototype chain was known to many JavaScript developers back in the days and is still used under the hood these days, it's not as often mentioned in modern JavaScript anymore, because we are using actual classes in JavaScript instead.
 
-A class is used in object-oriented programming languages. Since JavaScript is a **multi paradigm programming language**, using the **object-oriented programming (OOP)** paradigm in JavaScript is a popular choice. Another popular paradigm is called **functional programming (FP)** which doesn't make use of classes.
-
-Let's get started with a class that represents a person by using the `class` keyword:
+A class is used in object-oriented programming languages. Since JavaScript is a **multi paradigm programming language**, using the **object-oriented programming (OOP)** paradigm in JavaScript is a popular choice. Another popular paradigm is called **functional programming (FP)** which doesn't make use of classes. Entering the realm of OOP, let's get started with a class that represents a person by using the reserved `class` keyword:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -420,7 +458,7 @@ class Person {
 }
 ~~~~~~~
 
-In this example, we see a **class declaration** for a class with the name Person. After a class declaration, we can use this class with the `new` keyword to create an **instance**, in this case a person instance or instance of Person, from it:
+In this example, we see a **class declaration** for a class with the name Person. After a class declaration, we can use this class with the reserved `new` keyword to create an **instance**, in this case a person instance or instance of Person, from it:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -454,7 +492,7 @@ console.log(sarah);
 // Person { firstName: 'Sarah', lastName: 'Finnley' }
 ~~~~~~~
 
-Think of a class like a factory for a thing: A class is like a cookie mold for many cookies. Another example: Once an architect has done the blueprint for a house (class declaration), builders can create many houses (instances) from it.
+Think of a class like a factory for a thing: A class is like a cookie mold for many cookies. In other words: Once an architect has done the blueprint for a house (class declaration), builders can create many houses (instances) from it.
 
 ![](images/class-analogy.png)
 
@@ -512,17 +550,19 @@ console.log(robin.getRate(true));
 # leanpub-end-insert
 ~~~~~~~
 
-We can see how a class helps us to encapsulate information (instance properties) and behavior (class methods) into one construct. Only when we create an instance of a class with its constructor, we can read its properties or call its methods (like functions by adding parantheses). The `.` notation (read: **dot notation**) is used to access an instance's properties and methods, which will work very similar for JavaScript objects as we will learn later.
+We can see how a class helps us to encapsulate information (instance properties) and behavior (class methods) into one construct. Only when we create an instance of a class with its constructor, we can read its properties or call its methods. The `.` notation (read: **dot notation**) is used to access an instance's (here: `robin`) properties (here: `robin.nickname`) and to call its methods (here: `robin.getFullName()`). When we learn about JavaScript objects later, we will see a very similar usage pattern.
 
 ![](images/class-anatomy.png)
 
-It's worth to say that when using modern JavaScript with everyday frameworks such as React.js, you will only rarely see classes though. In order to encapsulate information like a class does for us, you would most often use a JavaScript object instead. However, understanding the concept of a class is helpful for many topics that follow in this book.
+It's worth to say that when using modern JavaScript with everyday frameworks such as React.js, you will only rarely see JavaScript classes though. Modern frameworks are more leaning towards functional programming and therefore make more use of functions instead of classes. However, understanding the concept of a class is helpful for many topics that follow in this book.
 
 ### Exercises:
 
 * Add more instance properties and class methods to the Person class. Begin with your personal variables that you came up with earlier.
   * Create many person instances and use their methods.
-* Come up with another class declaration for an Aircraft, Cat, or SmartHouse.
+* Come up with another class declaration for an Cat, BlogPost, or EcommerceArticle.
+* Question: Why are variable names like `class` and `new` not allowed?
+  * Answer: Because they are reserved keywords in JavaScript, e.g. to declare or create a class.
 * Question: What does `typeof Person` return?
   * Answer: It returns `function`. Essentially a class is a function in disguise.
 * Read more about classes in JavaScript [here](https://javascript.info/class) and [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).
@@ -530,7 +570,7 @@ It's worth to say that when using modern JavaScript with everyday frameworks suc
 
 ## Methods of Primitives
 
-Primitives (e.g. string, number, boolean) in JavaScript are supposed to represent only a value. However, you may have noticed that primitives have special behavior attached to them. For example, all string primitives give us access to the same **built-in string methods** such as `toUpperCase()`:
+We have learned about more complex data structures such as functions and classes now, however, with this new knowledge let's take one step back to JavaScript primitives again. Primitives (e.g. string, number, boolean) in JavaScript as we have learned are supposed to represent only a value. However, you may have noticed that primitives have special behavior attached to them. For example, all string primitives give us access to the same **built-in string methods** such as `toUpperCase()`:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -543,13 +583,26 @@ console.log('Sarah Finnley'.toUpperCase());
 // 'SARAH FINNLEY'
 ~~~~~~~
 
-By using the `.` notation we can call methods on string instances. In this case, we want to have the string transformed to its upper case representation. However, as an important fact, even though we call this built-in method, the value itself hasn't been changed afterward:
+By using the `.` notation we can call methods on string instances. In this case, we want to have the string transformed to its upper case representation. However, as an important fact, even though we call this built-in method, the value itself isn't changed afterward:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
 const fullName = 'Robin Wieruch';
 
 console.log(fullName.toUpperCase());
+// 'ROBIN WIERUCH'
+
+console.log(fullName);
+// 'Robin Wieruch'
+~~~~~~~
+
+If we would want to capture the changed value, we could assign it to a new value:
+
+{title="index.js",lang="javascript"}
+~~~~~~~
+const screamingFullName = fullName.toUpperCase();
+
+console.log(screamingFullName);
 // 'ROBIN WIERUCH'
 
 console.log(fullName);
@@ -568,7 +621,7 @@ console.log(fullName.length);
 // 13
 ~~~~~~~
 
-At this point, you may be thinking that strings (and other primitives) are not mere primitives, but rather something more complex such as JavaScript classes. In addition, you may have noticed the class equivalents for primitves too, which can be used to create instances of these primitives. However, they are rarely used in reality:
+At this point, you may be thinking that strings (and other primitives) are not mere primitives, but rather something more complex such as JavaScript classes. You may have also noticed the class equivalents for primitves, which can be used to create instances of these primitives. However, they are rarely used in reality:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -578,7 +631,7 @@ console.log(fullName);
 // [String: "Robin Wieruch"]
 ~~~~~~~
 
-As you can see from the output, this creates a string instance rather than a string primitive. While the former is rarely used in JavaScript, the latter, called **string literal** in this case, will be your bread and butter. Equivalents are boolean literal and number literal which you have used before, but also object and array literals as you will get to know later. However, both ways to create a variable of a certain type can be used almost interchangeably in most situations which raises the important fact that primitives can be more powerful beings by using their respective counterparts (e.g. `String()`).
+As you can see from the output, this creates a string instance rather than a string primitive. While the former is rarely (or never) used in JavaScript, the latter, called **string literal** in this case, will be your bread and butter. Equivalents are boolean literal and number literal which you have used before, but also object and array literals as you will get to know later. However, both ways to create a variable of a certain data type can be used almost interchangeably in most situations which raises the important fact that primitives can be more powerful beings by using their respective counterparts (e.g. `String()`).
 
 With this knowledge, we can explain how properties (e.g. `length`) and methods (e.g. `toUpperCase()`) work on primitives: If a developer accesses a method on a string for example, JavaScript with the help of type coercion creates a more powerful `String` as counterpart where we can access the method (or properties). When the method has been called, this counterpart gets discared and we are left with only the primitive again. However, as the following example shows, we cannot retrace this behavior properly by using logging and the `typeof` operator:
 
@@ -596,7 +649,7 @@ console.log(typeof fullName);
 // string
 ~~~~~~~
 
-Type coercion as we have learned before is a powerful concept in JavaScript. In the case of methods (and properties) on primitives, it shows again how it can be used to create a more powerful programming language where we can access more than mere values but also their respective properties and methods.
+Type coercion as we have learned before is a powerful concept in JavaScript. In the case of methods (and properties) on primitives, it shows again how it can be used to create a more powerful programming language where we can access more than mere values but also their respective properties and methods which allow us to interact with these data types in a more powerful way.
 
 ### Exercises:
 
@@ -616,7 +669,7 @@ Type coercion as we have learned before is a powerful concept in JavaScript. In 
     * Question: Find out the difference between `replace()` and `replaceAll()`?
       * Answer: While `replace()` replaces only one occurence, `replaceAll()` replaces all of them.
 
-## Objects
+## JavaScript Objects
 
 Up to this point, you have learned about primitive data types such as strings, numbers and booleans. One way of encapsulating these into one entity has been the JavaScript class. For example, a `Person` class can have properties such as `firstName`, `lastName` and a method such as `getFullName()`. However, an alternative and more widely used structural data type for this kind of work is the **JavaScript object**:
 
@@ -630,11 +683,11 @@ const robin = {
 };
 ~~~~~~~
 
-In this example, an object gets declared as variable with the name `robin` whereas everything in the curly braces are **properties** of this object. While the left-hand side of these properties is called **object keys** (also called: property names, names, or keys, here: `firstName`, `lastName`, `yearBirth`, `isDeveloper`), the right-hand side is called **object values** (also called: values). Essentially an object is a wrapper around a bunch of values (of any data type) which are grouped into an **entity** of a specific **domain** (e.g. person domain).
+In this example, an object gets declared as variable with the name `robin` whereas everything in the curly braces are **properties** of this object. While the left-hand side of these properties is called **object keys** (also called: property names, names, or keys, here: `firstName`, `lastName`, `yearBirth`, `isDeveloper`), the right-hand side is called **object values** (also called: values). Essentially an object is a wrapper around a bunch of values (of any data type) which are grouped into an entity of a specific domain (e.g. person domain).
 
 ![](images/object-anatomy.png)
 
-Therefore, we can have distinct entities represented by objects *without* declaring all their primitive values as variables (as we did before) one by one:
+Therefore, we can have distinct entities represented by objects for the same domain *without* declaring all their primitive values one by one as variables (as we did before when we just knew about primitive data types):
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -738,7 +791,7 @@ console.log(
 );
 ~~~~~~~
 
-Since objects can have any data type as property, they can have (anonymous) functions (called **methods** in objects) and objects (so called **nested objects**) too. While methods in objects are not often used, using nested objects is a common theme when developing with JavaScript:
+Since objects can have any data type as property, they can have (anonymous) functions (called **methods** in objects) and objects (so called **nested objects**) too. While methods in objects are not often used (and should give you a nudge to rather use a class instead of an object), using nested objects is a common theme when developing with JavaScript:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -765,9 +818,9 @@ console.log(robin.getAge(2021));
 # leanpub-end-insert
 ~~~~~~~
 
-Note how one can access an nested object's property by using multiple dot (or bracket) notations (e.g. `robin.kid.firstName`). Furthermore, notice how a method of an object can be called like any other function, it just needs to be accessed by the dot notation first.
+Note how one can access a nested object's property by using multiple dot (or bracket) notations (e.g. `robin.kid.firstName`). Furthermore, notice how a method of an object can be called like any other function, it just needs to be accessed by the dot notation first, the same way as it is used on a class instance.
 
-The last example violated the principle of DRY, because we had to define the value `1991` twice in our object. Let's change this by using the `this` keyword, which we have used before in our JavaScript class, to get a reference to the instance (here: object) itself and therefore to its properties:
+If you check the last example again, you can see that it violated the principle of DRY, because we had to define the value `1991` twice in our object. However, it would be better if the method `getAge` would just take the `yearBirth` from the object, which is less error prone, because the actual value is only defined at one place. Let's change this by using the `this` keyword, which we have used before in our JavaScript class, to get a reference to the instance (here: object) itself and therefore to its properties:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -788,7 +841,7 @@ const robin = {
 };
 ~~~~~~~
 
-Another example would be getting an introduction for this object by calling a method on it. We did this before by interpolating the object's properties into a text. This time we will do it with a method though:
+For the sake of learning methods in objects and the `this` keyword, implement a `getIntroduction()` method for this object which takes the current `year` as argument/parameter and returns an introduction of this person which consists of its `firstName`, `lastName`, `isDeveloper`, and its age based on the passed `year` and its `yearBirth` property. Try it yourself and then check the solution below. If you recall, we did this before by interpolating the object's properties into a text outsid of the object. This time we will do it with a method within the object:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -807,9 +860,9 @@ const robin = {
 console.log(robin.getIntroduction(2021));
 ~~~~~~~
 
-Now we know how to declare and how to access an object. While we created all the objects with the **object literal notation** (also called initializer notation, literal notation, object literal or literal) in our examples, alternative to this would be the `new Object()` or `Object.create()` syntaxes. Both are only rarely used though, so you can stick to the literal notation for most use cases.
+Now we know how to declare and how to access (read from) an object. While we created all the objects with the **object literal notation** (also called initializer notation, literal notation, object literal or literal) in our examples, an alternative to this would be the `new Object()` or `Object.create()` syntaxes. Both are only rarely (or never) used though, so you can stick to the literal notation for almost all cases.
 
-Once declaring and accessing objects works, it should also be possible to assign or re-assign properties to an object. Both dot and bracket notation work, and they also work for nested objects, however, the dot notation should be the default as mentioned before:
+Once declaring and accessing objects works, it should also be possible to assign or re-assign properties to an object. Both dot and bracket notation work, and they also work for nested objects, however, the dot notation should be again the default as mentioned before. The following code snippet shows how to assign a new property (`nickname`) and how to re-assign a property (`hasKids`). Both work the same way even though one property has been defined before while the other one has not:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -828,7 +881,7 @@ console.log(robin.hasKids);
 // true
 ~~~~~~~
 
-For a beginner, a JavaScript object seems to be similar to a JavaScript class considering the use cases. However, objects are usually the default way to go for encapsulating related information into one entity. In contrast, classes are rather used when leaning more towards object-oriented programming in JavaScript. After all, objects are the perfect fit for collecting information in one entity that's related to another.
+For a beginner, a JavaScript object seems to be similar to a JavaScript class considering the use cases. However, objects are usually the default way to go for encapsulating related information into one entity for a specific domain. In contrast, classes are rather used when leaning more towards object-oriented programming in JavaScript. Also if you want to make greater use of methods in an object (which is not the norm), you may want to fall back to a JavaScript class instead. After all, objects are the perfect fit for collecting information in one construct.
 
 ### Exercises:
 
@@ -853,7 +906,7 @@ For a beginner, a JavaScript object seems to be similar to a JavaScript class co
 * Question: Why is it possible to re-assign an object's property even though it has been declared with `const` and not `let`?
   * Answer: The declaration with `const` only enforces that the variable itself cannot get a new reference (read: re-assigned). However, the underlying properties can change. The same will be the case for JavaScript arrays.
 
-## Arrays
+## JavaScript Arrays
 
 An **array** in JavaScript represents a list of items. Informally it's also called **list** or **list of items**. While objects (from the last section) represent one entity (here: object) with certain properties defined in curly braces, arrays represent multiple entities (here: strings, numbers, but also objects) in a list defined in brackets.
 
@@ -889,7 +942,7 @@ Often inserting the values directly like we did before makes more sense though, 
 const lastNames = ['Wieruch', 'Finnley', 'Shaw'];
 ~~~~~~~
 
-In contrast to objects, arrays are a list of similar items (persons, fruits, aircrafts, prime numbers, ages). Even though it's possible to mix data types in an array, it's not commonly done. So usually one ends up with an array with one kind of data type in a list. So whenever you have a mix of data types in an array, ask yourself whether an object wouldn't be a better suited for this use case:
+In contrast to objects, arrays are a list of domain related items (persons, fruits, aircrafts, prime numbers, ages). Even though it's possible to mix data types in an array, it's not commonly done. So usually one ends up with an array with one kind of data type in a list. So whenever you have a mix of data types in an array, ask yourself whether an object wouldn't be a better fit for this use case:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -908,7 +961,7 @@ const robinAsObject = {
 };
 ~~~~~~~
 
-As mentioned, arrays can hold a list of objects too. The last examples have shown you lists of first names whereas each first name likely relates to a last name. So we can put these relations into objects and then put these objects into an array:
+As mentioned, arrays can hold a list of objects too. The last examples have shown you lists of first names whereas each first name likely has a correspondening last name. So we can put these relations into objects and then put these objects into an array:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -982,7 +1035,7 @@ console.log(firstNames[3]);
 // 'Peter'
 ~~~~~~~
 
-An array is classified under the umbrella of the object data type. Except for primitives like string, number and boolean, the only more complex data types are function and object. So essentially everything that doesn't fall under these data types is of type object (e.g. array). Since an array is an object in disguise, it's also possible to access built-in properties (and methods) of arrays:
+As confusing as it is, an array is classified under the umbrella of the object data type. Except for primitives like string, number and boolean, the only more complex data types are function and object. So essentially everything that doesn't fall under these data types is of type object (e.g. array). Since an array is an object in disguise, it's also possible to access built-in properties (and methods) of arrays:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1002,7 +1055,7 @@ console.log(firstNames[firstNames.length - 1]);
 // 'Esther'
 ~~~~~~~
 
-Since an array falls under the data type of objects, there are not only properties attached to it, but also methods. Let's explore some of the more popular ones in this section. One of the first **built-in array methods** you will learn about is `push()` which adds a new item to end of a list:
+Since an array falls under the data type of objects, there are not only properties attached to it, but also methods. Let's explore some of the more popular ones in this section. One of the first **built-in array methods** you will learn about is `push()` which adds a new item to the end of a list:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1016,7 +1069,7 @@ console.log(firstNames.length);
 // 4
 ~~~~~~~
 
-Usually we are using `push()` whenever we want to add a new item to a list. In a previous example, we have assigned a new item directly by using an index (e.g. `firstNames[3] = 'Peter'`) which you will only rarely perform. In contrast to `push()`, the method `pop()` removes the last item from the list:
+Usually we are using `push()` whenever we want to add a new item to a list. In a previous example, we have assigned a new item directly by using an index (e.g. `firstNames[3] = 'Peter'`) which you will almost never perform this way. Instead you will be using the `push()` method. In contrast to `push()`, the method `pop()` removes the last item from the list:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1030,7 +1083,7 @@ console.log(firstNames.length);
 // 2
 ~~~~~~~
 
-Note that both methods modify the array without the need of assigning them to a new variable. We will learn more about this behavior later when speaking about **mutability vs immutability**. For now, just focus on the built-in array methods themsevles. In the exercise, you should try out more of them. Several of these array methods will come up during the next sections of the book though. For example, a popular one is `includes()` which will inform you whether a certain item is part of the list by returning a boolean:
+Note that both methods modify the array without the need of assigning them to a new variable. We will learn more about this behavior later when speaking about **mutability vs immutability**. For now, just focus on the built-in array methods themsevles. In the exercise, you should try out more of them which will prepare you for several of these array methods that come up during the next sections of the book. For example, a popular one is `includes()` which will inform you whether a certain item is part of the list by returning a boolean:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1043,7 +1096,7 @@ console.log(hasSarah, hasLiam);
 // true false
 ~~~~~~~
 
-As a final example for this section, we will see how to remove a specific item from an array by using the `indexOf()` and `splice()` method:
+As a final example for this section, we will see how to remove a specific item from an array by using the `indexOf()` and `splice()` method. While `indexOf()` finds the position (index) of `'Sarah'` in the array, splice separates a part from the array by using a start index as first argument and a count as second argument. Read it as: "How many items should be removed? 1, which is the second argument. And which item should be removed? Item with index 1, which is the first argument.":
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1061,8 +1114,6 @@ console.log(removedItem);
 console.log(firstNames);
 // [ 'Robin', 'Esther' ]
 ~~~~~~~
-
-While `indexOf()` finds the position (index) of "Sarah" in the array, splice separates a part from the array by using a start index as first argument and a count as second argument. Read it as: "How many items should be removed? 1, which is the second argument. And which item should be removed? Item with index 1, which is the first argument."
 
 The array which represents a list of items is a complex yet powerful data structure in JavaScript. While JavaScript objects pair keys and values of a certain domain into one structure, arrays help us to collect related information in lists. There can be arrays of objects and there can be objects that have arrays as properties.
 
@@ -1087,9 +1138,9 @@ The array which represents a list of items is a complex yet powerful data struct
 
 ## Loops and Iterations
 
-We have learned about all the essential data types in JavaScript: primitives such as strings, numbers and booleans, but also more structural data types such as functions, objects and arrays. While we have learned about these data types, we also explored operators and type coercion. We have also learned about control structures such as the if-else statement.
+We have learned about all the essential data types in JavaScript: primitives such as strings, numbers and booleans, but also structural data types such as functions, objects and arrays. While we have learned about these data types, we also explored operators, type coercion, and control structures/flows such as the if-else statement.
 
-Since you have learned about arrays in JavaScript, the natural next step would be learning about **loop statements** which are also a control structure. A loop in JavaScript (and other programming languages) helps us to **iterate** (read: to loop, to go over) a list of items. Take for example the **for statement** which is the most popular one in JavaScript:
+Since you have learned about arrays in JavaScript, the natural next step would be learning about **loop statements** which are also a control structure. A loop in JavaScript (and other programming languages) helps us to **iterate** over (read: to loop over, to go over) a list of items. Take for example the **for statement** which is the most popular loop statement in JavaScript:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1100,7 +1151,7 @@ for (let index = 0; index < firstNames.length; index++) {
 }
 ~~~~~~~
 
-This code snippet loops over our list of first names and prints each name to the console. If this reads like magic to you, let us go back a bit and see a more basic example. Essentially a loop will do something a number of times until a condition is met. First take the following example (which isn't using a loop yet), where you want to move your avatar in a computer game 3 steps forward:
+This code snippet loops over our list of first names and prints each name to the console. If this reads like magic to you, let us go back a bit and see a more basic example. Essentially a loop will do something a number of times until a condition is met. First take the following example (which isn't using a loop yet), where you want in a text based manner to move your avatar in a computer game 3 steps forward:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1110,7 +1161,7 @@ console.log(`My avatar moved 3 step(s).`);
 console.log(`My avatar arrived the desired destination.`);
 ~~~~~~~
 
-You can see a reapting pattern here which can grow very much in size once your avatar attempts to move a lot of steps. Hence you could say that this example isn't DRY. Let's see how this looks in a loop statement:
+You can see a reapting pattern here which can grow very much in size once your avatar attempts to move a lot of steps. Hence you could say that this example isn't DRY, because you are repeating yourself and with thousand of steps you couldn't keep up writing code anymore. So let's see how this looks like in a loop statement:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -1134,6 +1185,8 @@ My avatar arrived the desired destination.
 Essentially a loop statement does always the same thing: perform a certain action a specific number of times. The for statement takes three expressions in parantatheses: initial expression, condition expression, and increment expression. Most often you will encounter the initial expression as a variable which is defined with 0. If the condition expression evaluates to true (e.g. `0 < 3`), the loop's body in curly braces gets executed. If the condition evaluates to false though, the for loop terminates (read: it jumps out of the curly braces and continues with the next line of code below the for statement). After each execution of a loop's body, the update condition executes (e.g. increment by one) and we continue with the condition expression.
 
 ![](images/for-statement.png)
+
+In other words, we define a start value (initial expression) and at the end of every loop we update the start value (increment expression). In between, before a loop runs, we check the condition expression in the middle. If it is true, the code within the loop executes (like in an if-else statement). It if is false, we jump out of the loop.
 
 Normally loops are used whenever you have a number for the condition at your hand: number primitive or `array.length`. The latter is the most common scenario, where you want to iterate over an array to perform some action. For example, in an array of persons, we could generate the initials of the first and last name for every individual:
 
@@ -1169,7 +1222,7 @@ console.log(persons);
 // ];
 ~~~~~~~
 
-When iterating over an array, the structure of a for statement is often the same: start with an initial expression that initializes a variable (usually `i` that stands for index) with `0` and increment this value until it reaches the size (read: `length`) of the array. In the for statement, get access to each item (e.g. `persons[i]`) from the list by using the **iterator** (here: `i`). Then do something with the item.
+When iterating over an array, the structure of a for statement is often the same: start with an initial expression that initializes a variable (usually `i` that stands for index) with `0` and increment this value until it reaches the size (read: `length`) of the array. In the for statement, get access to each item (e.g. `persons[i]`) from the list by using the **iterator** (here: `i`). Then do something with the item. In the last example, we create a new property `initials` on each object in the array and fill it with information.
 
 Another example would be splitting an array into two arrays based on a condition:
 
@@ -1213,7 +1266,7 @@ console.log(nonDevelopers);
 // [{ fullName: 'Sarah Finnley', isDeveloper: false }]
 ~~~~~~~
 
-Last, take the following task and try to solve it yourself. If you have difficulties to get to a solution, do not worry and check out the solition below. Task: You have an array of persons whereas each person has a `fullName` and a `yearBirth` as key/value properties. Based on today's year, calculate each person's age in a loop statement and add it as additional property to each person. Now try it yourself first before checking the following solution:
+Take the following task and try to solve it yourself. If you have difficulties to get to a solution, do not worry and check out the solition below. Task: You have an array of persons whereas each person has a `fullName` and a `yearBirth` as key/value properties. Based on today's year, calculate each person's age in a loop statement and add it as additional property to each person. Now try it yourself first before checking the following solution:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
