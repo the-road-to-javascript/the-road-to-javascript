@@ -4,7 +4,7 @@ Your JavaScript fundamentals knowledge has grown to a substantial level. However
 
 ## HTML Crash Course (Optional)
 
-HTML (HyperText Markup Language) is a **markup language**, a fundamental building block of the web, which is used to display structured content on a website. While HTML just structures and displays content, other web technologies such as CSS or JavaScript are there to add style or to add behavior to your website.
+HTML (HyperText Markup Language) is a **markup language**, a fundamental building block of the web, which is used to display structured content on a website. While HTML just structures and displays content, other web technologies such as CSS or JavaScript are there to add style or behavior to your website.
 
 Let's create an *index.html* file and fill it with the following content. After you created this file, you can open it in a browser to see its content displayed like a website:
 
@@ -23,7 +23,7 @@ Let's create an *index.html* file and fill it with the following content. After 
 
 Whereas **HTML tags** (e.g. `<h1>`) are used to give a website structure, the space within these HTML tags can be filled with information (e.g. `Hello HTML`). HTML tags in combination with their content are called **HTML elements** (e.g. `<h1>Hello HTML</h1>`). However, don't get too dogmatic about the naming (HTML element vs HTML tag), because many developers use these terms interchangeably and most of them will refer to it as HTML element if they are not adressing specifically the HTML tag's representation with angle brackets.
 
-In the last example, you have seen HTML in its natural existence as a tree of tags. The tree always starts with a `<html>` tag, followed by the nested `<head>` and `<body>`. While the `<head>` tag acts mostly as parent tag for website settings, for example the `<title>` tag which changes the browser tab's title of the website, the `<body>` tag acts as parent tag for all your content displayed in the browser. We can use the `<body>` tag to display just structured yet static content in the browser:
+In the last example, you have seen HTML in its natural existence as a tree of tags. The tree always starts with a `<html>` tag, followed by the nested `<head>` and `<body>`. While the `<head>` tag acts mostly as parent tag for website settings, for example the `<title>` tag which changes the browser tab's name of the website, the `<body>` tag acts as parent tag for all your content displayed in the browser. We can use the `<body>` tag to display structured yet static content in the browser:
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -43,9 +43,11 @@ In the last example, you have seen HTML in its natural existence as a tree of ta
 </html>
 ~~~~~~~
 
-Here we are using a `<h1>` tag for a primary headline, a `<p>` tag for a paragraph, and a `<a>` tag for an anchor (read: link) to another URL. HTML tags inside tags (e.g. using `<a>` inside `<p>`) are called **nested tags** (or **nested elements** when including the paragraph's content). Not every HTML tag can be nested in another one (e.g. `<p>` should not be nested in another `<p>`, because it does not make sense semantically to nest a paragraph into a paragraph).
+Here we are using a `<h1>` tag for a primary headline, a `<p>` tag for a paragraph, and a `<a>` tag for an anchor (read: link) to another URL. HTML tags inside tags (e.g. using `<a>` inside `<p>`) are called **nested tags** (or **nested elements** when including the paragraph's content). Not every HTML tag can be nested in another one (e.g. `<p>` should not be nested in another `<p>`), because it does not make sense semantically to nest them (e.g. a paragraph into a paragraph).
 
-You can also see that HTML elements behave differently in there structural context: While each paragraph element (read: `<p>` tag) is displayed one below the other, the anchor element (read: `<a>` tag) displays inline within its parent paragraph element. Hence the different types of HTML elements: **inline element** (e.g. anchor element) and *block element* (e.g. paragraph element).
+You can also see that HTML elements behave differently in their structural context: While each paragraph element (read: `<p>` tag) is displayed one below the other, the anchor element (read: `<a>` tag) displays inline within its parent paragraph element. Hence the different types of HTML elements: **inline element** (e.g. anchor element) and *block element* (e.g. paragraph element).
+
+![](images/html-nesting.png)
 
 All tags we have used so far have a semantic meaning. The headline element (read: `<h1>` tag) is used for headlines, the paragraph element for text, and the anchor element for links -- navigating a user to another page of the same website or to another website. Other HTML tags such as `<div>` (block element) and `<span>` (inline element) are used for layouting the elements without using any style (read: CSS) yet.
 
@@ -74,7 +76,7 @@ What's goes beyond tags/elements here is the `<a>` tag's `href` attribute. In th
 
 ![](images/html-anatomy.png)
 
-Sometimes you will also encounter **self-closing tags**. For example, the `<input>` tag is used whenever you want to capture input from a user. If the input is text, then it should be specified with the input element's `type` attribute by using `text` as value. You may also want to have a button to perform an action (e.g. register a user, log in a user, send a contact form):
+Sometimes you will also encounter **self-closing tags**. For example, the `<input>` tag is used whenever you want to capture input from a user. If the input is text, then it should be specified with the input element's `type` attribute by using `text` as value. You may also want to have a button to perform an action (e.g. send a contact form, register a user, log in a user):
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -166,7 +168,7 @@ h1 {
 }
 ~~~~~~~
 
-Here we are using CSS to colorize all headlines with the `<h1>` tag of our HTML in red and reduce the general font weight. All information that we have used to style the headlines is called **ruleset** (short: **rule**). However, we can dissect each individual part. The `h1` in the ruleset is called **selector**. In this case, the selector selects all `<h1>` tags in our HTML and applies the styling to them. It's possible to select more than one HTML tag with a comma separated list:
+Here we are using CSS to colorize all headlines with the `<h1>` tag of our HTML in red and reduce the general font weight. All information that we have used to style the headlines is called **ruleset** (short: **rule**). However, we can dissect each individual part. The `h1` in the ruleset is called **selector**. In this case, the selector selects all `<h1>` tags in our HTML and applies the styling to them. It's possible to select more than one HTML tag by comma separating the HTML tags:
 
 {title="style.css",lang="css"}
 ~~~~~~~
@@ -196,7 +198,7 @@ a:hover {
 }
 ~~~~~~~
 
-Last but not least, it's also possible to use a combination of selectors for nested elements. In the following example, we select only all anchor elements within paragraph elements. All the other anchor tags should not be styled this way:
+Last but not least, it's also possible to use a combination of selectors for nested elements. In the following example, we select all anchor elements that are nested within paragraph elements. All the other anchor tags should not be styled this way:
 
 {title="style.css",lang="css"}
 ~~~~~~~
@@ -260,7 +262,7 @@ And third, in contrast to linking a CSS file with a `<link>` tag and its `href` 
 </html>
 ~~~~~~~
 
-We are using a relative path *./index.js* which always takes the current file as origin and looks for another file from there in relative perspective. In this case, it indicates that the file must be in the same folder (see exercises for more information about this topic). Since all files are top-level files in our project, we could also use an absolute path by just using *index.js*.
+We are using a relative path *./index.js* which always takes the current file as origin and looks for another file from there in relative perspective. In this case, it indicates that the file must be in the same folder (see exercises for more information about this topic). Since all files are top-level files in our project, we could also use an absolute path by just using *index.js* instead of *./index.js*.
 
 Finally, refresh (or open if you didn't open it already) the HTML file in your browser, see how the HTML markup shows up, and open up the browser's developer tools and its console to verify the logging of your JavaScript code. You made it! You linked successfully a JavaScript file in a HTML file and made it execute upon opening the HTML file in a browser.
 
@@ -275,13 +277,9 @@ Finally, refresh (or open if you didn't open it already) the HTML file in your b
 
 ## Modern JavaScript Project
 
-TODO VIDEO
+After we recaped how to write HTML/CSS and how to link files in HTML, you may be wondering whether there is some kind of tool which helps us with the latter in a more sophisticated way. And indeed, in the modern JavaScript world you will rarely see developers linking files manually to each other. Therefore, we will use a [bleeding edge](https://dictionary.cambridge.org/dictionary/english/bleeding-edge) yet popular JavaScript tool called Vite which includes a development server and a bundler for folders/files.
 
-After we recaped how to write HTML/CSS and how to link files to each other, you may be wondering whether there is some kind of tool which helps us with the latter in a more sophisticated way. And indeed, in the modern JavaScript world you will rarely see developers linking files manually to each other. Therefore, we will use a [bleeding edge](https://dictionary.cambridge.org/dictionary/english/bleeding-edge) JavaScript tool called Vite which includes a frontend development server and a file bundler.
-
-*Note: At the time of writing this book, Vite is becoming one of the status quo frontend build tools. However, JavaScript is a fast moving ecosystem, so Vite will not be the last frontend build tool that you will be using as professional JavaScript developer eventually.*
-
-Somewhen at the beginning of this book, you have installed Node.js which allowed you to learn JavaScript in a Node.js environment by executing JavaScript files with just one command (here: `node index.js`) on the terminal without worrying about HTML and CSS. If you haven't set up Node.js yet, now is the time to do it. Now we will use the Node Package Manager (npm) which comes with our Node installation to set up our modern JavaScript project with Vite from the command line or integrated terminal of our IDE (e.g. VS Code) by executing the following command:
+At the beginning of this book, you have installed Node.js which allowed you to learn JavaScript in a Node.js environment by executing JavaScript files with just one command (here: `node index.js`) on the terminal without worrying about HTML and CSS. If you haven't set up Node.js yet, now is the time to do it. Next we will use the Node Package Manager (npm) which comes with our Node installation to set up our modern JavaScript project with Vite from the command line or integrated terminal of our IDE (e.g. VS Code) by executing the following command:
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -303,7 +301,7 @@ Finally, open up the browser on the printed URL (usually `http://localhost:3000`
 
 * Explore the *main.js* file of your project. It is responsible for displaying the content in the browser with the help of the *index.html* file. Try to understand what's happening here. We will explain everything in more detail later.
 * Read more about [how we used to set up JavaScript manually in the old days](https://www.robinwieruch.de/javascript-project-setup).
-* Read more about [Vite and how it's used to set up modern JavaScript projects](https://vitejs.dev/).
+  * Read more about [Vite and how it's used to set up modern JavaScript projects](https://vitejs.dev/).
 
 ## DOM API: JavaScript meets HTML
 
@@ -356,7 +354,7 @@ document.querySelector("#app").innerHTML = `
 `;
 ~~~~~~~
 
-In conclusion, the DOM API allows you to access HTML with JavaScript. While the Document Object Model (DOM) is a logical tree of nodes in memory, its API is the interface which allows us to interact with it (e.g. `querySelector()`). In a nutshell, the DOM API is the bridge between HTML and JavaScript. While we can display *static content* by only using HTML, we can display *dynamic content* by leveraging the DOM API and JavaScript. We will use the DOM API to create dynamic HTML by leveraging our JavaScript knowledge throughout the rest of the book.
+In conclusion, the DOM API allows you to access HTML with JavaScript. While the Document Object Model (DOM) is a logical tree of nodes in memory, its API is the interface which allows us to interact with it (e.g. `querySelector()`). In a nutshell, the DOM API is the bridge between HTML and JavaScript. While we can display *static content* by only using HTML, we can display *dynamic content* by using the DOM API and JavaScript. We will use the DOM API to create dynamic HTML by using our JavaScript knowledge throughout the rest of the book.
 
 ### Exercises:
 
@@ -365,15 +363,17 @@ In conclusion, the DOM API allows you to access HTML with JavaScript. While the 
 * Read more about [the querySelector() method](https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector).
 * Read more about [the innerHTML property](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML).
 * Question: When to use the `innerHTML` and `innerText` properties to change an HTML element's content?
-  * Answer: While `innerHTML` allows a developer to mix text with HTML with formatting, `innerText` is used for only text without formatting. Another popular alternative to `innerText` is `textContent` which have only subtle differences.
+  * Answer: While `innerHTML` allows a developer to mix text with HTML with formatting, `innerText` is used for only text without formatting. Another popular alternative to `innerText` is `textContent` which has only subtle differences to its sibling.
 
 ## Import/Export Statements
 
-When we worked with JavaScript, we used so far only one file to perform all of our work. However, this does not scale well for larger applications where you want to organise JavaScript code in multiple folders and files. In our new project, you may already have seen the following line which imports a CSS file in our JavaScript file:
+When we implemented JavaScript, we used so far only one file to perform all of our work. However, this does not scale well for larger applications where you want to organise JavaScript code in multiple folders and files. In our new project, you may already have seen the following line which imports a CSS file in our JavaScript file:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
+# leanpub-start-insert
 import './style.css'
+# leanpub-end-insert
 
 document.querySelector('#app').innerHTML = `
   <h1>Hello JavaScript!</h1>
@@ -383,7 +383,7 @@ document.querySelector('#app').innerHTML = `
 
 Instead of linking a file manually in our HTML file, like we have learned before, with a modern build tool it's possible to just import files (e.g. JavaScript, CSS, SVG) in JavaScript. So importing this CSS file will automatically apply the styles to all HTML elements.
 
-But let's take a step back to our initial use case: Splitting up a JavaScript application into multiple files. Change the code in the *main.js* to the following content where we retrieve a headline by returning it from a arrow function expression:
+But let's take a step back to our initial use case: Splitting up a JavaScript application into multiple files. Change the code in the *main.js* to the following content where we return a headline from a arrow function expression. Since the content is using a template literal, we can just interpolate the headline which gets returned from the function:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -394,16 +394,16 @@ document.querySelector('#app').innerHTML = `
 `;
 ~~~~~~~
 
-Now you might want to split up the code that interacts with the DOM from the JavaScript functions. Therefore, create a new file next to your *main.js* file called *utility.js*. In there, put the following code:
+Now you might want to split up the code that interacts with the DOM from the JavaScript functions. Therefore, create a new file next to your *main.js* file called *text-functions.js*. In there, put the following code:
 
-{title="utility.js",lang="javascript"}
+{title="text-functions.js",lang="javascript"}
 ~~~~~~~
 const getHeadline = () => 'Hello JavaScript!';
 ~~~~~~~
 
 In order to make this code available to other files, we need to export it:
 
-{title="utility.js",lang="javascript"}
+{title="text-functions.js",lang="javascript"}
 ~~~~~~~
 const getHeadline = () => 'Hello JavaScript!';
 
@@ -414,14 +414,14 @@ export { getHeadline };
 
 If you want to have a shorter and more inline export, the following works too:
 
-{title="utility.js",lang="javascript"}
+{title="text-functions.js",lang="javascript"}
 ~~~~~~~
 export const getHeadline = () => 'Hello JavaScript!';
 ~~~~~~~
 
 Between both exports there is a tradeoff: While the former export can be used to group all the exports at the bottom of a file, which makes it clearer for every developer who works on the code to see what gets exported by just scrolling to this place, the latter export makes the export more concise with the cavaet that a developer has to scan the file for export statements:
 
-{title="utility.js",lang="javascript"}
+{title="text-functions.js",lang="javascript"}
 ~~~~~~~
 // inline exports in a file
 
@@ -445,7 +445,7 @@ Personally I like to group the exports at the end of the file whenever a file gr
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
-import { getHeadline } from './utility.js';
+import { getHeadline } from './text-functions.js';
 
 document.querySelector('#app').innerHTML = `
   <h1>${getHeadline()}</h1>
@@ -456,7 +456,7 @@ If we want to import more than one variable, we can just add them in a comma sep
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
-import { getHeadline, getText } from './utility.js';
+import { getHeadline, getText } from './text-functions.js';
 
 document.querySelector('#app').innerHTML = `
   <h1>${getHeadline()}</h1>
@@ -464,7 +464,7 @@ document.querySelector('#app').innerHTML = `
 `;
 ~~~~~~~
 
-It's important to note that we are using a relative path here. In the case of having folders and files nested in these folders, you would have to include the folder path when importing from a folder (e.g. *./folder/utility.js*) and you would have to include `../` instead of `./` when importing from a file that's up the folder hierarchy.
+It's important to note that we are using a relative path here. In the case of having folders and files nested in these folders, you would have to include the folder path when importing from a folder (e.g. *./folder/text-functions.js*) and you would have to include `../` instead of `./` when importing from a file that's up the folder hierarchy.
 
 The imports and exports that we have used here are called **named imports and exports** which are the best practice when developing applications with JavaScript. However, you should also learn about the **default export and import** in the exercises. Anyway, import and export statements not only help us to split up our JavaScript code and organise it in folders and files, but also to import CSS and other assets (e.g. SVG) when using a modern build tool.
 
@@ -476,9 +476,9 @@ The imports and exports that we have used here are called **named imports and ex
 
 ## Third-Party Dependencies
 
-A programming language thrives with its ecosystem. In JavaScript land, the ecosystem with libraries and frameworks is mainly driven through Node.js and its **packages** (also called node packages, libraries, frameworks, third-parties, dependencies, or as long term: third-party dependencies). Even though Node.js is used for JavaScript in the backend, the Node Package Manager (npm) is available for JavaScript in the frontend (read: browser) too.
+A programming language thrives with its ecosystem. In JavaScript land, the ecosystem with libraries and frameworks is mainly driven through Node.js and its **packages** (also called node packages, libraries, frameworks, third-parties, dependencies, or as long term: third-party dependencies). Even though Node.js is used for JavaScript in the backend, the Node Package Manager (npm) is available for JavaScript in the frontend (read: browser) too (which was not always the case).
 
-In this section, we will explore how to use the ecosystem to our benefit in our current setup. We will install one library via npm as a **third-party dependency** to our project. Then we will import utilities (mostly functions) from the library them.
+In this section, we will explore how to use the ecosystem to our benefit in our current setup. We will install one library via npm as a **third-party dependency** to our project. Then we will import utilities (mostly functions) from the library.
 
 First of all, we can install a new package via npm to our project. Since we created the project with a modern build tool, it knows about npm and knows where to put the installed package. So on the command line, type the following command to install a popular library called Lodash:
 
@@ -487,7 +487,7 @@ First of all, we can install a new package via npm to our project. Since we crea
 npm install lodash
 ~~~~~~~
 
-Afterward, start the application again with `npm run dev`. After the successful installation of Lodash, let's use one of Lodash's functions to explore this library and to learn how to use a library. We will start with the following code in the *main.js* file:
+After the installation, you may want to check out the *package.json* file in your project where you will find all your installed dependencies. Next, start the application again with `npm run dev`. After the successful installation of Lodash, let's use one of Lodash's functions for the sake of learning how to use a library. We will start with the following code in the *main.js* file:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -521,7 +521,7 @@ document.querySelector('#app').innerHTML = `
 
 Once you display the website in a browser, you should see how Lodash's `kebabCase()` and `camelCase()` alter both strings. These functions are not available in native JavaScript, so libraries like Lodash give us these functionalities without implementing them ourselves.
 
-After you have learned how to import code from file and from packages, we will continue with learning JavaScript in combination with HTML by using the DOM API. Throughout the rest of the book, we will apply all of our fundamental JavaScript learnings in a web application which is displayed on a browser with the help of HTML.
+After you have learned how to import code from files and packages, we will continue with learning JavaScript in combination with HTML by using the DOM API. Throughout the rest of the book, we will apply all of our fundamental JavaScript learnings in a web application which is displayed on a browser with the help of HTML.
 
 ### Exercises:
 
@@ -533,7 +533,7 @@ After you have learned how to import code from file and from packages, we will c
 
 ## Selecting HTML Elements
 
-We have learned how JavaScript and HTML play together by using the DOM API. We will explore this API more in this and the coming sections by applying our fundamental JavaScript learnings. In the previous sections, we have only selected one HTML element by its identifier. When we look again at our *index.html* file, we see a `<div>` with an `id` attribute. This `id` attribute is used in the *main.js* file to reference this HTML element. Now we will exchange the *index.html* file content with the following two elements:
+We have learned how JavaScript and HTML play together by using the DOM API. We will explore this API more in this and the coming sections by applying our fundamental JavaScript learnings. In the previous sections, we have only selected one HTML element by its identifier. When we look again at our *index.html* file, we see a `<div>` tag with an `id` attribute. This `id` attribute is used in the *main.js* file to reference this HTML element. Now we will exchange the *index.html* file content with the following two elements:
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -578,7 +578,7 @@ document.querySelector('#headline').textContent = headline;
 document.querySelector('.text').textContent = text;
 ~~~~~~~
 
-Keep in mind that the code could have been written the following way as well. In our case, we just used the return value of `querySelector()` right away to access the `textContent`.
+Keep in mind that the code could have been written in multiple ways. In our case, we just used the return value of `querySelector()` right away to access the `textContent`. However, an alternative to it may be the following:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -606,7 +606,7 @@ In this JavaScript file, we created two string variables and assigned them to bo
 # leanpub-end-insert
 ~~~~~~~
 
-Now, after we have inserted three paragraph tags in our HTML, and we keep our JavaScript file as before, we can see how only the first paragraph changes its content while the other paragraphs stay intact. That's because the `querySelector()` method from our JavaScript file only selects the first paragraph occurence from the HTML file. If we would want to change this, we would have to use the `querySelectorAll()` method instead which returns us all occurences:
+Now, after we have inserted three paragraph tags in our HTML, and we keep our JavaScript file as before, we can see how only the first paragraph changes its content while the other paragraphs stay intact though. That's because the `querySelector()` method from our JavaScript file only selects the first paragraph occurence from the HTML file. If we would want to fix this, we would have to use the `querySelectorAll()` method instead which returns us all occurences:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -650,7 +650,7 @@ textElements[2].textContent =
   textElements[2].textContent.toUpperCase();
 ~~~~~~~
 
-This should display "I LIKE APPLES", "I LIKE BANANAS", and "I LIKE CASHEWS" in the browser. When you learned about arrays in JavaScript, you got introduced to array methods, such as the built-in `map()` method, as well. This method could be used here instead of assigning the modification to all HTML elements one by one. When using the `map()` method, we iterate over every element in the array and get access to each element in the `map()` method's callback function. In this callback function, we can then modify each element:
+This should display "I LIKE APPLES", "I LIKE BANANAS", and "I LIKE CASHEWS" in the browser. When you learned about arrays in JavaScript, you got introduced to array methods, such as the built-in `map()` method, as well. This method could be used here instead of assigning the modification to all HTML elements one by one. When using the `map()` method, we iterate over every element in the array and get access to each element in the `map()` method's callback function. In this callback function, we can then modify each element. Try it yourself before checking the solution below:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -684,6 +684,8 @@ const toUpperCaseTransformation = (element) => {
 elements.map(toUpperCaseTransformation);
 # leanpub-end-insert
 ~~~~~~~
+
+*Note: When using a modern framework like React, you are not using the DOM API that often anymore. So personally I ran into the previous error myself when I came up with this example and had to look up the solution for it too. This should just tell you that everyone has to look up things and no one knows everything.*
 
 Let's take one step back and look at our selectors. Change the body's elements content in the *index.html* file to the following content:
 
@@ -756,7 +758,7 @@ After all, knowing about selecting one (here: `querySelector()`) or multiple (he
 
 ## Creating HTML Elements
 
-The last sections have shown you how to select and update HTML elements in a HTML file from a JavaScript file via the DOM API. In these cases, the data was already there in the HTML and we only wanted to read from it (e.g. read text from a HTML element) or write to it (e.g. write text to a HTML element). Mostly this happens whenever there is a finished HTML website where you want to use JavaScript for flexible adjustments.
+The last sections have shown you how to select and update HTML elements in a HTML file from a JavaScript file via the DOM API. In these cases, the data was already there in the HTML and we only wanted to read from it (e.g. read text from a HTML element) or write to it (e.g. write text to a HTML element). Mostly this happens whenever there is a finished HTML website where you want to use JavaScript for dynamic adjustments.
 
 However, in modern web applications, most often the data origins in JavaScript and as a developer we want to display it for an audience in HTML. Take for example the following JavaScript string that we will be using in a clean slate **main.js** file for our application:
 
@@ -765,7 +767,7 @@ However, in modern web applications, most often the data origins in JavaScript a
 const title = 'Hello JavaScript';
 ~~~~~~~
 
-For this purpose, the content of the **index.html** HTML file's body tag is the following:
+For this purpose, the content of the **index.html** HTML file's `<body>` tag is the following:
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -840,7 +842,7 @@ document.querySelector('#list').appendChild(secondNode);
 # leanpub-end-insert
 ~~~~~~~
 
-For each item in the list we repeat the procedure of creating a list item element, setting its content based on the JavaScript item's `title` property, and appending it to the parent list element which is already in the HTML. However, doing it this way is not only repetetive but also does not scale very well for a large list of items. Earlier we learned about for loop statements in JavaScript which help us in these situations:
+For each item in the list we repeat the procedure of creating a list item element, setting its content based on the JavaScript item's `title` property, and appending it to the parent list element which is already in the HTML. However, doing it this way is not only repetetive but also does not scale very well for a large list of items. Earlier we learned about for loop statements in JavaScript which help us in these situations. Try using a loop yourself before checking out the solution below:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -883,7 +885,7 @@ You may be wondering why we display the list programmatically via JavaScript in 
 
 ## HTML Events in JavaScript
 
-We will continue with our little application from the previous section in this section by enriching it with a user interaction. In order enable a user to interact with the website, we would need to provide an HTML element such as an input element where a user can type into the field. Let's add one of these to our *index.html* file:
+We will continue with our application from the previous section in this section by enriching it with a user interaction. In order enable a user to interact with the website, we would need to provide an HTML element such as an input element where a user can type into the field. Let's add one of these to our *index.html* file:
 
 {title="index.html",lang="html"}
 ~~~~~~~
@@ -931,7 +933,7 @@ document
 
 With the DOM API, we are selecting the element where the `id` equals `search` by using an id selector. Once we have this element, we add an event listener to it with the `addEventListener()` method which takes two arguments: While the first argument is the event type (others are `change`, `click`), the second argument is a callback function which runs every time a user triggers the event -- which in this case is typing into the input field.
 
-The callback function gives us access to the `event` parameter which holds all the information about the current input field. Accessing `event.target` returns us the input field itself. Going one step further and accessing `event.target.value` returns us the current value of the input field. Verify it yourself by going back to your browser, open the developer tool's "Console" tab, and start typing into the input field.
+The callback function gives us access to the `event` parameter which holds all the information about the current input field. Accessing `event.target` returns us the input field itself. Going one step further and accessing `event.target.value` returns us the current value of the input field. Verify it yourself by going back to your browser, opening the developer tool's "Console" tab, and typing into the input field.
 
 Event listeners can be added to various HTML elements by using different event types. For example, a button can receive an event listener of type `click`. Whenever a user clicks on the button, the callback function will run. Another example: The `blur` event type on an input field runs every time an input field switches its internal state from focused to unfocused.
 
@@ -1136,7 +1138,7 @@ When comparing both code snippets, you can see that both callback functions in t
 const list = [ ... ];
 
 # leanpub-start-insert
-const renderItems = (item) => {
+const renderItem = (item) => {
   const itemNode = document.createElement('li');
   itemNode.textContent = item.title;
   document.querySelector('#list').appendChild(itemNode);
@@ -1145,7 +1147,7 @@ const renderItems = (item) => {
 
 # leanpub-start-insert
 // render
-list.forEach(renderItems);
+list.forEach(renderItem);
 # leanpub-end-insert
 
 document
@@ -1160,7 +1162,7 @@ document
 
 # leanpub-start-insert
     // re-render
-    list.filter(searchByTitle).forEach(renderItems);
+    list.filter(searchByTitle).forEach(renderItem);
 # leanpub-end-insert
   });
 ~~~~~~~
@@ -1169,17 +1171,17 @@ By extracting the rendering logic into one function, which is used by the initia
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
-const renderItems = (item) => {
+const renderItem = (item) => {
   const itemNode = document.createElement('li');
   document.querySelector('#list').appendChild(itemNode);
 };
 ~~~~~~~
 
-When opening the HTML file in the browser, you may see only two dots which represent both list items, but they are empty because no content is in there. You can check the "Elements" tab of your browser's developer tools to confirm it. From here we are going to add richer content to our list item element. The following code snippet shows how to add to `<span>` tags side by side, whereas one of them as the title and the other one a template literal with the author:
+When opening the HTML file in the browser, you may see only two dots which represent both list items, but they are empty because no content is in there now. You can check the "Elements" tab of your browser's developer tools to confirm it. From here we are going to add richer content to our list item element. The following code snippet shows how to add two `<span>` tags side by side, whereas one of them as the title and the other one a template literal with the author:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
-const renderItems = (item) => {
+const renderItem = (item) => {
   const itemNode = document.createElement('li');
   document.querySelector('#list').appendChild(itemNode);
 
@@ -1199,7 +1201,7 @@ Each item in the list has a `url` property too. So we could make use of it by re
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
-const renderItems = (item) => {
+const renderItem = (item) => {
   const itemNode = document.createElement('li');
   document.querySelector('#list').appendChild(itemNode);
 
@@ -1219,6 +1221,11 @@ const renderItems = (item) => {
 ~~~~~~~
 
 That's it. We are rendering each item from the list with all of its properties with only one function. This function is used at two places for the initial render and every following re-rendering when the user searches the list while typing into the input field. After all, this section should show you again how you gain full control over the HTML by using JavaScript's DOM API. You can render things initially when the JavaScript gets executed, but also re-render the things (or render new things or remove things), whenever something (e.g. an event, because a user types into an input field) happens.
+
+You may have noticed two things over the last sections:
+
+* First, we render all HTML with JavaScript and the DOM API. Why wouldn't we just use HTML for it? The important fact here: If it's not just a static website (e.g. marketing page) but instead dynamic web application (e.g. Twitter, Facebook), data origins in JavaScript by using remote data sources (e.g. servers). Therefore, when having the data in JavaScript, we need a way to display it in HTML. Hence the usage of the DOM API to bridge both worlds.
+* Second, all the (re-)rendering seems lots of code for less gain. And indeed, as a JavaScript developer using the DOM API, we are in charge of removing DOM nodes, creating new ones, and updating them. However, after learning this once and getting better with JavaScript, you will most likely use a framework like React which takes care of the (re-)rendering and leaves you with only the business related implementation details. So do not worry too much about this much code here. It's more about learning the fundamentals of how JavaScript interacts with HTML before learning a full-fledged framework which takes care of it for you.
 
 ### Exercises:
 

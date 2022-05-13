@@ -21,7 +21,7 @@ In the following steps, we want to render asynchronous data (here: list of items
 ~~~~~~~
 import axios from 'axios';
 
-const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'https://hn.algolia.com/api/v1/search?query=javascript';
 
 axios
   .get(API)
@@ -42,7 +42,7 @@ Once the JavaScript promise resolves from the API call, we can use the response 
 ~~~~~~~
 import axios from 'axios';
 
-const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'https://hn.algolia.com/api/v1/search?query=javascript';
 
 axios
   .get(API)
@@ -63,7 +63,7 @@ As we have learned before, we can extend the rendering by not only rendering the
 ~~~~~~~
 import axios from 'axios';
 
-const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'https://hn.algolia.com/api/v1/search?query=javascript';
 
 axios
   .get(API)
@@ -101,7 +101,7 @@ You see that the rendering is not much different from the rendering that we did 
 {title="main.js",lang="javascript"}
 ~~~~~~~
 # leanpub-start-insert
-const API = 'http://hn.algolia.com/api/v1/filter?query=javascript';
+const API = 'https://hn.algolia.com/api/v1/filter?query=javascript';
 # leanpub-end-insert
 ~~~~~~~
 
@@ -136,7 +136,7 @@ axios
 ~~~~~~~
 import axios from 'axios';
 
-const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'https://hn.algolia.com/api/v1/search?query=javascript';
 
 # leanpub-start-insert
 const loadingNode = document.createElement('p');
@@ -198,3 +198,10 @@ asd
 
 <script type="module" src="/main.js"></script>
 ~~~~~~~
+
+asdasd
+
+## Bonus: React
+
+- link react as library
+- display something

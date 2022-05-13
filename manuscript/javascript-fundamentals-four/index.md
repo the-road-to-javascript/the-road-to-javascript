@@ -1,12 +1,12 @@
 # JavaScript Fundamentals: Part IV
 
-When working in modern client applications, as a JavaScript developer you will be often asked to communicate to a server application. The communication between client and server is asynchronous and a JavaScript Promise is used as container for asynchronous data. In the following sections, you will learn how to work with asynchronous data by using promises and you will learn how to interact with third-party servers and their public APIs.
+Before we continue working on the HTML/JavaScript interoperability, we will take a step back and learn about asynchronous JavaScript first. When working in modern client applications, as a JavaScript developer you will be often asked to communicate to a server application. The communication between client and server is asynchronous and a JavaScript Promise is used as container for asynchronous data. In the following sections, you will learn how to work with asynchronous data by using promises and you will learn how to interact with third-party servers and their public APIs.
 
 ## Asynchronous Data with Promises
 
 Do you remember when we had phone calls? We introduced ourselves on the phone, the other person introduced themselve, and the both of you started to have a conversation in real-time where each participant said something alternately. In programming, this is called synchronous communication.
 
-In contrast, these days we are used to text people instead. When texting, people usually do not answer immediatly but will answer eventually. Once you get an answer, you will write back at some point. The communication shifted from being synchronous to **asynchronous**, because no one expects an instant reply anymore. The benefit: While you have a conversation with someone, you have time in between messages to have another conversation with someone else and you decide when you want to pick up a conversation again. That's the whole synchronous vs asynchronous terminology.
+In contrast, these days we are used to text people instead. When texting, people usually do not answer immediatly but will answer with a delay. Once you get an answer, you will write back at some point. The communication shifted from being synchronous to **asynchronous**, because no one expects an instant reply anymore. The benefit: While you have a conversation with someone, you have time in between messages to have another conversation with someone else and you decide when you want to pick up a conversation again. That's the whole synchronous vs asynchronous terminology.
 
 The term **data** in programming refers to any information. Most of the time, data is used within an application or used for communication between applications (e.g. client-server communication). As we already learned, in JavaScript this information is expressed with different data types and structures such as strings, booleans, numbers, objects or arrays:
 
@@ -24,7 +24,7 @@ const messages = [
 ];
 ~~~~~~~
 
-Last, the **Promise** in JavaScript is a built-in object which acts as container for transfering asynchronous data from one application to another. We didn't have such transfering of information yet, but we will soon get to know it. A JavaScript Promise represents literally the promise that we get some data eventually. In the case of the texting example, it's the message itself which we are promised to receive at some point.
+Last, the **Promise** in JavaScript is a built-in object which acts as container for transfering asynchronous data from one application to another. We didn't have such transfering of information yet, but we will soon get to know it. A JavaScript Promise represents literally the promise that we get some data eventually. In the case of the texting example, it's the message itself which we are promised to receive, but we do not know the actual information.
 
 ![](images/async-conversation.png)
 
@@ -46,7 +46,7 @@ promise.then((result) => {
 });
 ~~~~~~~
 
-A promise offers methods like `then()` which accept a callback function as argument and which gets executed whenever the data arrives successfully. Then the developer can display this data in the browser. While the data is not there yet, a loading spinner could be used to indicate the user that the data will arrive eventually. Other methods like `catch()` on the Promise enable you to react on errors whenever the server fails to return the data. Then an error message could be displayed to the user:
+A promise offers methods like `then()` which accept a callback function as argument and which gets executed whenever the data arrives successfully. Then the developer can display this data in the browser. While the data is not there yet, a loading spinner could be used to indicate the user that the data will arrive eventually. Other methods like `catch()` on the Promise enable you to act on errors whenever the server fails to return the data. Then an error message could be displayed to the user:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -71,7 +71,7 @@ promise
 # leanpub-end-insert
 ~~~~~~~
 
-Because we have no server application with data but only a client application, we will create a Promise from scratch here. Later, when we will request data from a server, we do need to perform this step:
+Because we have no server application with data but only a client application, we will create a Promise on the client application from scratch here. Later, when we will request data from a server, we do not need to perform this step:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -128,7 +128,7 @@ const promise = new Promise((resolve) => {
 });
 ~~~~~~~
 
-With this client-side created promise at our hand, which usually comes from a server application where we do not know the data in advance like we do in this example, we can register a callback function as argument of the promise's `then()` method which executes whenever the data resolves successfully:
+With this client-side created promise at our hand, which usually comes from a server application where we do not know the data in advance like we do in this example, we can register a callback function as argument of the promise's `then()` method which executes whenever the data resolves successfully. Try it out yourself and see the result in the browser's developer tools:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -145,9 +145,9 @@ promise.then((result) => {
 
 There may be two questions popping up in your head. First, you may be wondering why we need the `setTimeout()` method. In our Promise, we need the time out to create an artificial delay. Without the time out, the promise would resolve immediatly; which is fine and works too, but which doesn't mimic the client-server communication behavior where it takes time until data arrives on a client from a remote server.
 
-Second, you may be wondering why we are not just using the `setTimeout()` method without a Promise like we have seen it in a previous section. While we could create the artificial delay this way, we wouldn't hold any variable as reference which represents the promised data. By having a promise at our hand after we make a request to a server, we can move this promise like any other value around (e.g. as argument for a function) and call methods (e.g. `then()` and `catch()`) on it.
+Second, you may be wondering why we are not just using the `setTimeout()` method without a Promise like we have seen it in a previous section. While we could create the artificial delay this way, we wouldn't hold any variable (here: `promise`) as reference which represents the container for the data. By having a promise at our hands after making a request to a server, we can move this promise like any other value around (e.g. as argument for a function) and call methods (e.g. `then()` and `catch()`) on it.
 
-Sometimes a request to a server will fail, for example when the data cannot be found or a user isn't authorized to see the data. Then we do not get any data, but an error. We can mimic this behavior with a Promise as well by using the `reject()` instead of the `resolve()` function. In addition, we can create error objects in JavaScript by using the built-in Error object:
+Sometimes a request to a server will fail, for example when the data cannot be found or a user isn't authorized to see the data. Then we do not get any data, but an error. We can mimic this behavior with a Promise as well by using the `reject()` instead of the `resolve()` function. In addition, we can create error objects in JavaScript by using the built-in `Error` object:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -159,7 +159,7 @@ const promise = new Promise((resolve, reject) => {
 });
 ~~~~~~~
 
-Next we can react to rejecting promises with the promise's `catch()` method:
+Next we can act to a rejected promise with the promise's `catch()` method:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -174,7 +174,7 @@ promise.catch((error) => {
 # leanpub-end-insert
 ~~~~~~~
 
-Promises can be chanined as well. So usually when using `then()` and `catch()` to handle successful and errornous asynchrnous data requests, you will chain both onto a promise:
+Promises can be chanined as well. So usually when using `then()` and `catch()` to handle successful and errornous asynchrnous data requests, you will chain both onto a promise. With the previous implementation of the promise, either the successful or the errornous one, you will run into either the `then()` or the `catch()` block:
 
 {title="index.js",lang="javascript"}
 ~~~~~~~
@@ -187,7 +187,9 @@ promise
   });
 ~~~~~~~
 
-There are two steps we did in this section: First, we created a promise on the client-side from scratch by filling it with data and adding an artifcial delay. Second, we used the promise's `then()` method to receive a notification with the `result` when the promise resolves and the promise's `catch()` method to receive a notification when there is an error. Usually when dealing with data from a server, you will not create a promise from scratch in the first place. Instead, you will call a function or method which will just return a promise for you. From there you will be using the promise's `then()` and `catch()` methods. However, I always feel it's a good exercises for beginners to create their own promise from scratch first before interacting with a real server where the promise is created for you.
+There are two steps we did in this section: First, we created a promise on the client-side. We filled it with data and added an artifcial delay. With this implementation in place, it mimics nicely a promise coming from a remote server.
+
+Second, we used the promise's `then()` method to receive a notification with the `result` when the promise resolves and the promise's `catch()` method to receive a notification when there is an error. Usually when dealing with data from a server, you will not create a promise from scratch in the first place. Instead, you will call a function which will just return a promise for you. From there you will be using the promise's `then()` and `catch()` methods in your application. However, I always feel it's a good exercises for beginners to create their own promise from scratch first before interacting with a real server where the promise is created for you.
 
 ### Exercises:
 
@@ -203,9 +205,9 @@ In the following, we will not implement a server ourselves, because that would b
 
 The communication channel between a client and server is called [API](https://en.wikipedia.org/wiki/API). When this API is publicly documented and can be used by anyone, it's also called a **public API**. You have heard about the term API before, because essentially [every interface in programming can be called API](https://www.robinwieruch.de/what-is-an-api-javascript) (e.g. browser API, DOM API, API of a JavaScript class). However, when JavaScript developers refer to an API without furhter specifying it, most often they refer to the API of a remote server.
 
-The website [Hacker News](https://news.ycombinator.com/) -- which states itself as website for content *"that gratifies one's intellectual curiosity"* -- features news about tech and entrepeurship. You can visit this website yourself as a user, but you can also use their [API](https://hn.algolia.com/api) as a developer -- which we will do in the next steps.
+The website [Hacker News](https://news.ycombinator.com/), which states itself as website for content *"that gratifies one's intellectual curiosity"*, features news about tech and entrepeurship. You can visit this website yourself as a user, but you can also use their [API](https://hn.algolia.com/api) as a developer, which we will do in the next steps, to query their data.
 
-First, we will install a library called [axios](https://github.com/axios/axios) which is a popular choice in JavaScript application when interacting with remote servers and their API. On the command line, install this library to your JavaScript application from the last sections:
+First, we will install a library called [axios](https://github.com/axios/axios) which is a popular choice in a JavaScript application when interacting with remote servers and their API. On the command line, install this library to your JavaScript application from the last sections (where you have learned to use the DOM API):
 
 {title="Command Line",lang="text"}
 ~~~~~~~
@@ -226,17 +228,17 @@ Second, declare Hacker News' API by using its specific search API endpoint. In t
 import axios from 'axios';
 
 # leanpub-start-insert
-const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'https://hn.algolia.com/api/v1/search?query=javascript';
 # leanpub-start-insert
 ~~~~~~~
 
-Third, we make a HTTP GET request with axio's `get()` method to the API endpoint which returns a promise:
+Third, we make a HTTP GET request with axios' `get()` method to the API endpoint which returns a promise:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
 import axios from 'axios';
 
-const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'https://hn.algolia.com/api/v1/search?query=javascript';
 
 # leanpub-start-insert
 const promise = axios.get(API);
@@ -249,7 +251,7 @@ And fourth, whenever the data arrives for this promise, get notified in the prom
 ~~~~~~~
 import axios from 'axios';
 
-const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'https://hn.algolia.com/api/v1/search?query=javascript';
 
 const promise = axios.get(API);
 
@@ -260,13 +262,13 @@ promise.then((response) => {
 # leanpub-end-insert
 ~~~~~~~
 
-As you have learned before, you can also chain these methods onto each other. Because the `get()` methor returns a promise, you can immediately continue to call methods (e.g. `then()`) on this promise:
+As you have learned before, you can also chain these methods onto each other. Because the `get()` method returns a promise, you can immediately continue to call methods (e.g. `then()`) on this promise:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
 import axios from 'axios';
 
-const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'https://hn.algolia.com/api/v1/search?query=javascript';
 
 # leanpub-start-insert
 axios.get(API).then((response) => {
@@ -290,7 +292,7 @@ axios.get(API).then((response) => {
 
 Now the logging should show an array of the most popular JavaScript articles on Hacker News. Each of these articles in the array should have properties like `title`, `url` and `author` which we will display in the browser eventually. Previously we came up with this kind of data ourselves, now we are getting real world data from someone else.
 
-However, not every request to a remote server is successful. In the case of an error, you want to deal with it. For example, if the Hacker News API would return an error, you cannot display your users a result. So instead you would show them an error message. When using a promise and its `then()` method, the best place to deal with error handlign would be the `catch()` block:
+However, not every request to a remote server is successful. In the case of an error, you want to deal with it. For example, if the Hacker News API would return an error, you cannot display your application's users a result. So instead you would show them an error message. When using a promise and its `then()` method, the best place to deal with error handling would be the `catch()` block:
 
 {title="main.js",lang="javascript"}
 ~~~~~~~
@@ -314,7 +316,7 @@ Last but not least, you could move the implementation logic into a reusable func
 ~~~~~~~
 import axios from 'axios';
 
-const API = 'http://hn.algolia.com/api/v1/search?query=javascript';
+const API = 'https://hn.algolia.com/api/v1/search?query=javascript';
 
 # leanpub-start-insert
 const getDataFromServer = (url) => {
@@ -344,4 +346,6 @@ Congratulations, you have requested data from a third-party server via its publi
 * Read through [Hacker News' API](https://hn.algolia.com/api) and get to understand the API endpoints and the returned data.
 * Read more about [CRUD operations](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete), because we have used HTTP GET to read data from the API.
 * Instead of axios which is a third-party library, try to use the browser's built-in [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
+* Question: What happens if you open the API endpoint from the code as URL in the browser?
+  * Answer: The API endpoint returns the JSON data that you have seen before in the browser's developer tools. Because the browser executes natively a HTTP GET request when an URL gets opened, and the server associates the URL plus HTTP GET request with JSON instead of HTML, it returns data for the specific query.
 
