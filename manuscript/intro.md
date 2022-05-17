@@ -1,6 +1,6 @@
 # Foreword
 
-TODO - not comprehensive, but a road with lots of fundamentals to make you an efficeint and effective JavbaScript developer
+TODO - not comprehensive, but a road with lots of fundamentals to make you an efficient and effective JavaScript developer
 - enable you to pick up a framework such as React.js afterward
 
 TODO - The Road to React teaches the fundamentals of React. You will build a real-world application in plain React without complicated tooling. Everything from project setup to deployment on a server will be explained to you. The book comes with additional referenced reading material and exercises with each chapter. After reading the book, you will be able to build your own applications in React. The material is kept up to date by myself and the community. In the Road to React, I offer a foundation before you dive into the broader React ecosystem. It explains general concepts, patterns, and best practices for a real-world React application. Essentially, you will learn to build your own React application from scratch, with features like pagination, client-side and server-side searching, and advanced interactions like sorting. I hope this book captures my enthusiasm for React and JavaScript, and that it helps you get started with it.
@@ -9,7 +9,7 @@ TODO - The Road to React teaches the fundamentals of React. You will build a rea
 
 I am a German software and web developer dedicated to learning and teaching JavaScript. After obtaining my Master's Degree in computer science, I gained experience from the startup world where I used JavaScript intensively during both my professional life and spare time. For a few years, I worked closely with an exceptional team of engineers at a company in Berlin, developing large-scale JavaScript applications, which eventually led to a desire to teach others about these topics.
 
-During my time as a developer in Berlin, I regularly wrote articles about web development on my website. I received great feedback from people learning from my articles which allowed me to improve my writing and teaching style. Article after article, I grew my ability to teach others. I find it it fulfilling to see students strive by giving them clear objectives and short feedback loops.
+During my time as a developer in Berlin, I regularly wrote articles about web development on my website. I received great feedback from people learning from my articles which allowed me to improve my writing and teaching style. Article after article, I grew my ability to teach others. I find it fulfilling to see students strive by giving them clear objectives and short feedback loops.
 
 Currently, I am a self-employed developer helping companies in creating their MVPs, conducting workshops and code audits/reviews, and creating large-scale JavaScript applications. You can find more information about me, ways to support me, and how to work with me on my [website](https://www.robinwieruch.de/about).
 
@@ -37,7 +37,7 @@ The book has a community of learners who help each other and for people who are 
 
 **Can I help to improve the content?**
 
-If you have feedback, shoot me an email and I will consider your suggestions. Don't expect many replies for bug tracking or troubleshoots though because that's what's the community for.
+If you have feedback, shoot me an email and I will consider your suggestions. Don't expect many replies for bug tracking or troubleshoots though because that's what's the community is for.
 
 **What do I do if I encounter a bug?**
 
